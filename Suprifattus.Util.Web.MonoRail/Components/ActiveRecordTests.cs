@@ -16,14 +16,14 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 	{
 		public QueryResults ExecuteQuery(string hql)
 		{
-			SimpleQuery q = new SimpleQuery(typeof(ActiveRecordBase), typeof(object), hql);
+			var q = new SimpleQuery(typeof(ActiveRecordBase), typeof(object), hql);
 			return new QueryResults(q);
 		}
 
 		#region "QueryResults" Class
 		public class QueryResults : IEnumerable
 		{
-			Array r;
+			private readonly Array r;
 
 			public QueryResults(IActiveRecordQuery q)
 			{
@@ -87,8 +87,8 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 
 			public class QueryTuple : IEnumerable
 			{
-				QueryResults queryResults;
-				object value;
+				private readonly QueryResults queryResults;
+				private readonly object value;
 
 				public QueryTuple(QueryResults queryResults, object value)
 				{
@@ -120,8 +120,8 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 						return String.Format("<em>IList&lt;{0}&gt;</em>", v.GetType().GetGenericArguments()[0].Name);
 					if (v is IRecord)
 						return String.Format("<a href='?hql=from+{0}+r+where+r.id+=+{1}'>{0}#{1}</a>", v.GetType().Name, ((IRecord) v).Id);
-					else
-						return v;
+					
+					return v;
 				}
 			}
 		}

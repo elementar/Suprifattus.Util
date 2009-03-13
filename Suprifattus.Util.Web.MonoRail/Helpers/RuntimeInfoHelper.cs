@@ -15,11 +15,30 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 		private static string softwareVersion;
 
-		public Version FrameworkVersion { get { return Environment.Version; } }
-		public OperatingSystem OperationalSystem { get { return Environment.OSVersion; } }
-		public long MemoryAllocated { get { return Environment.WorkingSet / 1024 / 1024; } }
-		public long MemoryUsed { get { return GC.GetTotalMemory(false) / 1024 / 1024; } }
-		public DateTime CurrentTime { get { return DateTime.Now; } }
+		public Version FrameworkVersion
+		{
+			get { return Environment.Version; }
+		}
+
+		public OperatingSystem OperationalSystem
+		{
+			get { return Environment.OSVersion; }
+		}
+
+		public long MemoryAllocated
+		{
+			get { return Environment.WorkingSet / 1024 / 1024; }
+		}
+
+		public long MemoryUsed
+		{
+			get { return GC.GetTotalMemory(false) / 1024 / 1024; }
+		}
+
+		public DateTime CurrentTime
+		{
+			get { return DateTime.Now; }
+		}
 
 		public string SoftwareVersion
 		{
@@ -42,7 +61,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			get
 			{
-				ArrayList asms = new ArrayList(50);
+				var asms = new ArrayList(50);
 				Assembly[] all = AppDomain.CurrentDomain.GetAssemblies();
 				foreach (Assembly asm in all)
 					if (!notLibraryAssemblies.IsMatch(asm.FullName))
@@ -57,7 +76,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			get
 			{
-				ArrayList asms = new ArrayList(20);
+				var asms = new ArrayList(20);
 				Assembly[] all = AppDomain.CurrentDomain.GetAssemblies();
 				foreach (Assembly asm in all)
 					if (appAssemblies.IsMatch(asm.FullName))
@@ -73,7 +92,9 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			public static readonly AsmComparer Instance = new AsmComparer();
 
-			private AsmComparer() { }
+			private AsmComparer()
+			{
+			}
 
 			public int Compare(object x, object y)
 			{

@@ -1,17 +1,20 @@
 using System;
-using System.Web;
 using System.Text;
+using System.Web;
+
+using Suprifattus.Util.Collections;
 
 namespace Suprifattus.Util.Web.JavaScript
 {
-	using Collections;
-
 	/// <summary>
 	/// Um <see cref="IHttpHandler"/> para incluir javascripts.
 	/// </summary>
 	public class JavaScriptHttpHandler : IHttpHandler
 	{
-		bool IHttpHandler.IsReusable { get { return true; } }
+		bool IHttpHandler.IsReusable
+		{
+			get { return true; }
+		}
 
 		/// <summary>
 		/// Obtém o objeto de dependências do contexto desta requisição.
@@ -21,12 +24,12 @@ namespace Suprifattus.Util.Web.JavaScript
 			get { return HttpContext.Current.Items["jsdependencies"]; }
 			set { HttpContext.Current.Items["jsdependencies"] = value; }
 		}
-		
+
 		/// <summary>
 		/// Lista de dependências desta requisição.
 		/// </summary>
 		[CLSCompliant(false)]
-		public static ISet Dependencies 
+		public static ISet Dependencies
 		{
 			get { return (ISet) (DependenciesObj is ISet ? DependenciesObj : (DependenciesObj = CreateDependencies())); }
 		}
@@ -34,11 +37,11 @@ namespace Suprifattus.Util.Web.JavaScript
 		/// <summary>
 		/// Cria lista de dependências básicas.
 		/// </summary>
-		private static ISet CreateDependencies() 
+		private static ISet CreateDependencies()
 		{
 			return new ListSet("debug", "util", "compat", "innerxhtml", "css", "xml", "formsex");
 		}
-		
+
 		/// <summary>
 		/// Processa a requisição.
 		/// </summary>
@@ -49,7 +52,7 @@ namespace Suprifattus.Util.Web.JavaScript
 
 			string scripts = ctx.Server.UrlDecode(ctx.Request.QueryString.ToString());
 			ctx.Response.Write("/* requested scripts: " + scripts + " */\n\n");
-			ctx.Response.Write( JavaScriptLoader.Load(false, scripts.Split(',')) );
+			ctx.Response.Write(JavaScriptLoader.Load(false, scripts.Split(',')));
 		}
 	}
 }

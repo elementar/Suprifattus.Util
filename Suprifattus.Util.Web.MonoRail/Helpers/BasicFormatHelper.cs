@@ -12,17 +12,18 @@ using System.Xml.Xsl;
 using Castle.MonoRail.Framework.Helpers;
 
 using Suprifattus.Util.Collections;
+using Suprifattus.Util.Exceptions;
 using Suprifattus.Util.Text;
 using Suprifattus.Util.Timing;
 using Suprifattus.Util.Xml;
-using Suprifattus.Util.Exceptions;
 
 namespace Suprifattus.Util.Web.MonoRail.Helpers
 {
-	using PF = Suprifattus.Util.Text.PluralForm;
+	using PF = PluralForm;
 #if GENERICS
 	using NullableInt32 = Nullable<int>;
 	using NullableDateTime = Nullable<DateTime>;
+
 #else
 	using Nullables;
 #endif
@@ -33,7 +34,10 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		protected static readonly Regex rxLineBreaks = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
 		protected static readonly Regex rxLineContents = new Regex("^.*$", RegexOptions.Compiled);
 
-		protected IFormatProvider fp { get { return PluggableFormatProvider.Instance; } }
+		protected IFormatProvider fp
+		{
+			get { return PluggableFormatProvider.Instance; }
+		}
 
 		public IClock clock = SystemClock.Instance;
 
@@ -71,13 +75,19 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 			switch (part)
 			{
-				case "d": return dt.Value.Day;
-				case "M": return dt.Value.Month;
-				case "y": return dt.Value.Year;
+				case "d":
+					return dt.Value.Day;
+				case "M":
+					return dt.Value.Month;
+				case "y":
+					return dt.Value.Year;
 
-				case "H": return dt.Value.Hour;
-				case "m": return dt.Value.Minute;
-				case "s": return dt.Value.Second;
+				case "H":
+					return dt.Value.Hour;
+				case "m":
+					return dt.Value.Minute;
+				case "s":
+					return dt.Value.Second;
 			}
 
 			return null;
@@ -106,16 +116,14 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 			if (idade >= 1) // se a idade é maior ou igual a 1 ano, apresenta apenas o ano
 				return PF.Format(idade, "{0} ano[:s]", idade);
-			else
-			{
-				// para menores de 1 ano, apresenta apenas os meses
-				int meses = hoje.Month - nasc.Month;
-				if ((meses == 0 && hoje.Year > nasc.Year) || meses < 0)
-					meses += 12;
-				if (hoje < nasc.AddMonths(meses))
-					meses -= 1;
-				return PF.Format(meses, "{0} [mês:meses]", meses);
-			}
+
+			// para menores de 1 ano, apresenta apenas os meses
+			int meses = hoje.Month - nasc.Month;
+			if ((meses == 0 && hoje.Year > nasc.Year) || meses < 0)
+				meses += 12;
+			if (hoje < nasc.AddMonths(meses))
+				meses -= 1;
+			return PF.Format(meses, "{0} [mês:meses]", meses);
 		}
 		#endregion
 
@@ -173,15 +181,15 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 			if (source == null)
 				return null;
 
-			XmlDocument doc = new XmlDocument();
+			var doc = new XmlDocument();
 			doc.LoadXml(source.ToString());
 
 #if GENERICS
-			XslCompiledTransform tr = new XslCompiledTransform();
+			var tr = new XslCompiledTransform();
 #else
 			XslTransform tr = new XslTransform();
 #endif
-			using (StringWriter w = new StringWriter())
+			using (var w = new StringWriter())
 			{
 				Controller.InPlaceRenderSharedView(w, xsltViewPath);
 				w.Flush();
@@ -189,7 +197,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				tr.Load(r, null, null);
 			}
 
-			using (StringWriter w = new StringWriter())
+			using (var w = new StringWriter())
 			{
 #if GENERICS
 				tr.Transform(doc, null, w);
@@ -258,7 +266,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 			if (s.Length > spaces)
 				return s.Substring(0, spaces);
 
-			StringBuilder sb = new StringBuilder(s);
+			var sb = new StringBuilder(s);
 			sb.Append(' ', spaces - sb.Length);
 			return sb.ToString();
 		}
@@ -321,7 +329,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			if (en == null)
 				return null;
-			return CollectionUtils.Join(en, separator, delegate(object o) { return ((IRecord) o).Id.ToString(); });
+			return CollectionUtils.Join(en, separator, o => ((IRecord) o).Id.ToString());
 		}
 		#endregion
 
@@ -396,7 +404,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 		public string Format(object o, string format, object defaultValue)
 		{
-			return Format((o != null ? o : defaultValue), format);
+			return Format((o ?? defaultValue), format);
 		}
 		#endregion
 

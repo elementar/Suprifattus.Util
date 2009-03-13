@@ -453,11 +453,11 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 		{
 			var ctx = RailsContext;
 
-			var cookie = 
+			var cookie =
 				new HttpCookie(AutoLoginCookieKey, valor)
 					{
-						HttpOnly = true, 
-						Expires = expiracao, 
+						HttpOnly = true,
+						Expires = expiracao,
 						Path = (ctx.ApplicationPath + "/")
 					};
 

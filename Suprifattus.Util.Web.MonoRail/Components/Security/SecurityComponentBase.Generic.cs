@@ -44,7 +44,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 		{
 			if (Principal == null || Principal.Identity == null || !Principal.Identity.IsAuthenticated)
 				return null;
-			
+
 			return LoadAppUser(Principal.Identity.UserID);
 		}
 	}

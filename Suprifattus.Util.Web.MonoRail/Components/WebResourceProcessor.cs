@@ -20,13 +20,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 			rxIf = new Regex(@"^(.*)/[*]\s*if\s+(.*?)\s*[*]/\s*$", RegexOptions.Compiled | RegexOptions.Multiline),
 			rxCond = new Regex(@"^ (?<not> [!] \s*)? (?<id>\w+?) ( (?<major>\d+) (?<minor>[.]\d+)? (?<plus>[+-])? )? $", RegexOptions.Compiled | RegexOptions.IgnorePatternWhitespace | RegexOptions.ExplicitCapture);
 
-		private bool debug;
-
-		public bool Debug
-		{
-			get { return debug; }
-			set { debug = value; }
-		}
+		public bool Debug { get; set; }
 
 		public string ProcessCss(string css, IRailsEngineContext ctx, IDictionary parameters)
 		{
@@ -77,17 +71,17 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 				string var = m.Groups[1].Value;
 				if (Parameters.Contains(var))
 					return Convert.ToString(Parameters[var]);
-				else
-					return m.Value;
+
+				return m.Value;
 			}
-			
+
 			private string ReplaceIf(Match m)
 			{
 				string cond = m.Groups[2].Value;
 				HttpBrowserCapabilities browser = ctx.UnderlyingContext.Request.Browser;
 
 				Match mCond = rxCond.Match(cond);
-				
+
 				bool ok = mCond.Success;
 				string id = mCond.Groups["id"].Value;
 				if (id == "FF" || id == "FFX")
@@ -96,7 +90,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 					id = "Opera";
 				else if (id == "SA")
 					id = "Safari";
-				
+
 				ok &= String.Compare(browser.Browser, id, true) == 0;
 
 				int? major = null;
@@ -108,25 +102,26 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 					major = Convert.ToInt32(mCond.Groups["major"].Value);
 					if (mCond.Groups["minor"].Success)
 						minor = Convert.ToSingle("0" + mCond.Groups["minor"].Value, CultureInfo.InvariantCulture);
-					
+
 					bool majorExact = browser.MajorVersion == major;
 					ok &= majorExact || (plus && browser.MajorVersion > major);
 					if (minor.HasValue)
 						ok &= !majorExact || browser.MinorVersion == minor.Value || (plus && browser.MinorVersion > minor.Value);
 				}
-				
+
 				if (mCond.Groups["not"].Success)
 					ok = !ok;
-				
+
 				string rule = m.Groups[1].Value;
 				if (ok)
 					return rule;
-				else if (proc.Debug)
+
+				if (proc.Debug)
 					return String.Format(CultureInfo.InvariantCulture, "/* [debug] browser: '{0}{1}{2:.0}' cond: '{3}{4}{5:.0}' rule: '{6}' */", browser.Browser, browser.MajorVersion, browser.MinorVersion, id, major, minor, rule);
-				else
-					return String.Empty;
+
+				return String.Empty;
 			}
-			
+
 			private string ReplaceRoot(Match m)
 			{
 				return ctx.ApplicationPath + "/";

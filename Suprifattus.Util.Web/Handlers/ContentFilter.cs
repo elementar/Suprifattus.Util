@@ -18,7 +18,7 @@ namespace Suprifattus.Util.Web.Handlers
 			Cleanup,
 		}
 
-		private static Replacer[] aspNetSpecializedReplacers =
+		private static readonly Replacer[] aspNetSpecializedReplacers =
 			{
 				new TitleIDRemover(),
 				new ClientSideScriptBeginCommentBlockReplacer(),
@@ -32,35 +32,35 @@ namespace Suprifattus.Util.Web.Handlers
 				new LineBreakTagReplacer(),
 			};
 
-		private static Replacer[] javascriptSpecializedReplacers =
+		private static readonly Replacer[] javascriptSpecializedReplacers =
 			{
 				new InnerHtmlCallReplacer(),
 				new NullClassNameReplacer(),
 			};
-		
-		private static Replacer[] cleanupSpecializedReplacers =
+
+		private static readonly Replacer[] cleanupSpecializedReplacers =
 			{
 				new UnecessaryWhitespaceRemover(),
 			};
-		
-		private Replacer[] selectedReplacers;
-		private StringBuilder responseHtml;
+
+		private readonly Replacer[] selectedReplacers;
+		private readonly StringBuilder responseHtml;
 
 		public ContentFilter(Stream inputStream, RegexSet regexSet)
 			: base(inputStream)
 		{
 			switch (regexSet)
 			{
-				case RegexSet.AspNet: 
-					selectedReplacers = aspNetSpecializedReplacers; 
+				case RegexSet.AspNet:
+					selectedReplacers = aspNetSpecializedReplacers;
 					break;
-				case RegexSet.JavaScript: 
-					selectedReplacers = javascriptSpecializedReplacers; 
+				case RegexSet.JavaScript:
+					selectedReplacers = javascriptSpecializedReplacers;
 					break;
 				case RegexSet.Cleanup:
 					selectedReplacers = cleanupSpecializedReplacers;
 					break;
-				default: 
+				default:
 					throw new ArgumentException("RegexSet inválido.");
 			}
 
@@ -68,7 +68,9 @@ namespace Suprifattus.Util.Web.Handlers
 		}
 
 		public ContentFilter(Stream inputStream)
-			: this(inputStream, RegexSet.AspNet) { }
+			: this(inputStream, RegexSet.AspNet)
+		{
+		}
 
 		public override void Write(byte[] buffer, int offset, int count)
 		{
@@ -83,7 +85,7 @@ namespace Suprifattus.Util.Web.Handlers
 
 			foreach (Replacer r in selectedReplacers)
 				finalHtml = r.Run(finalHtml);
-				
+
 			// Write the formatted HTML back
 			byte[] data = Encoding.Default.GetBytes(finalHtml);
 
@@ -92,26 +94,21 @@ namespace Suprifattus.Util.Web.Handlers
 			base.Close();
 		}
 
-
 		#region Replacer Base Classes
 		private abstract class Replacer
 		{
-			public Replacer()
-			{
-			}
-
 			public abstract string Run(string s);
 		}
 
 		private abstract class RegexReplacer : Replacer
 		{
-			public RegexReplacer()
+			protected RegexReplacer()
 			{
-				me = new MatchEvaluator(Evaluator);
+				me = Evaluator;
 			}
 
 			protected Regex rx;
-			protected MatchEvaluator me;
+			protected readonly MatchEvaluator me;
 
 			public override string Run(string s)
 			{
@@ -123,7 +120,7 @@ namespace Suprifattus.Util.Web.Handlers
 
 		private class RegexRemover : RegexReplacer
 		{
-			int group;
+			private readonly int group;
 
 			public RegexRemover(int group, Regex rx)
 			{
@@ -132,14 +129,16 @@ namespace Suprifattus.Util.Web.Handlers
 			}
 
 			public RegexRemover(Regex rx)
-				: this(-1, rx) { }
+				: this(-1, rx)
+			{
+			}
 
 			protected override string Evaluator(Match m)
 			{
 				if (group != -1)
 					return m.ToString().Replace(m.Groups[group].Value, string.Empty);
-				else
-					return String.Empty;
+				
+				return String.Empty;
 			}
 		}
 		#endregion
@@ -148,7 +147,9 @@ namespace Suprifattus.Util.Web.Handlers
 		private class TitleIDRemover : RegexRemover
 		{
 			public TitleIDRemover()
-				: base(1, new Regex("<title(\\s+id=.+?)>", RegexOptions.IgnoreCase | RegexOptions.Compiled)) { }
+				: base(1, new Regex("<title(\\s+id=.+?)>", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+			{
+			}
 		}
 
 		private class ClientSideScriptBeginCommentBlockReplacer : RegexReplacer
@@ -206,13 +207,17 @@ namespace Suprifattus.Util.Web.Handlers
 		private class LanguageJavascriptAttributeRemover : RegexRemover
 		{
 			public LanguageJavascriptAttributeRemover()
-				: base(new Regex("language=[\"']javascript[\"']", RegexOptions.IgnoreCase | RegexOptions.Compiled)) { }
+				: base(new Regex("language=[\"']javascript[\"']", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+			{
+			}
 		}
 
 		private class ImageBorderAttributeRemover : RegexRemover
 		{
 			public ImageBorderAttributeRemover()
-				: base(1, new Regex("<img.*(border=\".*?\").*?>", RegexOptions.IgnoreCase | RegexOptions.Compiled)) { }
+				: base(1, new Regex("<img.*(border=\".*?\").*?>", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+			{
+			}
 		}
 
 		private class ViewStateHiddenFieldsReplacer : RegexReplacer
@@ -231,13 +236,17 @@ namespace Suprifattus.Util.Web.Handlers
 		private class FormNameRemover : RegexRemover
 		{
 			public FormNameRemover()
-				: base(1, new Regex("<form\\s+(name=.*?\\s)", RegexOptions.IgnoreCase | RegexOptions.Compiled)) { }
+				: base(1, new Regex("<form\\s+(name=.*?\\s)", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+			{
+			}
 		}
 
 		private class UnecessaryWhitespaceRemover : RegexRemover
 		{
 			public UnecessaryWhitespaceRemover()
-				: base(new Regex(@"(?<=\S\s)(\s+)|\s+(?=[>])", RegexOptions.Compiled)) { }
+				: base(new Regex(@"(?<=\S\s)(\s+)|\s+(?=[>])", RegexOptions.Compiled))
+			{
+			}
 		}
 
 		private class PostBackFunctionReplacer : Replacer
@@ -245,17 +254,17 @@ namespace Suprifattus.Util.Web.Handlers
 			public override string Run(string s)
 			{
 				// If __doPostBack is registered, replace the whole function
-				if (s.IndexOf("__doPostBack") > -1) 
+				if (s.IndexOf("__doPostBack") > -1)
 				{
-					try 
+					try
 					{
 						int pos1 = s.IndexOf("var theform;");
 						int pos2 = s.IndexOf("theform.__EVENTTARGET", pos1);
 						string methodText = s.Substring(pos1, pos2 - pos1);
 
 						s = s.Replace(methodText, "var theform = document.forms[0];\r\n\t\t");
-					} 
-					catch 
+					}
+					catch
 					{
 					}
 				}

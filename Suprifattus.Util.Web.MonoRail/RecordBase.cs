@@ -52,21 +52,18 @@ namespace Suprifattus.Util.Web.MonoRail
 			catch (ActiveRecordException ex)
 			{
 				Exception baseEx = ex.GetBaseException();
-				if (baseEx != null)
-				{
-					string msg = baseEx.Message;
+				string msg = baseEx.Message;
 
-					// PostgreSQL: duplicate key violates unique constraint
-					if (msg.Contains("ERROR: 23505"))
-						if (msg.Contains("_pkey"))
-							throw new DuplicatedRecordException("Não foi possível salvar os dados. Já existe um registro com esta chave primária. Verifique as 'sequences'.", ex);
-						else
-							throw new DuplicatedRecordException("Não foi possível salvar os dados. Já existe um registro com estas informações.", ex);
-
-					// SQL Server
-					if (msg.StartsWith("Cannot insert duplicate key row"))
+				// PostgreSQL: duplicate key violates unique constraint
+				if (msg.Contains("ERROR: 23505"))
+					if (msg.Contains("_pkey"))
+						throw new DuplicatedRecordException("Não foi possível salvar os dados. Já existe um registro com esta chave primária. Verifique as 'sequences'.", ex);
+					else
 						throw new DuplicatedRecordException("Não foi possível salvar os dados. Já existe um registro com estas informações.", ex);
-				}
+
+				// SQL Server
+				if (msg.StartsWith("Cannot insert duplicate key row"))
+					throw new DuplicatedRecordException("Não foi possível salvar os dados. Já existe um registro com estas informações.", ex);
 
 				throw;
 			}
@@ -89,7 +86,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		protected static string Dump(Type type, object obj)
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 
 			ActiveRecordModel model = ActiveRecordModel.GetModel(type);
 			sb.Append(model.Type.Name);
@@ -154,12 +151,12 @@ namespace Suprifattus.Util.Web.MonoRail
 		}
 
 		#region FindFirst
-		protected virtual internal object FindFirst(params ICriterion[] criterias)
+		protected internal virtual object FindFirst(params ICriterion[] criterias)
 		{
 			return FindFirst(GetType(), criterias);
 		}
 
-		protected virtual internal object FindFirst(Order[] orders, params ICriterion[] criterias)
+		protected internal virtual object FindFirst(Order[] orders, params ICriterion[] criterias)
 		{
 			return FindFirst(GetType(), orders, criterias);
 		}

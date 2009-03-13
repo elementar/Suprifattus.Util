@@ -1,8 +1,10 @@
 using System;
 using System.Diagnostics;
+
 using Castle.Core.Logging;
 using Castle.Services.Logging.Log4netIntegration;
 using Castle.Windsor;
+
 using log4net;
 using log4net.Config;
 
@@ -76,7 +78,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		{
 			IWindsorContainer c = GetWindsorContainer();
 			if (c != null)
-				return (ILoggerFactory) c.Resolve(typeof (ILoggerFactory));
+				return (ILoggerFactory) c.Resolve(typeof(ILoggerFactory));
 
 			return defaultFactory ?? (defaultFactory = new Log4netFactory());
 		}

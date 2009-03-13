@@ -144,7 +144,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		public void RenderXml<T>(IEnumerable<T> lista,
 		                         string rootXmlElement, string rootXmlNS,
 		                         Action<EasyXmlWriter> onFirstItem,
-														 Action<EasyXmlWriter, T> onItem)
+		                         Action<EasyXmlWriter, T> onItem)
 		{
 			Controller.CancelView();
 			Controller.Response.ContentType = "text/xml";

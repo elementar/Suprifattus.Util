@@ -1,9 +1,6 @@
 using System;
 using System.Runtime.Serialization;
 
-using Castle.ActiveRecord;
-
-using Suprifattus.Util.Collections;
 using Suprifattus.Util.Exceptions;
 
 namespace Suprifattus.Util.Web.MonoRail
@@ -23,26 +20,38 @@ namespace Suprifattus.Util.Web.MonoRail
 		}*/
 
 		public AppValidationException(string title, string message)
-			: base(title, message) { }
+			: base(title, message)
+		{
+		}
 
 		public AppValidationException(string title, string message, Exception innerException)
-			: base(title, message, innerException) { }
+			: base(title, message, innerException)
+		{
+		}
 
 		protected AppValidationException(SerializationInfo info, StreamingContext context)
-			: base(info, context) { }
+			: base(info, context)
+		{
+		}
 	}
 
 	[Serializable]
 	public class DuplicatedRecordException : AppValidationException
 	{
 		public DuplicatedRecordException(string message)
-			: base(GetTitle(), message) { }
+			: base(GetTitle(), message)
+		{
+		}
 
 		public DuplicatedRecordException(string message, Exception innerException)
-			: base(GetTitle(), message, innerException) { }
+			: base(GetTitle(), message, innerException)
+		{
+		}
 
 		protected DuplicatedRecordException(SerializationInfo info, StreamingContext context)
-			: base(info, context) { }
+			: base(info, context)
+		{
+		}
 
 		protected static string GetTitle()
 		{
@@ -54,13 +63,19 @@ namespace Suprifattus.Util.Web.MonoRail
 	public class CouldNotDeleteException : AppValidationException
 	{
 		public CouldNotDeleteException(string message)
-			: base(GetTitle(), message) { }
+			: base(GetTitle(), message)
+		{
+		}
 
 		public CouldNotDeleteException(string message, Exception innerException)
-			: base(GetTitle(), message, innerException) { }
+			: base(GetTitle(), message, innerException)
+		{
+		}
 
 		protected CouldNotDeleteException(SerializationInfo info, StreamingContext context)
-			: base(info, context) { }
+			: base(info, context)
+		{
+		}
 
 		protected static string GetTitle()
 		{

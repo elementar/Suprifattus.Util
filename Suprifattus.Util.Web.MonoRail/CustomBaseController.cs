@@ -46,7 +46,7 @@ namespace Suprifattus.Util.Web.MonoRail
 				string csKey = "ControllerSession:" + AreaName + "/" + Name;
 				lock (Session.SyncRoot)
 				{
-					IDictionary cs = (IDictionary) Session[csKey];
+					var cs = (IDictionary) Session[csKey];
 					if (cs == null)
 						Session[csKey] = cs = new HybridDictionary();
 					return cs;
@@ -113,7 +113,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		protected override MethodInfo SelectMethod(string action, IDictionary actions, IRequest request, IDictionary actionArgs)
 		{
 			string actionOverride = Request["@action"];
-			if (actionOverride != null && actionOverride.Length > 0)
+			if (!String.IsNullOrEmpty(actionOverride))
 				action = actionOverride;
 
 			return base.SelectMethod(action, actions, request, actionArgs);

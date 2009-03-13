@@ -21,7 +21,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		#region Dump
 		public virtual string Dump()
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 
 			ActiveRecordModel model = ActiveRecordModel.GetModel(typeof(T));
 			sb.Append(model.Type.Name);

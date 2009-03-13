@@ -71,7 +71,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 		{
 			IDictionary userData = new Hashtable();
 
-			string[] papeis = CollectionUtils.ToArray<string, IAppRole>(user.Roles, delegate(IAppRole r) { return r.Name; });
+			string[] papeis = CollectionUtils.ToArray(user.Roles, r => r.Name);
 
 			userData.Add("id", user.Id);
 			userData.Add("papeis", papeis);
@@ -102,7 +102,8 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 				Log.DebugFormat("Cookie '{0}' não presente na requisição. Sessão sem autenticação. Url: {1}", FormsAuthentication.FormsCookieName, AspNetContext.Request.Url);
 				return null;
 			}
-			else if (String.IsNullOrEmpty(formsCookie.Value))
+
+			if (String.IsNullOrEmpty(formsCookie.Value))
 			{
 				Log.DebugFormat("Cookie '{0}' vazio. Sessão sem autenticação. Url: {1}", FormsAuthentication.FormsCookieName, AspNetContext.Request.Url);
 				return null;
@@ -122,9 +123,12 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 
 		private HttpCookie CreateCookieForFormsAuth()
 		{
-			HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName);
-			cookie.HttpOnly = true;
-			cookie.Path = RailsContext.ApplicationPath + "/";
+			var cookie =
+				new HttpCookie(FormsAuthentication.FormsCookieName)
+					{
+						HttpOnly = true,
+						Path = (RailsContext.ApplicationPath + "/")
+					};
 			return cookie;
 		}
 
@@ -136,7 +140,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 			else
 				Log.WarnFormat("Usuário desconectou.");
 
-			IAppUser usuario = this.LoadCurrentAppUser() as IAppUser;
+			var usuario = this.LoadCurrentAppUser() as IAppUser;
 			if (usuario != null)
 			{
 				usuario.AutoLoginHash = null;
@@ -157,11 +161,11 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 		private FormsAuthenticationTicket ConstroiTicket(ISimpleAppUser user, IDictionary userData, bool persist)
 		{
 			string serializedUserData;
-			using (MemoryStream ms = new MemoryStream())
+			using (var ms = new MemoryStream())
 			{
-				using (GZipStream gzs = new GZipStream(ms, CompressionMode.Compress))
+				using (var gzs = new GZipStream(ms, CompressionMode.Compress))
 				{
-					BinaryFormatter fmt = new BinaryFormatter();
+					var fmt = new BinaryFormatter();
 					fmt.Serialize(gzs, userData);
 				}
 				ms.Flush();
@@ -171,7 +175,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 			// versões de tickets:
 			// 1: apenas papeis e nome completo
 			// 2: IDictionary para armazenar dados variáveis
-			FormsAuthenticationTicket ticket =
+			var ticket =
 				new FormsAuthenticationTicket(
 					VersaoTicket, // versão. aumentar a cada alteração para evitar erros
 					user.Login, // nome do usuário
@@ -199,10 +203,10 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 				byte[] serializedUserData = Convert.FromBase64String(ticket.UserData);
 
 				IDictionary userData;
-				using (MemoryStream ms = new MemoryStream(serializedUserData))
-				using (GZipStream gzs = new GZipStream(ms, CompressionMode.Decompress))
+				using (var ms = new MemoryStream(serializedUserData))
+				using (var gzs = new GZipStream(ms, CompressionMode.Decompress))
 				{
-					BinaryFormatter fmt = new BinaryFormatter();
+					var fmt = new BinaryFormatter();
 					userData = (IDictionary) fmt.Deserialize(gzs);
 				}
 
@@ -213,11 +217,11 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 						Log.DebugFormat("  {0} = {1}", de.Key, de.Value);
 				}
 
-				int id = (int) userData["id"];
-				string nomeCompleto = (string) userData["nomeCompleto"];
-				string[] papeis = (string[]) userData["papeis"];
+				var id = (int) userData["id"];
+				var nomeCompleto = (string) userData["nomeCompleto"];
+				var papeis = (string[]) userData["papeis"];
 
-				SuprifattusPrincipal principal = new SuprifattusPrincipal(id, ticket.Name, nomeCompleto, papeis, userData);
+				var principal = new SuprifattusPrincipal(id, ticket.Name, nomeCompleto, papeis, userData);
 
 				this.ValidaPrincipalDeTicket(ticket, principal);
 
@@ -245,17 +249,17 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 		/// </summary>
 		protected virtual void ValidaPrincipalDeTicket(FormsAuthenticationTicket ticket, SuprifattusPrincipal principal)
 		{
-			string ip = (string) principal.Properties["ip"];
+			var ip = (string) principal.Properties["ip"];
 			if (ip != AspNetContext.Request.UserHostAddress)
 				throw new SecurityException("Ticket inválido");
 
 			if (typeof(T).IsSubclassOf(typeof(IAppUser)))
 			{
-				string hash = (string) principal.Properties["hash"];
+				var hash = (string) principal.Properties["hash"];
 				if (String.IsNullOrEmpty(hash))
 					throw new AppError("Hash em branco", "É obrigatório o uso de hash com IAppUser");
 
-				IAppUser usuario = (IAppUser) this.LoadAppUser(principal.Identity.UserID);
+				var usuario = (IAppUser) this.LoadAppUser(principal.Identity.UserID);
 				if (hash != this.ObtemTokenParaLoginAutomatico(usuario, false, true))
 					throw new SecurityException("Hashs não conferem");
 			}

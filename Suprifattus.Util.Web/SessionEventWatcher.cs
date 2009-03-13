@@ -18,7 +18,7 @@ namespace Suprifattus.Util.Web
 		/// Evento de início de sessão.
 		/// </summary>
 		event EventHandler Start;
-		
+
 		/// <summary>
 		/// Evento de final de sessão.
 		/// </summary>
@@ -31,7 +31,7 @@ namespace Suprifattus.Util.Web
 	/// </summary>
 	public class SessionEventWatcher : ISessionEventWatcher
 	{
-		readonly IDictionary<string, EventHandler>
+		private readonly IDictionary<string, EventHandler>
 			start = new Dictionary<string, EventHandler>(),
 			end = new Dictionary<string, EventHandler>();
 
@@ -44,19 +44,13 @@ namespace Suprifattus.Util.Web
 		{
 			foreach (string moduleKey in app.Modules.AllKeys)
 			{
-				SessionStateModule sessionModule 
+				var sessionModule
 					= app.Modules[moduleKey] as SessionStateModule;
-				
+
 				if (sessionModule != null)
 				{
-					sessionModule.Start += delegate
-					                       	{
-					                       		CallEventHandlers(start);
-					                       	};
-					sessionModule.End += delegate
-					                     	{
-					                     		CallEventHandlers(end);
-					                     	};
+					sessionModule.Start += delegate { CallEventHandlers(start); };
+					sessionModule.End += delegate { CallEventHandlers(end); };
 				}
 			}
 		}
@@ -124,10 +118,10 @@ namespace Suprifattus.Util.Web
 		private static string GetSessionId()
 		{
 			HttpContext ctx = HttpContext.Current;
-			
+
 			if (ctx == null || ctx.Session == null)
 				return null;
-			
+
 			return ctx.Session.SessionID;
 		}
 	}

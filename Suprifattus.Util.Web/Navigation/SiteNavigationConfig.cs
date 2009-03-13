@@ -7,30 +7,16 @@ namespace Suprifattus.Util.Web.Navigation
 	[Serializable]
 	public class SiteNavigationConfig : IConfigurationSectionHandler
 	{
-		string id;
-		string defaultHome, login;
-
-		public string ID
-		{
-			get { return id; }
-		}
-
-		public string DefaultHome
-		{
-			get { return defaultHome; }
-		}
-
-		public string Login
-		{
-			get { return login; }
-		}
+		public string ID { get; private set; }
+		public string DefaultHome { get; private set; }
+		public string Login { get; private set; }
 
 		public object Create(object parent, object context, XmlNode el)
 		{
-			this.id = (el as XmlElement).GetAttribute("id");
-			this.login = el["login"].GetAttribute("url");
-			this.defaultHome = el["defaultHome"].GetAttribute("url");
-			
+			this.ID = ((XmlElement) el).GetAttribute("id");
+			this.Login = el["login"].GetAttribute("url");
+			this.DefaultHome = el["defaultHome"].GetAttribute("url");
+
 			return this;
 		}
 	}

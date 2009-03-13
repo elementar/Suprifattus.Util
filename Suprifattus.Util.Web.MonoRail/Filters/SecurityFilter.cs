@@ -17,11 +17,11 @@ namespace Suprifattus.Util.Web.MonoRail.Filters
 	public class SecurityFilter : IFilter
 	{
 		private const RegexOptions ControllersToSkipRxOptions = RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace;
-		
+
 		private readonly ISecurityComponent securityComponent;
 		private ILogger log = NullLogger.Instance;
 		private Regex controllersToSkip = new Regex(@"home$", ControllersToSkipRxOptions);
-		
+
 		public SecurityFilter(ISecurityComponent securityComponent)
 		{
 			this.securityComponent = securityComponent;

@@ -10,8 +10,8 @@ namespace Suprifattus.Util.Web.MonoRail
 {
 	public class ARLoader : IEnumerable
 	{
-		Type arType;
-		IEnumerable keys;
+		private readonly Type arType;
+		private readonly IEnumerable keys;
 
 		public ARLoader(Type arType, IEnumerable keys)
 		{
@@ -26,9 +26,9 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		public class ARLoaderEnumerator : EnumeratorBase
 		{
-			PrimaryKeyModel pkModel;
-			Type arType;
-			object currentObject;
+			private readonly PrimaryKeyModel pkModel;
+			private readonly Type arType;
+			private object currentObject;
 
 			public ARLoaderEnumerator(Type arType, IEnumerable keys)
 				: base(keys.GetEnumerator())

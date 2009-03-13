@@ -61,9 +61,9 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				fmtSourceFileStart = usingHTML ? "<span class='exception-sourcefile'>" : null,
 				fmtSourceFileEnd = usingHTML ? "</span>" : null;
 
-			Regex rx = new Regex(" in " + projDir + "(.*$)", RegexOptions.Multiline | RegexOptions.IgnoreCase | RegexOptions.Compiled);
+			var rx = new Regex(" in " + projDir + "(.*$)", RegexOptions.Multiline | RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
-			Stack<Exception> s = new Stack<Exception>();
+			var s = new Stack<Exception>();
 
 			while (e != null)
 			{
@@ -71,7 +71,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				e = e.InnerException;
 			}
 
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			while (s.Count > 0)
 			{
 				e = s.Pop();

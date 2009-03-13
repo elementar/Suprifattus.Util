@@ -1,7 +1,7 @@
 using System;
 
-using Castle.MonoRail.Framework;
 using Castle.Core.Logging;
+using Castle.MonoRail.Framework;
 
 namespace Suprifattus.Util.Web.MonoRail
 {
@@ -11,7 +11,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		public ILogger Log
 		{
-			get { return (log != null ? log : (log = LogUtil.GetLogger(GetType()))); }
+			get { return (log ?? (log = LogUtil.GetLogger(GetType()))); }
 			set { log = value; }
 		}
 	}

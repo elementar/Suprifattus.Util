@@ -1,4 +1,5 @@
 using System;
+
 using Castle.MicroKernel;
 
 namespace Suprifattus.Util.Web.MonoRail.Components.Security

@@ -23,34 +23,34 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 			Controller c = this.Controller;
 			return To(c.AreaName, c.Name, action);
 		}
-		
+
 		public string To(string action)
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append(action).Append('.').Append(Ext);
 			return sb.ToString();
 		}
-		
+
 		public string To(string action, IDictionary parameters)
 		{
 			return To(action) + '?' + BuildQueryString(parameters);
 		}
-		
+
 		public string To(string controller, string action)
 		{
 			return To(null, controller, action);
 		}
-		
+
 		public string To(string controller, string action, IDictionary parameters)
 		{
 			return To(controller, action) + '?' + BuildQueryString(parameters);
 		}
-		
+
 		public string To(string area, string controller, string action)
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append(SiteRoot).Append('/');
-			
+
 			if (!String.IsNullOrEmpty(area))
 				sb.Append(area).Append('/');
 			if (!String.IsNullOrEmpty(controller))
@@ -70,7 +70,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			get { return Controller.Context.ApplicationPath; }
 		}
-		
+
 		private string Ext
 		{
 			get { return Controller.Context.UrlInfo.Extension; }

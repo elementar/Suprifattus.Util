@@ -31,7 +31,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 		private readonly string from;
 
 		private XslCompiledTransform xslHtmlEmail;
-		
+
 		public EmailBuilder(string from)
 		{
 			XsltHtml4 = "~/res/xsl/html-email.xsl";
@@ -74,7 +74,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 		{
 			if (xslHtmlEmail == null)
 				throw new AppError("Arquivo Faltante", "O arquivo XSLT para degradação para HTML4 não foi encontrado.");
-			
+
 			// aplica o XSL de email
 			using (var sr = new StringReader(mail.Body))
 			using (var sw = new StringWriter())

@@ -20,13 +20,7 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 	[AttributeUsage(AttributeTargets.Parameter)]
 	public class ParseAttribute : Attribute, IParameterBinder
 	{
-		string parameterName;
-
-		public string ParameterName
-		{
-			get { return parameterName; }
-			set { parameterName = value; }
-		}
+		public string ParameterName { get; set; }
 
 		public int CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo)
 		{
@@ -37,17 +31,17 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 		/// <summary>
 		/// The signature of the <c>ParseElement</c> method.
 		/// </summary>
-		static readonly Type[] ParseElementSignature = {typeof(String)};
+		private static readonly Type[] ParseElementSignature = { typeof(String) };
 
 		/// <summary>
 		/// The signature of the <c>ParseArray</c> method.
 		/// </summary>
-		static readonly Type[] ParseArraySignature = { typeof(String[]) };
+		private static readonly Type[] ParseArraySignature = { typeof(String[]) };
 
 		/// <summary>
 		/// The binding flags of the <c>ParseElement</c> and <c>ParseArray</c> methods.
 		/// </summary>
-		const BindingFlags ParseBindingFlags = BindingFlags.Static | BindingFlags.Public;
+		private const BindingFlags ParseBindingFlags = BindingFlags.Static | BindingFlags.Public;
 
 		/// <summary>
 		/// Binds a controller's parameter to a value.
@@ -74,7 +68,7 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 			object vals = isArray
 			              	? (object) GetParameterValues(controller, parameterInfo)
 			              	: GetParameterValue(controller, parameterInfo);
-			return mi.Invoke(null, new object[] {vals});
+			return mi.Invoke(null, new object[] { vals });
 		}
 
 		private string[] GetParameterValues(SmartDispatcherController controller, ParameterInfo parameterInfo)

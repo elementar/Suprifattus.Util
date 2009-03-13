@@ -14,7 +14,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	public class Reloadable<T>
-		where T : class
+		where T: class
 	{
 		private T target;
 		private readonly DateTime lastModification = DateTime.MinValue;
@@ -32,7 +32,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 			this.FileName = fileName;
 
 			this.constructor = typeof(T).GetConstructor(new Type[0]);
-			this.loadMethod = typeof(T).GetMethod("Load", new[] {typeof(string)});
+			this.loadMethod = typeof(T).GetMethod("Load", new[] { typeof(string) });
 		}
 
 		public string FileName { get; set; }
@@ -61,7 +61,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 		private void Reload()
 		{
 			this.target = (T) this.constructor.Invoke(new object[0]);
-			this.loadMethod.Invoke(this.target, new object[] {this.FileName});
+			this.loadMethod.Invoke(this.target, new object[] { this.FileName });
 		}
 	}
 }

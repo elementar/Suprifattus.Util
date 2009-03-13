@@ -5,8 +5,8 @@ namespace Suprifattus.Util.Web.MonoRail
 	public class CustomBaseControllerConfig
 	{
 		public static readonly CustomBaseControllerConfig Instance = new CustomBaseControllerConfig();
-		
-		int pageSize = 10;
+
+		private int pageSize = 10;
 
 		public int PageSize
 		{

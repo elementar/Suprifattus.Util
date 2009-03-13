@@ -8,15 +8,15 @@ namespace Suprifattus.Util.Web
 	/// </summary>
 	public class UserAgent
 	{
-		static readonly Regex rxUA = new Regex(@"^Mozilla/(?<mv>[\d.]+) \((?<comments>[^)]+)\) Gecko/(?<gr>\d+)( (?<v>.*?)/(?<vv>[\d.]+))?", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+		private static readonly Regex rxUA = new Regex(@"^Mozilla/(?<mv>[\d.]+) \((?<comments>[^)]+)\) Gecko/(?<gr>\d+)( (?<v>.*?)/(?<vv>[\d.]+))?", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
-		bool valid = false;
-		
-		string mozillaVersion;
-		string comments;
-		long geckoRelease;
-		string vendor;
-		string vendorVersion;
+		private readonly bool valid;
+
+		private readonly string mozillaVersion;
+		private readonly string comments;
+		private readonly long geckoRelease;
+		private readonly string vendor;
+		private readonly string vendorVersion;
 
 		public UserAgent(string uaString)
 		{
@@ -24,7 +24,7 @@ namespace Suprifattus.Util.Web
 			if (!m.Success)
 				return;
 
-			try 
+			try
 			{
 				this.valid = true;
 				this.mozillaVersion = m.Groups["mv"].Value;

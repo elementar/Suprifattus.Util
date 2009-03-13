@@ -20,7 +20,7 @@ namespace Suprifattus.Util.Web.MonoRail
 	/// </summary>
 	public class BaseMonoRailApplication : HttpApplication, IContainerAccessor
 	{
-		private bool initializingWindsor = false;
+		private bool initializingWindsor;
 		private const string WindsorContainerAppKey = "windsorContainer";
 
 		/// <summary>
@@ -34,7 +34,7 @@ namespace Suprifattus.Util.Web.MonoRail
 				if (HttpContext.Current == null)
 					return null;
 
-				IContainerAccessor ca = (IContainerAccessor) HttpContext.Current.ApplicationInstance;
+				var ca = (IContainerAccessor) HttpContext.Current.ApplicationInstance;
 				return ca == null ? null : ca.Container;
 			}
 		}
@@ -45,10 +45,10 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		public BaseMonoRailApplication()
 		{
-			this.AuthenticateRequest += new EventHandler(Application_AuthenticateRequest);
-			this.BeginRequest += new EventHandler(Application_BeginRequest);
-			this.EndRequest += new EventHandler(Application_EndRequest);
-			this.Error += new EventHandler(Application_Error);
+			this.AuthenticateRequest += Application_AuthenticateRequest;
+			this.BeginRequest += Application_BeginRequest;
+			this.EndRequest += Application_EndRequest;
+			this.Error += Application_Error;
 		}
 
 		public override void Init()
@@ -188,7 +188,7 @@ namespace Suprifattus.Util.Web.MonoRail
 			if (!Container.Kernel.HasComponent(typeof(ISecurityComponent)))
 				return Context.User;
 
-			ISecurityComponent sec =
+			var sec =
 				(ISecurityComponent) Container.Resolve(typeof(ISecurityComponent));
 
 			IPrincipal principal = sec.PreparePrincipal();
@@ -205,11 +205,8 @@ namespace Suprifattus.Util.Web.MonoRail
 			IPrincipal p = Context.User;
 			if (p != null && p.Identity != null && p.Identity.IsAuthenticated)
 			{
-				IExtendedPrincipal pex = p as IExtendedPrincipal;
-				if (pex != null)
-					userName = pex.Identity.Login;
-				else
-					userName = p.Identity.Name;
+				var pex = p as IExtendedPrincipal;
+				userName = pex != null ? pex.Identity.Login : p.Identity.Name;
 			}
 
 			LogUtil.SetLoggingProperty("id", userName);
@@ -221,7 +218,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		{
 			lock (Context)
 			{
-				Stack s = Context.Items["nh.sessionscope"] as Stack;
+				var s = Context.Items["nh.sessionscope"] as Stack;
 				if (s == null)
 					Context.Items["nh.sessionscope"] = s = new Stack();
 				s.Push(CreateActiveRecordSessionScope());
@@ -242,7 +239,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		{
 			lock (Context)
 			{
-				Stack s = (Stack) Context.Items["nh.sessionscope"];
+				var s = (Stack) Context.Items["nh.sessionscope"];
 
 				try
 				{

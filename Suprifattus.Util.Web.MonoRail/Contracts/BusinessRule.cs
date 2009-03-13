@@ -35,18 +35,12 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 
 		public string UserIP
 		{
-			get
-			{
-				return AspNetContext != null ? AspNetContext.Request.UserHostAddress : "0.0.0.0";
-			}
+			get { return AspNetContext != null ? AspNetContext.Request.UserHostAddress : "0.0.0.0"; }
 		}
 
 		public string UserHost
 		{
-			get
-			{
-				return AspNetContext != null ? AspNetContext.Request.UserHostName : "0.0.0.0";
-			}
+			get { return AspNetContext != null ? AspNetContext.Request.UserHostName : "0.0.0.0"; }
 		}
 
 		[Obsolete("Use a propriedade RailsContext diretamente")]

@@ -5,16 +5,15 @@ using System.Text.RegularExpressions;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using Suprifattus.Util.AccessControl;
 using Suprifattus.Util.AccessControl.Impl;
 using Suprifattus.Util.Collections;
+using Suprifattus.Util.Config;
+using Suprifattus.Util.Data;
+using Suprifattus.Util.Reflection;
 
 namespace Suprifattus.Util.Web
 {
-	using AccessControl;
-	using Config;
-	using Reflection;
-	using Data;
-
 	/// <summary>
 	/// Classe que contém utilitários para fluxo de navegação
 	/// em uma aplicação Web.
@@ -48,7 +47,7 @@ namespace Suprifattus.Util.Web
 		/// executar o bloco de código atual.
 		/// </summary>
 		[Obsolete("Framework obsoleto", true)]
-		public static void CheckUserPermissions() 
+		public static void CheckUserPermissions()
 		{
 			PermissionChecker.CheckPermissions(CurrentUser);
 		}
@@ -58,7 +57,7 @@ namespace Suprifattus.Util.Web
 		/// executar o bloco de código atual.
 		/// </summary>
 		[Obsolete("Framework obsoleto", true)]
-		public static void CheckUserPermissions(Type t) 
+		public static void CheckUserPermissions(Type t)
 		{
 			PermissionChecker.CheckPermissions(t, CurrentUser, null);
 		}
@@ -69,9 +68,9 @@ namespace Suprifattus.Util.Web
 		/// </summary>
 		/// <param name="redirect">Página para redirecionar, caso ocorra a falha de permissão.</param>
 		[Obsolete("Framework obsoleto", true)]
-		public static void CheckUserPermissions(string redirect) 
+		public static void CheckUserPermissions(string redirect)
 		{
-			try 
+			try
 			{
 				CheckUserPermissions();
 			}
@@ -104,18 +103,18 @@ namespace Suprifattus.Util.Web
 
 		#region User Management
 		[Obsolete("Framework obsoleto", true)]
-		public static IExtendedPrincipal CurrentUser 
+		public static IExtendedPrincipal CurrentUser
 		{
-			get 
+			get
 			{
-				IExtendedPrincipal user = Context.User as IExtendedPrincipal;
-				
+				var user = Context.User as IExtendedPrincipal;
+
 				if (user == null && Session != null)
 					user = Session["__user__"] as IExtendedPrincipal;
 
 				return user;
 			}
-			set 
+			set
 			{
 				Context.User = value;
 				if (Session != null)
@@ -128,14 +127,18 @@ namespace Suprifattus.Util.Web
 		[Obsolete("Framework obsoleto", true)]
 		public static AppEnvironment CurrentAppEnvironment
 		{
-			get 
+			get
 			{
 				switch (Server.MachineName)
 				{
-					case "CARNEIRO": return AppEnvironment.Development;
-					case "CACHORRO": return AppEnvironment.Development;
-					case "TIGRE": return AppEnvironment.Test;
-					default: return AppEnvironment.Production;
+					case "CARNEIRO":
+						return AppEnvironment.Development;
+					case "CACHORRO":
+						return AppEnvironment.Development;
+					case "TIGRE":
+						return AppEnvironment.Test;
+					default:
+						return AppEnvironment.Production;
 				}
 			}
 		}
@@ -147,9 +150,9 @@ namespace Suprifattus.Util.Web
 			get
 			{
 				const string appRootKey = "_appRoot";
-				if (Context.Items[appRootKey] == null) 
+				if (Context.Items[appRootKey] == null)
 				{
-					Uri appUri = new Uri(Request.Url, Request.ApplicationPath + "/");
+					var appUri = new Uri(Request.Url, Request.ApplicationPath + "/");
 					Uri reqUri = Request.Url;
 
 #if GENERICS
@@ -171,8 +174,8 @@ namespace Suprifattus.Util.Web
 		{
 			if (!physicalPath)
 				return ExpandTilde(s);
-			else
-				return Regex.Replace(s, @"~[/\\]", AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "/");
+
+			return Regex.Replace(s, @"~[/\\]", AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "/");
 		}
 		#endregion
 
@@ -184,7 +187,7 @@ namespace Suprifattus.Util.Web
 		/// <remarks>
 		/// ContentType para o XUL: "application/vnd.mozilla.xul+xml"
 		/// </remarks>
-		public static void EnableXHtml() 
+		public static void EnableXHtml()
 		{
 			if (Request.ServerVariables["HTTP_ACCEPT"].IndexOf("application/xhtml+xml") > 0)
 				Response.ContentType = "application/xhtml+xml";
@@ -210,7 +213,7 @@ namespace Suprifattus.Util.Web
 		/// <param name="parent">O controle a partir de onde serão atribuidas as propriedades <c>MaxLength</c>.</param>
 		/// <param name="mdCache">O objeto <see cref="DbMetadataCache"/> utilizado para buscar as informações sobre as tabelas</param>
 		/// <param name="tableName">O nome da tabela</param>
-		public static void SetMaxLengthOnTextBoxes(Control parent, DbMetadataCache mdCache, string tableName) 
+		public static void SetMaxLengthOnTextBoxes(Control parent, DbMetadataCache mdCache, string tableName)
 		{
 			SetMaxLengthOnTextBoxes(parent, null, mdCache, tableName);
 		}
@@ -222,19 +225,19 @@ namespace Suprifattus.Util.Web
 		/// <param name="connector">O <see cref="IConnector"/></param>
 		/// <param name="mdCache">O objeto <see cref="DbMetadataCache"/> utilizado para buscar as informações sobre as tabelas</param>
 		/// <param name="defaultTableName">O nome da tabela</param>
-		public static void SetMaxLengthOnTextBoxes(Control parent, IConnector connector, DbMetadataCache mdCache, string defaultTableName) 
+		public static void SetMaxLengthOnTextBoxes(Control parent, IConnector connector, DbMetadataCache mdCache, string defaultTableName)
 		{
-			Regex rx = new Regex(@"(?<t>[^.]+)\.(?<f>[^.]+)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+			var rx = new Regex(@"(?<t>[^.]+)\.(?<f>[^.]+)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 			Match m;
 
 			if (connector != null)
 				defaultTableName = connector.GetPhysicalTableName(defaultTableName);
-			
+
 			foreach (TextBox txt in SelectControls(parent, new TypeCondition(typeof(TextBox))))
 				if (txt.Enabled && !txt.ReadOnly && txt.ID != null && txt.ID.Length > 3)
 				{
-					IDatabaseFieldRelated dbRelated = txt as IDatabaseFieldRelated;
-					if (dbRelated != null && dbRelated.DatabaseField != null && (m = rx.Match(dbRelated.DatabaseField)).Success) 
+					var dbRelated = txt as IDatabaseFieldRelated;
+					if (dbRelated != null && dbRelated.DatabaseField != null && (m = rx.Match(dbRelated.DatabaseField)).Success)
 					{
 						string table = m.Groups["t"].Value;
 						string field = m.Groups["f"].Value;
@@ -252,7 +255,7 @@ namespace Suprifattus.Util.Web
 		/// </summary>
 		/// <param name="mdCache">O objeto <see cref="DbMetadataCache"/> utilizado para buscar as informações sobre as tabelas</param>
 		/// <param name="tableName">O nome da tabela</param>
-		public static void SetMaxLengthOnTextBoxes(DbMetadataCache mdCache, string tableName) 
+		public static void SetMaxLengthOnTextBoxes(DbMetadataCache mdCache, string tableName)
 		{
 			SetMaxLengthOnTextBoxes(Page, mdCache, tableName);
 		}
@@ -286,10 +289,10 @@ namespace Suprifattus.Util.Web
 		[Obsolete("Use an empty supri:FixedListItem instead")]
 		public static void AddEmptyItemOnListControls(Type controlType)
 		{
-			ListControl[] ll = (ListControl[]) SelectControls(typeof(ListControl), new TypeCondition(controlType));
+			var ll = (ListControl[]) SelectControls(typeof(ListControl), new TypeCondition(controlType));
 			AddEmptyItemOnListControls(ll);
 		}
-		
+
 		/// <summary>
 		/// Adiciona itens em branco como primeiros itens de todas as <see cref="DropDownList"/>s
 		/// da página.
@@ -297,11 +300,11 @@ namespace Suprifattus.Util.Web
 		[Obsolete("Use an empty supri:FixedListItem instead")]
 		public static void AddEmptyItemOnListControls(params ListControl[] ddls)
 		{
-			ListItem empty = new ListItem();
-			ListItem np = new ListItem("NI", "");
+			var empty = new ListItem();
+			var np = new ListItem("NI", "");
 			np.Attributes["title"] = "Não preenchido";
 
-			foreach (ListControl ctl in ddls) 
+			foreach (ListControl ctl in ddls)
 			{
 				if (ctl is RadioButtonList || ctl is CheckBoxList)
 					ctl.Items.Insert(0, np);
@@ -309,7 +312,7 @@ namespace Suprifattus.Util.Web
 					ctl.Items.Insert(0, empty);
 			}
 		}
-		
+
 		/// <summary>
 		/// Adiciona itens em branco como primeiros itens de todas as <see cref="DropDownList"/>s
 		/// da página.
@@ -317,12 +320,12 @@ namespace Suprifattus.Util.Web
 		[Obsolete("Use an empty supri:FixedListItem instead")]
 		public static void AddEmptyItemOnListControls(params string[] ids)
 		{
-			ArrayList ctls = new ArrayList(ids.Length);
+			var ctls = new ArrayList(ids.Length);
 			Array.Sort(ids);
 			foreach (ListControl ctl in SelectControls(new TypeCondition(typeof(ListControl))))
 				if (Array.BinarySearch(ids, ctl.ID) >= 0)
 					ctls.Add(ctl);
-			
+
 			AddEmptyItemOnListControls((ListControl[]) CollectionUtils.ToArray(typeof(ListControl), ctls));
 		}
 		#endregion
@@ -367,17 +370,17 @@ namespace Suprifattus.Util.Web
 		#endregion
 
 		#region JavascriptRedirect Overloads
-		public static void JavascriptRedirect(string url) 
+		public static void JavascriptRedirect(string url)
 		{
 			JavascriptRedirect(url, null);
 		}
-			
-		public static void JavascriptRedirect(string url, string message, params object[] messageParams) 
+
+		public static void JavascriptRedirect(string url, string message, params object[] messageParams)
 		{
 			TextWriter w = Response.Output;
-			
+
 			Response.Clear();
-			
+
 			w.WriteLine("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>");
 			w.WriteLine("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 			w.WriteLine("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-br\" lang=\"pt-br\">");
@@ -388,7 +391,7 @@ namespace Suprifattus.Util.Web
 				w.WriteLine("\t\t\talert('{0}');", String.Format(message, messageParams).Replace("'", "\\'").Replace("\n", "\\n"));
 
 			url = url.Replace("'", "\\'").Replace("~", Request.ApplicationPath);
-			
+
 			//w.Write("\t\t\talert('Redirecting to \\'{0}\\'');", url);
 			w.WriteLine("\t\t\tlocation.href = '{0}';", url);
 
@@ -396,7 +399,7 @@ namespace Suprifattus.Util.Web
 			w.WriteLine("\t\t</script>");
 			w.WriteLine("\t</head>");
 			w.WriteLine("</html>");
-			
+
 			Response.End();
 		}
 		#endregion
@@ -414,7 +417,7 @@ namespace Suprifattus.Util.Web
 		}
 		#endregion
 	}
-	
+
 	public interface IDatabaseFieldRelated
 	{
 		string DatabaseField { get; }

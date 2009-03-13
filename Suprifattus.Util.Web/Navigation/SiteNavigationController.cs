@@ -15,7 +15,6 @@ namespace Suprifattus.Util.Web.Navigation
 		private string nextPopFallback;
 
 		#region Constructors
-
 		public SiteNavigationController(string configuration)
 		{
 			var h = (SiteNavigationSectionHandler) ConfigurationManager.GetSection("suprifattus.sitenavigation");
@@ -31,7 +30,6 @@ namespace Suprifattus.Util.Web.Navigation
 			: this("default")
 		{
 		}
-
 		#endregion
 
 		public string Home
@@ -41,7 +39,6 @@ namespace Suprifattus.Util.Web.Navigation
 		}
 
 		#region GoHome overloads
-
 		public void GoHome()
 		{
 			GoHome(NavigationMethod.RedirectJS);
@@ -61,11 +58,9 @@ namespace Suprifattus.Util.Web.Navigation
 		{
 			Navigate(method, home ?? cfg.DefaultHome, message);
 		}
-
 		#endregion
 
 		#region GoLogin overloads
-
 		public void GoLogin()
 		{
 			GoLogin(NavigationMethod.RedirectJS);
@@ -85,11 +80,9 @@ namespace Suprifattus.Util.Web.Navigation
 		{
 			Navigate(method, cfg.Login, message);
 		}
-
 		#endregion
 
 		#region PushAndGo overloads
-
 		public void PushAndGo(string page)
 		{
 			PushAndGo(NavigationMethod.RedirectJS, page);
@@ -105,11 +98,9 @@ namespace Suprifattus.Util.Web.Navigation
 
 			Navigate(method, page);
 		}
-
 		#endregion
 
 		#region Pop overloads
-
 		public void Pop()
 		{
 			Pop(NavigationMethod.RedirectJS);
@@ -124,7 +115,6 @@ namespace Suprifattus.Util.Web.Navigation
 		{
 			PerformPop(method, count, null);
 		}
-
 		#endregion
 
 		public void PopWithMessage(string message, params object[] args)
@@ -172,7 +162,6 @@ namespace Suprifattus.Util.Web.Navigation
 		}
 
 		#region Navigate
-
 		public void Navigate(NavigationMethod method, string page)
 		{
 			Navigate(method, page, null);
@@ -193,7 +182,6 @@ namespace Suprifattus.Util.Web.Navigation
 					break;
 			}
 		}
-
 		#endregion
 	}
 }

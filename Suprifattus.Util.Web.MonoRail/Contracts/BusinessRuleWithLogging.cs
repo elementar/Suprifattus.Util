@@ -26,7 +26,7 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 				if (log is IDisposable)
 					((IDisposable) log).Dispose();
 			}
-			
+
 			base.Dispose(disposing);
 		}
 	}
