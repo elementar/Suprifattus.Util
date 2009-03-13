@@ -107,7 +107,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		#region CopiaStream
 		public static void CopiaStream(Stream ins, Stream outs)
 		{
-			byte[] buffer = new byte[10240];
+			var buffer = new byte[10240];
 			int l;
 			while ((l = ins.Read(buffer, 0, buffer.Length)) > 0)
 				outs.Write(buffer, 0, l);
@@ -130,7 +130,7 @@ namespace Suprifattus.Util.Web.MonoRail
 			where I: class, IRecord
 			where F: class, IRecord
 		{
-			AtualizaRelacionamento(itens, selecionados, creator, getter, delegate(I item) { itens.Remove(item); });
+			AtualizaRelacionamento(itens, selecionados, creator, getter, item => itens.Remove(item));
 		}
 
 		/// <summary>
@@ -159,10 +159,10 @@ namespace Suprifattus.Util.Web.MonoRail
 				selecionados = new F[0];
 
 			// preenche lista com todas as possibilidades de selecionados
-			List<F> todos = new List<F>(ActiveRecordMediator<F>.FindAll());
+			var todos = new List<F>(ActiveRecordMediator<F>.FindAll());
 
 			// preenche mapa com os registros de relacionamento atuais
-			Dictionary<F, I> atuais = new Dictionary<F, I>();
+			var atuais = new Dictionary<F, I>();
 			foreach (I item in itens)
 				atuais.Add(getter(item), item);
 
@@ -231,7 +231,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// <param name="s">A string</param>
 		public static string NullIfEmpty(string s)
 		{
-			return s == null || s.Length == 0 ? null : s;
+			return String.IsNullOrEmpty(s) ? null : s;
 		}
 
 		/// <summary>
@@ -297,7 +297,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		public static void Sort<T, C>(T[] array, Converter<T, C> getter)
 		{
-			Array.Sort(array, delegate(T v1, T v2) { return Comparer<C>.Default.Compare(getter(v1), getter(v2)); });
+			Array.Sort(array, (v1, v2) => Comparer<C>.Default.Compare(getter(v1), getter(v2)));
 		}
 	}
 }

@@ -5,12 +5,10 @@ using System.Text.RegularExpressions;
 
 using Castle.MonoRail.Framework;
 using Castle.MonoRail.Framework.Helpers;
-using Castle.MonoRail.Framework.Internal;
 
-using Suprifattus.Util;
 using Suprifattus.Util.AccessControl;
-using Suprifattus.Util.Xml;
 using Suprifattus.Util.Exceptions;
+using Suprifattus.Util.Xml;
 
 namespace Suprifattus.Util.Web.MonoRail.Helpers
 {
@@ -39,16 +37,16 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				parameters = dictHelper.CreateDict(queryString);
 			return AddRelatedAction(description, area, controller, action, parameters);
 		}
-		
+
 		public static IAction AddRelatedAction(string description, string area, string controller, string action, IDictionary parameters)
 		{
 			const string RelatedActionsKey = "actions";
 
 			IRailsEngineContext ctx = MonoRailHttpHandler.CurrentContext;
-			
+
 			IAction ac;
-			IList related = (IList) ctx.Flash[RelatedActionsKey];
-			related = (related != null ? related : new ArrayList());
+			var related = (IList) ctx.Flash[RelatedActionsKey];
+			related = (related ?? new ArrayList());
 			related.Add(ac = new MonoRailAction(description, area, controller, action, parameters));
 			ctx.Flash[RelatedActionsKey] = related;
 
@@ -60,7 +58,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			return (e is BaseException);
 		}
-		
+
 		/// <summary>
 		/// Retorna o tipo de alerta para a exceção.
 		/// </summary>
@@ -72,10 +70,10 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				return "alert";
 			if (e is AccessDeniedException)
 				return "alert";
-			
+
 			return "error";
 		}
-		
+
 		public string GetTitle(Exception e)
 		{
 			if (e is BaseException && !Logic.StringEmpty(((BaseException) e).Title))
@@ -92,27 +90,26 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 			return "Erro Interno: " + e.GetType().Name;
 		}
-		
+
 		public string Format(Exception e)
 		{
 			const string projDir = @".:\\(Documents and Settings|projects)\\\w+(\\My Documents\\Visual Studio Projects)?";
 			string nl = Environment.NewLine;
-			string stackTrace;
-			Regex rx = new Regex(" in " + projDir + "(.*$)", RegexOptions.Multiline | RegexOptions.IgnoreCase | RegexOptions.Compiled);
+			var rx = new Regex(" in " + projDir + "(.*$)", RegexOptions.Multiline | RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
-			Stack s = new Stack();
+			var s = new Stack();
 
-			while (e != null) 
+			while (e != null)
 			{
 				s.Push(e);
 				e = e.InnerException;
 			}
 
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			while (s.Count > 0 && (e = (Exception) s.Pop()) != null)
 			{
-				BaseException be = e as BaseException;
-				
+				var be = e as BaseException;
+
 				sb.AppendFormat("<strong class='exception-text'>{0}: ", XmlEncoder.Encode(e.GetType().FullName));
 				if (be != null && !Logic.StringEmpty(be.Title))
 					sb.AppendFormat("<span class='exception-title'>{0}:</span> ", be.Title);
@@ -120,9 +117,9 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				if (be != null && !Logic.StringEmpty(be.AdditionalInfo))
 					sb.AppendFormat(" <em class='exception-details'>({0})</em>", XmlEncoder.Encode(be.AdditionalInfo));
 				sb.Append(nl);
-				if (e.StackTrace != null || e.StackTrace.Length > 0) 
+				if (!String.IsNullOrEmpty(e.StackTrace))
 				{
-					stackTrace = XmlEncoder.Encode(e.StackTrace);
+					string stackTrace = XmlEncoder.Encode(e.StackTrace);
 					stackTrace = rx.Replace(stackTrace, nl + "\t<span class='exception-sourcefile'>in $3</span>");
 					sb.Append(stackTrace).Append(nl);
 				}
@@ -141,12 +138,16 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 	public class MonoRailAction : IAction
 	{
-		private string description;
-		private string area, controller, action;
-		private IDictionary parameters;
+		private readonly string description;
+		private readonly string area;
+		private readonly string controller;
+		private readonly string action;
+		private readonly IDictionary parameters;
 
 		public MonoRailAction(string description, string area, string controller, string action)
-			: this(description, area, controller, action, null) { }
+			: this(description, area, controller, action, null)
+		{
+		}
 
 		public MonoRailAction(string description, string area, string controller, string action, IDictionary parameters)
 		{
@@ -158,16 +159,19 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		}
 
 		public MonoRailAction(string description, string controller, string action)
-			: this(description, null, controller, action) { }
+			: this(description, null, controller, action)
+		{
+		}
 
 		public MonoRailAction(string description, string controller, string action, IDictionary parameters)
-			: this(description, null, controller, action, parameters) { }
+			: this(description, null, controller, action, parameters)
+		{
+		}
 
 		public string Url
 		{
 			get
 			{
-				IRailsEngineContext ctx = MonoRailHttpHandler.CurrentContext;
 				string url = new UrlInfo(area, controller, action).UrlRaw;
 				if (parameters != null && parameters.Count > 0)
 					url += "?" + BuildQueryString(parameters);
@@ -179,14 +183,14 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			if (paramMap == null) return String.Empty;
 
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 
 			foreach (DictionaryEntry entry in paramMap)
 			{
 				if (entry.Value == null) continue;
 
-				sb.AppendFormat( "{0}={1}&amp;", 
-					UrlEncode(entry.Key.ToString()), UrlEncode(entry.Value.ToString()) );
+				sb.AppendFormat("{0}={1}&amp;",
+				                UrlEncode(entry.Key.ToString()), UrlEncode(entry.Value.ToString()));
 			}
 
 			return sb.ToString();

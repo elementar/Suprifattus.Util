@@ -152,7 +152,7 @@
     <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="LogUtil.cs" />
     <Compile Include="BaseMonoRailContainer.cs" />
-    <Compile Include="PerSessionLifestyleHandler.cs" />
+    <Compile Include="Components\PerSessionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

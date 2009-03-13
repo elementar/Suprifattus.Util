@@ -287,6 +287,12 @@ namespace Suprifattus.Util.Collections
 			AddRange(col, (IEnumerable<T>) items);
 		}
 		#endregion
+
+		public static V GetValueOrDefault<K,V>(this IDictionary<K,V> dict, K key, V def)
+		{
+			V val;
+			return dict.TryGetValue(key, out val) ? val : def;
+		}
 	}
 }
 

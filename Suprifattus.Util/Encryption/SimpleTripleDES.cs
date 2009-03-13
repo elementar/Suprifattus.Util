@@ -55,12 +55,22 @@ namespace Suprifattus.Util.Encryption
 			this.iv = iv;
 		}
 
+		public CryptoStream CreateEncryptorStream(Stream output)
+		{
+			return new CryptoStream(output, des.CreateEncryptor(key, iv), CryptoStreamMode.Write);
+		}
+
+		private CryptoStream CreateDecryptorStream(Stream input)
+		{
+			return new CryptoStream(input, des.CreateDecryptor(key, iv), CryptoStreamMode.Read);
+		}
+
 		public byte[] Encrypt(byte[] input)
 		{
-			using (MemoryStream msOut = new MemoryStream())
+			using (var msOut = new MemoryStream())
 			{
-				using (MemoryStream msIn = new MemoryStream(input))
-				using (CryptoStream cryptStream = new CryptoStream(msOut, des.CreateEncryptor(key, iv), CryptoStreamMode.Write))
+				using (var msIn = new MemoryStream(input))
+				using (var cryptStream = this.CreateEncryptorStream(msOut))
 				{
 					// transform the bytes as requested
 					Streams.SaveStream(msIn, cryptStream);
@@ -74,10 +84,10 @@ namespace Suprifattus.Util.Encryption
 
 		public byte[] Decrypt(byte[] input)
 		{
-			using (MemoryStream msOut = new MemoryStream())
+			using (var msOut = new MemoryStream())
 			{
-				using (MemoryStream msIn = new MemoryStream(input))
-				using (CryptoStream cryptStream = new CryptoStream(msIn, des.CreateDecryptor(key, iv), CryptoStreamMode.Read))
+				using (var msIn = new MemoryStream(input))
+				using (var cryptStream = this.CreateDecryptorStream(msIn))
 				{
 					// transform the bytes as requested
 					Streams.SaveStream(cryptStream, msOut);
@@ -112,34 +122,61 @@ namespace Suprifattus.Util.Encryption
 		/// <summary>
 		/// Accepts any serializable object, encrypts and encodes as Base64.
 		/// </summary>
-		public string EncryptObject(object obj)
+		public string EncryptObjectToBase64(object obj)
 		{
-			BinaryFormatter fmt = new BinaryFormatter();
+			return Convert.ToBase64String(EncryptObject(obj));
+		}
 
-			using (MemoryStream ms = new MemoryStream())
+		/// <summary>
+		/// Accepts any serializable object, encrypts and encodes as an array of bytes.
+		/// </summary>
+		public byte[] EncryptObject(object obj)
+		{
+			var fmt = new BinaryFormatter();
+
+			using (var ms = new MemoryStream())
 			{
 				fmt.Serialize(ms, obj);
-				return Convert.ToBase64String(Encrypt(ms.ToArray()));
+				return Encrypt(ms.ToArray());
 			}
+		}
+
+		/// <summary>
+		/// Accepts an array of bytes, and decrypt as an object.
+		/// </summary>
+		public object DecryptObject(byte[] bytes)
+		{
+			var fmt = new BinaryFormatter();
+
+			using (var ms = new MemoryStream(Decrypt(bytes)))
+				return fmt.Deserialize(ms);
+		}
+
+		/// <summary>
+		/// Accepts an array of bytes, and decrypt as an object.
+		/// </summary>
+		public T DecryptObject<T>(byte[] bytes)
+		{
+			return (T) DecryptObject(bytes);
 		}
 
 		/// <summary>
 		/// Accepts a Base64 encoded array of bytes, and decrypt as an object.
 		/// </summary>
-		public object DecryptObject(string text)
+		public object DecryptObjectFromBase64(string text)
 		{
-			BinaryFormatter fmt = new BinaryFormatter();
+			var fmt = new BinaryFormatter();
 
-			using (MemoryStream ms = new MemoryStream(Decrypt(Convert.FromBase64String(text))))
+			using (var ms = new MemoryStream(Decrypt(Convert.FromBase64String(text))))
 				return fmt.Deserialize(ms);
 		}
 
 		/// <summary>
 		/// Accepts a Base64 encoded array of bytes, and decrypt as an object.
 		/// </summary>
-		public T DecryptObject<T>(string text)
+		public T DecryptObjectFromBase64<T>(string text)
 		{
-			return (T) DecryptObject(text);
+			return (T) DecryptObjectFromBase64(text);
 		}
 
 		public void Dispose()

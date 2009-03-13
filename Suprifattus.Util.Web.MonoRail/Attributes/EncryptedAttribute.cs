@@ -43,14 +43,14 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 			if (String.IsNullOrEmpty(value))
 				return null;
 
-			using (SimpleTripleDES s3des = new SimpleTripleDES(key))
-				return s3des.DecryptObject(AdjustBase64ForUrlUsage(false, value));
+			using (var s3des = new SimpleTripleDES(key))
+				return s3des.DecryptObjectFromBase64(AdjustBase64ForUrlUsage(false, value));
 		}
 
 		public static string Encrypt(string key, object obj)
 		{
-			using (SimpleTripleDES s3des = new SimpleTripleDES(key))
-				return AdjustBase64ForUrlUsage(true, s3des.EncryptObject(obj));
+			using (var s3des = new SimpleTripleDES(key))
+				return AdjustBase64ForUrlUsage(true, s3des.EncryptObjectToBase64(obj));
 		}
 
 		private static string AdjustBase64ForUrlUsage(bool escape, string s)
@@ -61,7 +61,7 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 			char[] from = (escape ? m1 : m2);
 			char[] to = (escape ? m2 : m1);
 
-			StringBuilder	sb = new StringBuilder(s);
+			var sb = new StringBuilder(s);
 			for (int i = 0; i < sb.Length; i++)
 				for (int j = 0; j < from.Length; j++)
 					if (sb[i] == from[j])

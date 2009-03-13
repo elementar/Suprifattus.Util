@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Xml;
 
-using Castle.ActiveRecord.Queries;
 using Castle.MonoRail.ActiveRecordSupport.Pagination;
 using Castle.MonoRail.Framework.Helpers;
 
 using NHibernate.Expression;
 
+using Suprifattus.Util.Exceptions;
+
 namespace Suprifattus.Util.Web.MonoRail
 {
 	public class ControllerUtils : AbstractHelper
 	{
-		static Regex rxNotNumbers = new Regex(@"\D", RegexOptions.Compiled);
+		private static readonly Regex rxNotNumbers = new Regex(@"\D", RegexOptions.Compiled);
 
 		#region Paginate com ARPaginable
 		public IPaginatedPage Paginate(Type targetType, string hql, params object[] parameters)
@@ -22,28 +23,28 @@ namespace Suprifattus.Util.Web.MonoRail
 			IARPaginableDataSource q = new ARPaginableSimpleQuery(targetType, hql, parameters);
 			return Paginate(q);
 		}
-		
+
 		public IPaginatedPage Paginate(Type type, Order order, params ICriterion[] criterions)
 		{
-			return Paginate(type, new Order[] {order}, criterions);
+			return Paginate(type, new[] { order }, criterions);
 		}
-		
+
 		public IPaginatedPage Paginate(Type type, Order order1, Order order2, params ICriterion[] criterions)
 		{
-			return Paginate(type, new Order[] {order1, order2}, criterions);
+			return Paginate(type, new[] { order1, order2 }, criterions);
 		}
-		
+
 		public IPaginatedPage Paginate(Type type, Order order1, Order order2, Order order3, params ICriterion[] criterions)
 		{
-			return Paginate(type, new Order[] {order1, order2, order3}, criterions);
+			return Paginate(type, new[] { order1, order2, order3 }, criterions);
 		}
-		
+
 		public IPaginatedPage Paginate(Type type, Order[] orders, params ICriterion[] criterions)
 		{
 			IARPaginableDataSource q = new ARPaginableCriteria(type, orders, criterions);
 			return Paginate(q);
 		}
-		
+
 		public IPaginatedPage Paginate(IARPaginableDataSource q)
 		{
 			int pageSize = ((CustomBaseController) Controller).Config.PageSize;
@@ -101,17 +102,17 @@ namespace Suprifattus.Util.Web.MonoRail
 				return null;
 			return Expression.Like(property, s);
 		}
-		
+
 		public object CreateComponent(string componentName)
 		{
 			return BaseMonoRailApplication.CurrentWindsorContainer.Resolve(componentName);
 		}
-		
+
 		public object CreateComponent(Type serviceType)
 		{
 			return BaseMonoRailApplication.CurrentWindsorContainer.Resolve(serviceType);
 		}
-		
+
 #if GENERICS
 		public T CreateComponent<T>()
 		{
@@ -127,41 +128,92 @@ namespace Suprifattus.Util.Web.MonoRail
 		#region MakeXml
 #if GENERICS
 		public delegate void MakeXmlFirstItemDelegate(XmlWriter w);
+
 		public delegate void MakeXmlItemDelegate<T>(XmlWriter w, T obj);
 
-		public void RenderXml<T>(IEnumerable<T> lista, string rootXmlElement, MakeXmlItemDelegate<T> onItem)
+		public void RenderXml<T>(IEnumerable<T> lista, string rootXmlElement, Action<EasyXmlWriter, T> onItem)
 		{
 			RenderXml(lista, rootXmlElement, "", null, onItem);
 		}
 
-		public void RenderXml<T>(IEnumerable<T> lista, string rootXmlElement, string rootXmlNS, MakeXmlItemDelegate<T> onItem)
+		public void RenderXml<T>(IEnumerable<T> lista, string rootXmlElement, string rootXmlNS, Action<EasyXmlWriter, T> onItem)
 		{
 			RenderXml(lista, rootXmlElement, rootXmlNS, null, onItem);
 		}
 
-		public void RenderXml<T>(IEnumerable<T> lista, 
-		                         string rootXmlElement, string rootXmlNS, 
-		                         MakeXmlFirstItemDelegate onFirstItem,
-		                         MakeXmlItemDelegate<T> onItem)
+		public void RenderXml<T>(IEnumerable<T> lista,
+		                         string rootXmlElement, string rootXmlNS,
+		                         Action<EasyXmlWriter> onFirstItem,
+														 Action<EasyXmlWriter, T> onItem)
 		{
 			Controller.CancelView();
 			Controller.Response.ContentType = "text/xml";
-			
-			XmlWriterSettings settings = new XmlWriterSettings();
-			settings.ConformanceLevel = ConformanceLevel.Fragment;
-			
+
+			var settings = new XmlWriterSettings { ConformanceLevel = ConformanceLevel.Fragment };
+
 			using (XmlWriter w = XmlTextWriter.Create(Controller.Response.Output, settings))
 			{
+				if (w == null)
+					throw new AppAssertionError("Erro", "Erro ao criar XmlWriter");
+
+				var ew = new EasyXmlWriter(w);
+
 				w.WriteStartElement(rootXmlElement, rootXmlNS);
 				if (onFirstItem != null)
-					onFirstItem(w);
+					onFirstItem(ew);
 				if (lista != null)
 					foreach (T obj in lista)
-						onItem(w, obj);
+						onItem(ew, obj);
 				w.WriteEndElement();
 			}
 		}
 #endif
 		#endregion
+	}
+
+	public class EasyXmlWriter
+	{
+		private readonly XmlWriter w;
+
+		public EasyXmlWriter(XmlWriter w)
+		{
+			this.w = w;
+		}
+
+		public XmlWriter Writer
+		{
+			get { return w; }
+		}
+
+		public EasyXmlWriter EmptyElement(string localName)
+		{
+			w.WriteStartElement(localName);
+			w.WriteEndElement();
+			return this;
+		}
+
+		public EasyXmlWriter StartElement(string localName)
+		{
+			w.WriteStartElement(localName);
+			return this;
+		}
+
+		public EasyXmlWriter Attribute(string localName, object value)
+		{
+			w.WriteAttributeString(localName, Convert.ToString(value));
+			return this;
+		}
+
+		public EasyXmlWriter Value(object value)
+		{
+			w.WriteValue(value);
+			return this;
+		}
+
+		public EasyXmlWriter EndElement()
+		{
+			w.WriteEndElement();
+			return this;
+		}
 	}
 }
