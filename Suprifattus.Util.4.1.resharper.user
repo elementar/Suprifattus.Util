@@ -12,7 +12,20 @@
     <NAntPath value="" />
   </NAntValidationSettings>
   <RecentFiles>
-    <RecentFiles />
+    <RecentFiles>
+      <File id="C2E9C155-32BD-4D1F-95F2-DDE818F8EC97/d:Objects/d:Tables/f:Column.cs" caret="1851" scrollPosition="0|21" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Helpers/f:NavigationHelper.cs" caret="440" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/d:Security/f:SecurityComponentBase.Generic.cs" caret="447" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Contracts/f:BusinessRule.cs" caret="141" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/f:BaseMonoRailContainer.cs" caret="247" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/f:EmailBuilder.cs" caret="424" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Helpers/f:ListHelper.cs" caret="1661" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/f:DynamicCaster.cs" caret="134" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/d:Security/f:SecurityRulesProvider.cs" caret="41" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/f:LogUtil.cs" caret="732" scrollPosition="0|0" />
+      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Filters/f:MozillaOnlyFilter.cs" caret="2559" scrollPosition="0|78" />
+      <File id="C0BC1980-88F3-4F0A-8F8D-A857087E8DBB/d:Navigation/f:SiteNavigationController.cs" caret="0" scrollPosition="0|0" />
+    </RecentFiles>
     <RecentEdits />
   </RecentFiles>
   <UnitTestRunner>

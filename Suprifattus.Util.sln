@@ -1,12 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.Web.MonoRail-vs2008", "Suprifattus.Util.Web.MonoRail\Suprifattus.Util.Web.MonoRail-vs2008.csproj", "{E9A33895-FACC-4140-860D-BBA77D11FE04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.Web.MonoRail", "Suprifattus.Util.Web.MonoRail\Suprifattus.Util.Web.MonoRail.csproj", "{E9A33895-FACC-4140-860D-BBA77D11FE04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.PdfGeneration-vs2008", "Suprifattus.Util.PdfGeneration\Suprifattus.Util.PdfGeneration-vs2008.csproj", "{C2E9C155-32BD-4D1F-95F2-DDE818F8EC97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.PdfGeneration", "Suprifattus.Util.PdfGeneration\Suprifattus.Util.PdfGeneration.csproj", "{C2E9C155-32BD-4D1F-95F2-DDE818F8EC97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util-3.5", "Suprifattus.Util\Suprifattus.Util-3.5.csproj", "{1CE6FFA8-F126-49E7-BAC6-EB9431398438}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util", "Suprifattus.Util\Suprifattus.Util.csproj", "{1CE6FFA8-F126-49E7-BAC6-EB9431398438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.Web-3.5", "Suprifattus.Util.Web\Suprifattus.Util.Web-3.5.csproj", "{C0BC1980-88F3-4F0A-8F8D-A857087E8DBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.Web", "Suprifattus.Util.Web\Suprifattus.Util.Web.csproj", "{C0BC1980-88F3-4F0A-8F8D-A857087E8DBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

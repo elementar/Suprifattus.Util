@@ -1,360 +1,196 @@
-<VisualStudioProject>
-    <CSHARP
-        ProjectType = "Local"
-        ProductVersion = "7.10.3077"
-        SchemaVersion = "2.0"
-        ProjectGuid = "{1EB9AB82-4126-44F9-B89E-35D8ED5A2F79}"
-    >
-        <Build>
-            <Settings
-                ApplicationIcon = ""
-                AssemblyKeyContainerName = ""
-                AssemblyName = "Suprifattus.Util.Web.MonoRail"
-                AssemblyOriginatorKeyFile = ""
-                DefaultClientScript = "JScript"
-                DefaultHTMLPageLayout = "Grid"
-                DefaultTargetSchema = "IE50"
-                DelaySign = "false"
-                OutputType = "Library"
-                PreBuildEvent = ""
-                PostBuildEvent = ""
-                RootNamespace = "Suprifattus.Util.Web.MonoRail"
-                RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = ""
-            >
-                <Config
-                    Name = "Debug"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
-                    DebugSymbols = "true"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = ""
-                    Optimize = "false"
-                    OutputPath = "bin\Debug\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-                <Config
-                    Name = "Release"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE"
-                    DocumentationFile = ""
-                    DebugSymbols = "false"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = ""
-                    Optimize = "true"
-                    OutputPath = "bin\Release\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-            </Settings>
-            <References>
-                <Reference
-                    Name = "System"
-                    AssemblyName = "System"
-                    HintPath = "..\..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
-                />
-                <Reference
-                    Name = "System.Data"
-                    AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
-                />
-                <Reference
-                    Name = "System.XML"
-                    AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
-                />
-                <Reference
-                    Name = "Castle.ActiveRecord"
-                    AssemblyName = "Castle.ActiveRecord"
-                    HintPath = "..\lib\net-1.1\Castle.ActiveRecord.dll"
-                />
-                <Reference
-                    Name = "Castle.Components.Binder"
-                    AssemblyName = "Castle.Components.Binder"
-                    HintPath = "..\lib\net-1.1\Castle.Components.Binder.dll"
-                />
-                <Reference
-                    Name = "Castle.Components.Common.EmailSender"
-                    AssemblyName = "Castle.Components.Common.EmailSender"
-                    HintPath = "..\lib\net-1.1\Castle.Components.Common.EmailSender.dll"
-                />
-                <Reference
-                    Name = "Castle.Components.Common.EmailSender.SmtpEmailSender"
-                    AssemblyName = "Castle.Components.Common.EmailSender.SmtpEmailSender"
-                    HintPath = "..\lib\net-1.1\Castle.Components.Common.EmailSender.SmtpEmailSender.dll"
-                />
-                <Reference
-                    Name = "Castle.MicroKernel"
-                    AssemblyName = "Castle.MicroKernel"
-                    HintPath = "..\lib\net-1.1\Castle.MicroKernel.dll"
-                />
-                <Reference
-                    Name = "Castle.Model"
-                    AssemblyName = "Castle.Model"
-                    HintPath = "..\lib\net-1.1\Castle.Model.dll"
-                />
-                <Reference
-                    Name = "Castle.MonoRail.ActiveRecordSupport"
-                    AssemblyName = "Castle.MonoRail.ActiveRecordSupport"
-                    HintPath = "..\lib\net-1.1\Castle.MonoRail.ActiveRecordSupport.dll"
-                />
-                <Reference
-                    Name = "Castle.MonoRail.Framework"
-                    AssemblyName = "Castle.MonoRail.Framework"
-                    HintPath = "..\lib\net-1.1\Castle.MonoRail.Framework.dll"
-                />
-                <Reference
-                    Name = "Castle.MonoRail.Framework.Views.NVelocity"
-                    AssemblyName = "Castle.MonoRail.Framework.Views.NVelocity"
-                    HintPath = "..\lib\net-1.1\Castle.MonoRail.Framework.Views.NVelocity.dll"
-                />
-                <Reference
-                    Name = "Castle.MonoRail.WindsorExtension"
-                    AssemblyName = "Castle.MonoRail.WindsorExtension"
-                    HintPath = "..\lib\net-1.1\Castle.MonoRail.WindsorExtension.dll"
-                />
-                <Reference
-                    Name = "Castle.Windsor"
-                    AssemblyName = "Castle.Windsor"
-                    HintPath = "..\lib\net-1.1\Castle.Windsor.dll"
-                />
-                <Reference
-                    Name = "NHibernate"
-                    AssemblyName = "NHibernate"
-                    HintPath = "..\lib\net-1.1\NHibernate.dll"
-                />
-                <Reference
-                    Name = "Nullables"
-                    AssemblyName = "Nullables"
-                    HintPath = "..\lib\net-1.1\Nullables.dll"
-                />
-                <Reference
-                    Name = "NVelocity"
-                    AssemblyName = "NVelocity"
-                    HintPath = "..\lib\net-1.1\NVelocity.dll"
-                />
-                <Reference
-                    Name = "Suprifattus.Util"
-                    Project = "{1CE6FFA8-F126-49E7-BAC6-EB9431398438}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Suprifattus.Util.Web"
-                    Project = "{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Iesi.Collections"
-                    AssemblyName = "Iesi.Collections"
-                    HintPath = "..\lib\net-1.1\Iesi.Collections.dll"
-                />
-                <Reference
-                    Name = "system.web"
-                    AssemblyName = "System.Web"
-                    HintPath = "..\..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\system.web.dll"
-                />
-                <Reference
-                    Name = "Castle.Services.Logging.Log4netIntegration"
-                    AssemblyName = "Castle.Services.Logging.Log4netIntegration"
-                    HintPath = "..\lib\net-1.1\Castle.Services.Logging.Log4netIntegration.dll"
-                />
-                <Reference
-                    Name = "Castle.Services.Logging"
-                    AssemblyName = "Castle.Services.Logging"
-                    HintPath = "..\lib\net-1.1\Castle.Services.Logging.dll"
-                />
-                <Reference
-                    Name = "log4net"
-                    AssemblyName = "log4net"
-                    HintPath = "..\lib\net-1.1\log4net.dll"
-                />
-                <Reference
-                    Name = "Castle.DynamicProxy"
-                    AssemblyName = "Castle.DynamicProxy"
-                    HintPath = "..\lib\net-1.1\Castle.DynamicProxy.dll"
-                />
-            </References>
-        </Build>
-        <Files>
-            <Include>
-                <File
-                    RelPath = "AppValidationException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ARLoader.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "BaseMonoRailApplication.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "BaseViewComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ControllerUtils.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "CustomBaseController.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "CustomBaseControllerConfig.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "CustomNVelocityViewEngine.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "LogUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "PerSessionLifestyleHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "RecordBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Components\DynamicCaster.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Components\Security\IAppPermission.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Components\Security\IAppProfile.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Components\Security\IAppRole.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Components\Security\IAppUser.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Components\Security\SecurityComponentBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Contracts\BusinessRule.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Contracts\BusinessRuleWithLogging.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Contracts\ISecurityComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Filters\MozillaOnlyFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Filters\SafePostFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Filters\SecurityFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\AbstractDbHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\BasicFormatHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\ExceptionHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\GroupHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\ListHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\MathHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\RegexHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Helpers\RuntimeInfoHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Properties\AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-            </Include>
-        </Files>
-    </CSHARP>
-</VisualStudioProject>
-
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9A33895-FACC-4140-860D-BBA77D11FE04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Suprifattus.Util.Web.MonoRail</RootNamespace>
+    <AssemblyName>Suprifattus.Util.Web.MonoRail</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Suprifattus.Util.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;GENERICS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GENERICS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.ActiveRecord, Version=0.0.1.7, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.ActiveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Components.Common.EmailSender, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.Components.Common.EmailSender.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=1.0.0.2, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MonoRail.ActiveRecordSupport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.MonoRail.ActiveRecordSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MonoRail.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.MonoRail.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MonoRail.Framework.Views.NVelocity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.MonoRail.Framework.Views.NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=1.0.0.5, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity, Version=0.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\castle\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppValidationException.cs" />
+    <Compile Include="ARLoader.cs" />
+    <Compile Include="Attributes\EncryptedAttribute.cs" />
+    <Compile Include="Attributes\ParseAttribute.cs" />
+    <Compile Include="Attributes\WindsorComponentAttribute.cs" />
+    <Compile Include="BaseMonoRailApplication.cs" />
+    <Compile Include="BaseViewComponent.cs" />
+    <Compile Include="Components\ActiveRecordTests.cs" />
+    <Compile Include="Components\DetachedCriteriaQuery.cs" />
+    <Compile Include="Components\DynamicCaster.cs" />
+    <Compile Include="Components\EmailBuilder.cs" />
+    <Compile Include="Components\ObjectFormatter.cs" />
+    <Compile Include="Components\Reloadable.cs" />
+    <Compile Include="Components\Security\AspNetForms\AspNetFormsSecurityComponent.cs" />
+    <Compile Include="Components\Security\IAppPermission.cs" />
+    <Compile Include="Components\Security\IAppProfile.cs" />
+    <Compile Include="Components\Security\IAppRole.cs" />
+    <Compile Include="Components\Security\IAppUser.cs" />
+    <Compile Include="Components\Security\ISecurityRule.cs" />
+    <Compile Include="Components\Security\SecurityRulesProvider.cs" />
+    <Compile Include="Components\Security\SecurityComponentBase.cs" />
+    <Compile Include="Components\Security\SecurityComponentBase.Generic.cs" />
+    <Compile Include="Components\Security\CurrentUser.cs" />
+    <Compile Include="Components\WebResourceProcessor.cs" />
+    <Compile Include="Contracts\BusinessRule.cs" />
+    <Compile Include="Contracts\BusinessRuleWithLogging.cs" />
+    <Compile Include="Contracts\IObjectFormatter.cs" />
+    <Compile Include="Contracts\ISecurityComponent.cs" />
+    <Compile Include="Contracts\IWebResourceProcessor.cs" />
+    <Compile Include="ControllerUtils.cs" />
+    <Compile Include="CustomBaseController.cs" />
+    <Compile Include="CustomBaseControllerConfig.cs" />
+    <Compile Include="CustomNVelocityViewEngine.cs" />
+    <Compile Include="Filters\MozillaOnlyFilter.cs" />
+    <Compile Include="Filters\QueryStringFilter.cs" />
+    <Compile Include="Filters\SafePostFilter.cs" />
+    <Compile Include="Filters\SecurityFilter.cs" />
+    <Compile Include="Helpers\AbstractDbHelper.cs" />
+    <Compile Include="Helpers\BasicFormatHelper.cs" />
+    <Compile Include="Helpers\BasicUIHelper.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\GroupHelper.cs" />
+    <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Helpers\MathHelper.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\RegexHelper.cs" />
+    <Compile Include="Helpers\RescueHelper.cs" />
+    <Compile Include="Helpers\RuntimeInfoHelper.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="LogUtil.cs" />
+    <Compile Include="BaseMonoRailContainer.cs" />
+    <Compile Include="Components\PerSessionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RecordBase.cs" />
+    <Compile Include="RecordBase.Generic.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Suprifattus.Util.snk">
+      <Link>Suprifattus.Util.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Suprifattus.Util.Web\Suprifattus.Util.Web.csproj">
+      <Project>{C0BC1980-88F3-4F0A-8F8D-A857087E8DBB}</Project>
+      <Name>Suprifattus.Util.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Suprifattus.Util\Suprifattus.Util.csproj">
+      <Project>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</Project>
+      <Name>Suprifattus.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

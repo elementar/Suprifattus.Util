@@ -1,603 +1,268 @@
-<VisualStudioProject>
-    <CSHARP
-        ProjectType = "Local"
-        ProductVersion = "7.10.3077"
-        SchemaVersion = "2.0"
-        ProjectGuid = "{1CE6FFA8-F126-49E7-BAC6-EB9431398438}"
-    >
-        <Build>
-            <Settings
-                ApplicationIcon = ""
-                AssemblyKeyContainerName = ""
-                AssemblyName = "Suprifattus.Util"
-                AssemblyOriginatorKeyFile = ""
-                DefaultClientScript = "JScript"
-                DefaultHTMLPageLayout = "Grid"
-                DefaultTargetSchema = "IE50"
-                DelaySign = "false"
-                OutputType = "Library"
-                PreBuildEvent = ""
-                PostBuildEvent = ""
-                RootNamespace = "Suprifattus.Util"
-                RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = ""
-            >
-                <Config
-                    Name = "Debug"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = "bin\Debug\Suprifattus.Util.xml"
-                    DebugSymbols = "true"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = "1584,1573,1036,1591"
-                    Optimize = "false"
-                    OutputPath = "bin\Debug\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-                <Config
-                    Name = "Release"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE"
-                    DocumentationFile = "bin\Release\Suprifattus.Util.xml"
-                    DebugSymbols = "false"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = ""
-                    Optimize = "true"
-                    OutputPath = "bin\Release\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-            </Settings>
-            <References>
-                <Reference
-                    Name = "System"
-                    AssemblyName = "System"
-                    HintPath = "..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
-                />
-                <Reference
-                    Name = "System.Data"
-                    AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
-                />
-                <Reference
-                    Name = "System.XML"
-                    AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
-                />
-                <Reference
-                    Name = "System.Windows.Forms"
-                    AssemblyName = "System.Windows.Forms"
-                    HintPath = "..\..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
-                />
-                <Reference
-                    Name = "system.drawing"
-                    AssemblyName = "System.Drawing"
-                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\system.drawing.dll"
-                />
-                <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\..\..\..\..\..\..\Program Files\NUnit 2.2.6\bin\nunit.framework.dll"
-                />
-                <Reference
-                    Name = "Nullables"
-                    AssemblyName = "Nullables"
-                    HintPath = "..\lib\net-1.1\Nullables.dll"
-                />
-            </References>
-        </Build>
-        <Files>
-            <Include>
-                <File
-                    RelPath = "AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "bool2.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "KeyValueFormatter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Logic.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "NameValue.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ParseUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\AccessDeniedException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\ApplicationDefinedPermissionAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\DemandPermissionsAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\IExtendedIdentity.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\IExtendedPrincipal.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\IPermission.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\IRole.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\PermissionChecker.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\UserBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\Impl\IdentityBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\Impl\Permission.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\Impl\RoleBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "AccessControl\Impl\UserBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\CollectionBaseEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\CollectionUtils.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\ColumnEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\ConcatEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\DistinctEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\EnumeratorBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\GroupByEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\HashSet.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\InsertionEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\ListSet.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\PagedEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\RangeEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\ReverseEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\Set.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\ValueConditionAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Collections\WeakDictionary.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Config\AppEnvironment.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\DbMetadataCache.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\IConnector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\IDbConnectionFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\ISqlQuery.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\ISqlRenderable.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlComplexCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlField.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlFieldCollection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlFieldCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlIsNullCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlLiteralCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlNegatedCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlOrder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlQuery.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlSource.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\Sql\SqlStaticQuery.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\XBind\IXBindAware.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Data\XBind\XBindContext.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DesignPatterns\ICommand.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DesignPatterns\IObjectFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DesignPatterns\ITaggedObject.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Encryption\EncryptionUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Exceptions\Exceptions.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Graphics\ImageUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\CircularBuffer.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\CircularStream.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\CircularStream.Tests.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\Compression.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\NoAccentsTextWriter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\SingleFileWatcher.cs"
-                    SubType = "Component"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\TempFile.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\HoloFS\HoloDirectory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\HoloFS\HoloFile.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\HoloFS\HoloFSItem.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\HoloFS\Impl\FallThroughDirectory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\HoloFS\Impl\LocalDirectory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IO\HoloFS\Impl\LocalFile.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Licensing\LicenseKeyAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\Attributes.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ObjectQuery.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\Properties.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ReflectionCache.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ObjQueryConditions\ComplexCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ObjQueryConditions\Condition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ObjQueryConditions\NegatedCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ObjQueryConditions\PropertyValueCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Reflection\ObjQueryConditions\TypeCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Resources\Strings.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Resources\Strings.pt_BR.resx"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "Resources\Strings.resx"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "Text\CultureSwitch.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\IFormatterPlugin.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\PluggableFormatProvider.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\PluggableFormatProviderTests.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\PluralForm.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\Formatters\CNPJFormatter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\Formatters\CPFFormatter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\Formatters\EnumFormatter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Text\Formatters\WikiFormatter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Timing\Clock.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Win32\ShellApi.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Xml\XmlEncoder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-            </Include>
-        </Files>
-    </CSHARP>
-</VisualStudioProject>
-
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Suprifattus.Util</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\Suprifattus.Util.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Suprifattus.Util</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyKeyProviderName>
+    </AssemblyKeyProviderName>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;GENERICS</DefineConstants>
+    <DocumentationFile>bin\Debug\Suprifattus.Util.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>1699,1587,1591</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;GENERICS</DefineConstants>
+    <DocumentationFile>bin\Release\Suprifattus.Util.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>1699,1591,1587</NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessControl\AccessDeniedException.cs" />
+    <Compile Include="AccessControl\ApplicationDefinedPermissionAttribute.cs" />
+    <Compile Include="AccessControl\DemandPermissionsAttribute.cs" />
+    <Compile Include="AccessControl\IExtendedIdentity.cs" />
+    <Compile Include="AccessControl\IExtendedPrincipal.cs" />
+    <Compile Include="AccessControl\Impl\IdentityBase.cs" />
+    <Compile Include="AccessControl\Impl\Permission.cs" />
+    <Compile Include="AccessControl\Impl\RoleBase.cs" />
+    <Compile Include="AccessControl\Impl\SuprifattusIdentity.cs" />
+    <Compile Include="AccessControl\Impl\SuprifattusPrincipal.cs" />
+    <Compile Include="AccessControl\Impl\UserBase.cs" />
+    <Compile Include="AccessControl\IPermission.cs" />
+    <Compile Include="AccessControl\IRole.cs" />
+    <Compile Include="AccessControl\PermissionChecker.cs" />
+    <Compile Include="Collections\GenericComparer.cs" />
+    <Compile Include="Encryption\EncryptionUtil.cs" />
+    <Compile Include="Encryption\SimpleTripleDES.cs" />
+    <Compile Include="Exceptions\AppAssertionError.cs" />
+    <Compile Include="Exceptions\AppError.cs" />
+    <Compile Include="Exceptions\AppException.cs" />
+    <Compile Include="Exceptions\BaseException.cs" />
+    <Compile Include="Exceptions\BusinessRuleViolationException.cs" />
+    <Compile Include="Exceptions\PermissionDeniedException.cs" />
+    <Compile Include="AccessControl\UserBuilder.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bool2.cs" />
+    <Compile Include="Collections\ColumnEnumerator.cs" />
+    <Compile Include="Collections\Dict.cs" />
+    <Compile Include="Collections\ListSet.Generic.cs" />
+    <Compile Include="Collections\Set.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\Set.Generic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\SoftDictionary.cs" />
+    <Compile Include="Collections\CollectionBaseEx.cs" />
+    <Compile Include="Collections\CollectionUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\ConcatEnumerator.cs" />
+    <Compile Include="Collections\CollectionUtils.Generic.cs" />
+    <Compile Include="Collections\DistinctEnumerator.cs" />
+    <Compile Include="Collections\EnumeratorBase.cs" />
+    <Compile Include="Collections\GroupByEnumerator.cs" />
+    <Compile Include="Collections\InsertionEnumerator.cs" />
+    <Compile Include="Collections\ListSet.cs" />
+    <Compile Include="Collections\NameValueCollectionDictionaryAdapter.cs" />
+    <Compile Include="Collections\PagedEnumerator.cs" />
+    <Compile Include="Collections\RangeEnumerator.cs" />
+    <Compile Include="Collections\ReverseEnumerator.cs" />
+    <Compile Include="Collections\ValueConditionAttribute.cs" />
+    <Compile Include="Config\AppEnvironment.cs" />
+    <Compile Include="Data\DbMetadataCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\IConnector.cs" />
+    <Compile Include="Data\IDbConnectionFactory.cs" />
+    <Compile Include="Data\Sql\ISqlQuery.cs" />
+    <Compile Include="Data\Sql\ISqlRenderable.cs" />
+    <Compile Include="Data\Sql\SqlComplexCondition.cs" />
+    <Compile Include="Data\Sql\SqlCondition.cs" />
+    <Compile Include="Data\Sql\SqlField.cs" />
+    <Compile Include="Data\Sql\SqlFieldCollection.cs" />
+    <Compile Include="Data\Sql\SqlFieldCondition.cs" />
+    <Compile Include="Data\Sql\SqlIsNullCondition.cs" />
+    <Compile Include="Data\Sql\SqlLiteralCondition.cs" />
+    <Compile Include="Data\Sql\SqlNegatedCondition.cs" />
+    <Compile Include="Data\Sql\SqlOrder.cs" />
+    <Compile Include="Data\Sql\SqlQuery.cs" />
+    <Compile Include="Data\Sql\SqlSource.cs" />
+    <Compile Include="Data\Sql\SqlStaticQuery.cs" />
+    <Compile Include="Data\XBind\IXBindAware.cs" />
+    <Compile Include="Data\XBind\XBindContext.cs" />
+    <Compile Include="DesignPatterns\ICommand.cs" />
+    <Compile Include="DesignPatterns\IObjectFactory.cs" />
+    <Compile Include="DesignPatterns\ITaggedObject.cs" />
+    <Compile Include="Encryption\HashUtil.cs" />
+    <Compile Include="Exceptions\RequiredFieldNotFilledException.cs" />
+    <Compile Include="Exceptions\SecurityException.cs" />
+    <Compile Include="Graphics\ImageUtil.cs" />
+    <Compile Include="IO\Base64InputStream.cs" />
+    <Compile Include="IO\Base64OutputStream.cs" />
+    <Compile Include="IO\CircularBuffer.cs" />
+    <Compile Include="IO\CircularStream.cs" />
+    <Compile Include="IO\Compression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\Serialization\DrawingFastSerializationHelper.cs" />
+    <Compile Include="IO\Serialization\FastSerializer.cs" />
+    <Compile Include="IO\Serialization\WebFastSerializationHelper.cs" />
+    <Compile Include="IO\FileManager.cs" />
+    <Compile Include="IO\HoloFS\HoloDirectory.cs" />
+    <Compile Include="IO\HoloFS\HoloFile.cs" />
+    <Compile Include="IO\HoloFS\HoloFSItem.cs" />
+    <Compile Include="IO\HoloFS\Impl\FallThroughDirectory.cs" />
+    <Compile Include="IO\HoloFS\Impl\LocalDirectory.cs" />
+    <Compile Include="IO\HoloFS\Impl\LocalFile.cs" />
+    <Compile Include="IO\ManagedTempFile.cs" />
+    <Compile Include="IO\NoAccentsTextWriter.cs" />
+    <Compile Include="IO\SingleFileWatcher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IO\Streams.cs" />
+    <Compile Include="IO\TempFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="KeyValueFormatter.cs" />
+    <Compile Include="Lazy.cs" />
+    <Compile Include="Licensing\LicenseKeyAttribute.cs" />
+    <Compile Include="Logic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NameValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NullableHelper.cs" />
+    <Compile Include="ParseUtil.cs" />
+    <Compile Include="Reflection\Attributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reflection\ObjectQuery.Generic.cs" />
+    <Compile Include="Reflection\EnumDescriptor.cs" />
+    <Compile Include="Reflection\ObjectQuery.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\ComplexCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\NegatedCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\TypeCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\PropertyValueCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\Condition.cs" />
+    <Compile Include="Reflection\Properties.cs" />
+    <Compile Include="Reflection\ReflectionCache.cs" />
+    <Compile Include="Resources\Strings.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="Text\CultureSwitch.cs" />
+    <Compile Include="Text\Formatters\CNPJFormatter.cs" />
+    <Compile Include="Text\Formatters\CPFFormatter.cs" />
+    <Compile Include="Text\Formatters\EnumFormatter.cs" />
+    <Compile Include="Text\Formatters\NoAccentsFormatter.cs" />
+    <Compile Include="Text\Formatters\WikiFormatter.cs" />
+    <Compile Include="Text\IFormatterPlugin.cs" />
+    <Compile Include="Text\PluggableFormatProvider.cs" />
+    <Compile Include="Text\PluralForm.cs" />
+    <Compile Include="Threading\CriticalSectionHandler.cs" />
+    <Compile Include="Threading\CustomThreadPool.cs" />
+    <Compile Include="Timing\Clock.cs" />
+    <Compile Include="WeakReference.cs" />
+    <Compile Include="Win32\ShellApi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Xml\XmlEncoder.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.pt_BR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Suprifattus.Util.snk">
+      <Link>Suprifattus.Util.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

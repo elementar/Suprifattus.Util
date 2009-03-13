@@ -1,557 +1,110 @@
-<VisualStudioProject>
-    <CSHARP
-        ProjectType = "Local"
-        ProductVersion = "7.10.3077"
-        SchemaVersion = "2.0"
-        ProjectGuid = "{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}"
-    >
-        <Build>
-            <Settings
-                ApplicationIcon = ""
-                AssemblyKeyContainerName = ""
-                AssemblyName = "Suprifattus.Util.Web"
-                AssemblyOriginatorKeyFile = ""
-                DefaultClientScript = "JScript"
-                DefaultHTMLPageLayout = "Grid"
-                DefaultTargetSchema = "IE50"
-                DelaySign = "false"
-                OutputType = "Library"
-                PreBuildEvent = ""
-                PostBuildEvent = ""
-                RootNamespace = "Suprifattus.Util.Web"
-                RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = ""
-            >
-                <Config
-                    Name = "Debug"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = "bin\Debug\Suprifattus.Util.Web.xml"
-                    DebugSymbols = "true"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = "1591"
-                    Optimize = "false"
-                    OutputPath = "bin\Debug\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-                <Config
-                    Name = "Release"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE"
-                    DocumentationFile = "bin\Release\Suprifattus.Util.Web.xml"
-                    DebugSymbols = "false"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = "1591"
-                    Optimize = "true"
-                    OutputPath = "bin\Release\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-            </Settings>
-            <References>
-                <Reference
-                    Name = "System"
-                    AssemblyName = "System"
-                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
-                />
-                <Reference
-                    Name = "System.Data"
-                    AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
-                />
-                <Reference
-                    Name = "System.XML"
-                    AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
-                />
-                <Reference
-                    Name = "System.Web"
-                    AssemblyName = "System.Web"
-                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
-                />
-                <Reference
-                    Name = "System.Drawing"
-                    AssemblyName = "System.Drawing"
-                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
-                />
-                <Reference
-                    Name = "Suprifattus.Util"
-                    Project = "{1CE6FFA8-F126-49E7-BAC6-EB9431398438}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                    Private = "True"
-                />
-                <Reference
-                    Name = "Commons.Web.UI"
-                    AssemblyName = "Commons.Web.UI"
-                    HintPath = "..\lib\Commons.Web.UI.dll"
-                />
-            </References>
-        </Build>
-        <Files>
-            <Include>
-                <File
-                    RelPath = "AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "EnvDump.aspx"
-                    SubType = "Form"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "HttpContextBound.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UserAgent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "WebUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Cache\CacheHelper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Cache\LazyInitAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\AttributeAppend.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\ButtonEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\CheckBoxEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\CheckBoxListEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\DropDownListEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\FixedListItem.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\FlashMovie.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Grid.cs"
-                    SubType = "ASPXCodeBehind"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridColumn.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridColumnCollection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridControlBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridPaging.cs"
-                    SubType = "ASPXCodeBehind"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridPluginCollection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridPluginEnumerator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\JavaScriptDataBind.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\JavaScriptMaskEdit.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\JavaScriptReference.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\JavaScriptTabs.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\JavaScriptValidation.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\LinkButtonEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\ListBoxEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\RadioButtonListEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\SecureBlock.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\TextBoxEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Data\DataBinderEx.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Data\DataRecord.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridPlugins\DummyPlugin.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridPlugins\GridPluginDeclaration.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\GridPlugins\IGridPlugin.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Helpers\ControlUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Helpers\IListControl.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Helpers\ISelectControl.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Helpers\ListControlBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Helpers\ListControlUtil.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Controls\Helpers\WebFormParser.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\ContentFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\FetchExternalUrlHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\FilterBase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\SQLProxyHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\ViewImageHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\XHtmlCleanupModule.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Handlers\XHTMLModule.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "JavaScript\JavaScriptHttpHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "JavaScript\JavaScriptLoader.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\base64.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\compat.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\crypto-aes.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\css.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\databind.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\databind-1rec.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\debug.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\formsex.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\innerxhtml.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\leiame.txt"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\maskedit.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\masterdetail.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\sha1.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\sha256.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\tabs.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\util.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\validate.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\webservices.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "JavaScript\Sources\xml.js"
-                    BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "Licensing\WebServerFingerprint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Logger\AsyncLogger.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Logger\IOutputFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Logger\LogEntry.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Logger\OutputFilters\OleDbOutputFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Logger\OutputFilters\XmlOutputFilter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Navigation\NavigationException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Navigation\NavigationMethod.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Navigation\SiteNavigationConfig.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Navigation\SiteNavigationController.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Navigation\SiteNavigationSectionHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\ISkinnable.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\PageTemplateAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\TemplatedPage.cs"
-                    SubType = "ASPXCodeBehind"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateDeclaration.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateDeclarationConfig.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateDeclarationSectionHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateMappingCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateMappingConfig.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateMappingSectionHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\MappingImpl\RegexTemplateMappingCondition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Config\TemplateImpl\HeaderAndFooterTemplateDeclaration.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Templates\Controls\UseSkin.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-            </Include>
-        </Files>
-    </CSHARP>
-</VisualStudioProject>
-
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0BC1980-88F3-4F0A-8F8D-A857087E8DBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Suprifattus.Util.Web</RootNamespace>
+    <AssemblyName>Suprifattus.Util.Web</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Suprifattus.Util.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;GENERICS</DefineConstants>
+    <DocumentationFile>bin\Debug\Suprifattus.Util.Web.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE;GENERICS</DefineConstants>
+    <DocumentationFile>bin\Release\Suprifattus.Util.Web.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WebApplicationLock.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Cache\CacheHelper.cs" />
+    <Compile Include="Cache\LazyInitAttribute.cs" />
+    <Compile Include="Handlers\ContentFilter.cs" />
+    <Compile Include="Handlers\FetchExternalUrlHandler.cs" />
+    <Compile Include="Handlers\FilterBase.cs" />
+    <Compile Include="Handlers\SQLProxyHandler.cs" />
+    <Compile Include="Handlers\ViewImageHandler.cs" />
+    <Compile Include="Handlers\XHtmlCleanupModule.cs" />
+    <Compile Include="Handlers\XHTMLModule.cs" />
+    <Compile Include="HttpContextBound.cs" />
+    <Compile Include="JavaScript\JavaScriptHttpHandler.cs" />
+    <Compile Include="JavaScript\JavaScriptLoader.cs" />
+    <Compile Include="Licensing\WebServerFingerprint.cs" />
+    <Compile Include="Navigation\NavigationException.cs" />
+    <Compile Include="Navigation\NavigationMethod.cs" />
+    <Compile Include="Navigation\SiteNavigationConfig.cs" />
+    <Compile Include="Navigation\SiteNavigationController.cs" />
+    <Compile Include="Navigation\SiteNavigationSectionHandler.cs" />
+    <Compile Include="SessionEventWatcher.cs" />
+    <Compile Include="UserAgent.cs" />
+    <Compile Include="WebUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EnvDump.aspx" />
+    <EmbeddedResource Include="JavaScript\Sources\base64.js" />
+    <EmbeddedResource Include="JavaScript\Sources\compat.js" />
+    <EmbeddedResource Include="JavaScript\Sources\crypto-aes.js" />
+    <EmbeddedResource Include="JavaScript\Sources\css.js" />
+    <EmbeddedResource Include="JavaScript\Sources\databind.js" />
+    <EmbeddedResource Include="JavaScript\Sources\databind-1rec.js" />
+    <EmbeddedResource Include="JavaScript\Sources\debug.js" />
+    <EmbeddedResource Include="JavaScript\Sources\formsex.js" />
+    <EmbeddedResource Include="JavaScript\Sources\innerxhtml.js" />
+    <EmbeddedResource Include="JavaScript\Sources\explicitbinding.js" />
+    <Content Include="JavaScript\Sources\leiame.txt" />
+    <EmbeddedResource Include="JavaScript\Sources\castle-masterdetail.js" />
+    <EmbeddedResource Include="JavaScript\Sources\maskedit.js" />
+    <EmbeddedResource Include="JavaScript\Sources\masterdetail.js" />
+    <EmbeddedResource Include="JavaScript\Sources\sha1.js" />
+    <EmbeddedResource Include="JavaScript\Sources\sha256.js" />
+    <EmbeddedResource Include="JavaScript\Sources\tabs.js" />
+    <EmbeddedResource Include="JavaScript\Sources\util.js" />
+    <EmbeddedResource Include="JavaScript\Sources\validate.js" />
+    <EmbeddedResource Include="JavaScript\Sources\webservices.js" />
+    <EmbeddedResource Include="JavaScript\Sources\xml.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Suprifattus.Util.snk">
+      <Link>Suprifattus.Util.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Suprifattus.Util\Suprifattus.Util.csproj">
+      <Project>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</Project>
+      <Name>Suprifattus.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+</Project>
