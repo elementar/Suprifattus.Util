@@ -15,13 +15,13 @@ namespace Suprifattus.Util.Collections
 		/// <param name="val">O valor a ser adicionado</param>
 		/// <returns>Verdadeiro se o item não existia, falso se já existia</returns>
 		new bool Add(T val);
-		
+
 		/// <summary>
 		/// Adiciona diversos itens no conjunto.
 		/// </summary>
 		/// <param name="vals">Os diversos itens a serem adicionados</param>
 		void AddRange(params T[] vals);
-		
+
 		/// <summary>
 		/// Adiciona diversos itens no conjunto.
 		/// </summary>

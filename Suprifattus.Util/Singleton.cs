@@ -3,6 +3,7 @@ using System;
 namespace Suprifattus.Util
 {
 	public class Singleton<T>
+		where T: class
 	{
 		public delegate T SingletonCreateDelegate();
 

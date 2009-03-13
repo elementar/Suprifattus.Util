@@ -17,6 +17,8 @@ namespace Suprifattus.Util.IO
 		/// </summary>
 		/// <param name="filename">The file to monitor, in standard or UNC notation.</param>
 		public SingleFileWatcher(string filename)
-			: base(P.GetDirectoryName(filename), P.GetFileName(filename)) { }
+			: base(P.GetDirectoryName(filename), P.GetFileName(filename))
+		{
+		}
 	}
 }

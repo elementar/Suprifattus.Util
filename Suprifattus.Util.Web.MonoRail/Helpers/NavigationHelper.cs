@@ -10,15 +10,10 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 {
 	public class NavigationHelper : AbstractHelper
 	{
-		bool hide = false;
-		string titulo;
-		List<NavigationItem> nav = new List<NavigationItem>();
+		private bool hide;
+		private readonly List<NavigationItem> nav = new List<NavigationItem>();
 
-		public string Titulo
-		{
-			get { return titulo; }
-			set { titulo = value; }
-		}
+		public string Titulo { get; set; }
 
 		public void Hide()
 		{
@@ -54,7 +49,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 			EnsureHome();
 			EnsureCurrent();
 
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 
 			using (TextWriter w = new StringWriter(sb))
 			{
@@ -118,27 +113,16 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		#region class NavigationItem
 		public class NavigationItem
 		{
-			private string url, title;
-
 			public NavigationItem(string url, string title)
 			{
-				this.url = url;
-				this.title = title;
+				this.Url = url;
+				this.Title = title;
 			}
 
-			public string Url
-			{
-				get { return url; }
-				set { url = value; }
-			}
+			public string Url { get; set; }
 
-			public string Title
-			{
-				get { return title; }
-				set { title = value; }
-			}
+			public string Title { get; set; }
 		}
 		#endregion
 	}
-
 }

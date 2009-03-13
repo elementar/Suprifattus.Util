@@ -8,7 +8,7 @@ namespace Suprifattus.Util.Collections
 	/// </summary>
 	public class ListSet : ISet, IDisposable
 	{
-		ArrayList innerList = new ArrayList();
+		private readonly ArrayList innerList = new ArrayList();
 
 		#region Constructors
 		public ListSet()

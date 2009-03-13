@@ -5,8 +5,8 @@ namespace Suprifattus.Util.Collections
 {
 	public class PagedEnumerable : IEnumerable
 	{
-		IEnumerable en;
-		int pageSize;
+		private readonly IEnumerable en;
+		private readonly int pageSize;
 
 		public PagedEnumerable(IEnumerable en, int pageSize)
 		{
@@ -19,15 +19,15 @@ namespace Suprifattus.Util.Collections
 			return new PagedEnumerator(en, pageSize);
 		}
 	}
-	
+
 	public class PagedEnumerator : IEnumerator
 	{
-		readonly int pageSize;
-		readonly IEnumerable source;
+		private readonly int pageSize;
+		private readonly IEnumerable source;
 
-		IEnumerator en;
-		int pageIndex;
-		PageEnumerable currentPage;
+		private IEnumerator en;
+		private int pageIndex;
+		private PageEnumerable currentPage;
 
 		public PagedEnumerator(IEnumerable en, int pageSize)
 		{
@@ -43,9 +43,9 @@ namespace Suprifattus.Util.Collections
 			if (!en.MoveNext())
 				return false;
 
-			ArrayList page = new ArrayList(pageSize);
+			var page = new ArrayList(pageSize);
 			int n = pageSize;
-			do 
+			do
 			{
 				page.Add(en.Current);
 			} while (--n > 0 && en.MoveNext());
@@ -68,8 +68,8 @@ namespace Suprifattus.Util.Collections
 
 		private class PageEnumerable : IEnumerable
 		{
-			IEnumerable contents;
-			int pageIndex;
+			private readonly IEnumerable contents;
+			private readonly int pageIndex;
 
 			public PageEnumerable(IEnumerable contents, int pageIndex)
 			{
@@ -82,10 +82,10 @@ namespace Suprifattus.Util.Collections
 				return new PageEnumerator(contents, pageIndex);
 			}
 		}
-		
+
 		private class PageEnumerator : EnumeratorBase
 		{
-			int pageIndex;
+			private readonly int pageIndex;
 
 			public PageEnumerator(IEnumerable contents, int pageIndex)
 				: base(contents.GetEnumerator())

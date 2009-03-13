@@ -13,20 +13,69 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
-      <File id="C2E9C155-32BD-4D1F-95F2-DDE818F8EC97/d:Objects/d:Tables/f:Column.cs" caret="1851" scrollPosition="0|21" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Helpers/f:NavigationHelper.cs" caret="440" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/d:Security/f:SecurityComponentBase.Generic.cs" caret="447" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Contracts/f:BusinessRule.cs" caret="141" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/f:BaseMonoRailContainer.cs" caret="247" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/f:EmailBuilder.cs" caret="424" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Helpers/f:ListHelper.cs" caret="1661" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/f:DynamicCaster.cs" caret="134" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Components/d:Security/f:SecurityRulesProvider.cs" caret="41" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/f:LogUtil.cs" caret="732" scrollPosition="0|0" />
-      <File id="E9A33895-FACC-4140-860D-BBA77D11FE04/d:Filters/f:MozillaOnlyFilter.cs" caret="2559" scrollPosition="0|78" />
-      <File id="C0BC1980-88F3-4F0A-8F8D-A857087E8DBB/d:Navigation/f:SiteNavigationController.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:ParseUtil.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:NullableHelper.cs" caret="431" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:NameValue.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:Lazy.cs" caret="320" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:KeyValueFormatter.cs" caret="6" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:bool2.cs" caret="2916" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/f:Logic.cs" caret="11452" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Xml/f:XmlEncoder.cs" caret="1248" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Win32/f:ShellApi.cs" caret="47395" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="538" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:CultureSwitch.cs" caret="576" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:PluggableFormatProvider.cs" caret="2983" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:WikiFormatter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:NoAccentsFormatter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:EnumFormatter.cs" caret="1130" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:CPFFormatter.cs" caret="1628" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:CNPJFormatter.cs" caret="1391" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:IFormatterPlugin.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:PluralForm.cs" caret="431" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CriticalSectionHandler.cs" caret="753" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Timing/f:Clock.cs" caret="640" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:Base64InputStream.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:CircularBuffer.cs" caret="5675" scrollPosition="0|126" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:CircularStream.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:Compression.cs" caret="1084" scrollPosition="0|38" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:FileManager.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:ManagedTempFile.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:NoAccentsTextWriter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:SingleFileWatcher.cs" caret="664" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:Streams.cs" caret="0" scrollPosition="0|0" />
     </RecentFiles>
-    <RecentEdits />
+    <RecentEdits>
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CriticalSectionHandler.cs" caret="753" scrollPosition="0|14" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="313" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="570" scrollPosition="0|5" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="1300" scrollPosition="0|28" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="2356" scrollPosition="0|94" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Threading/f:CustomThreadPool.cs" caret="2776" scrollPosition="0|98" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:CultureSwitch.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:CultureSwitch.cs" caret="311" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:CultureSwitch.cs" caret="409" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:CultureSwitch.cs" caret="576" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:PluralForm.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:PluralForm.cs" caret="431" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:PluggableFormatProvider.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:PluggableFormatProvider.cs" caret="3483" scrollPosition="0|88" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/f:IFormatterPlugin.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:CNPJFormatter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:CNPJFormatter.cs" caret="1391" scrollPosition="0|27" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:CPFFormatter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:CPFFormatter.cs" caret="1628" scrollPosition="0|39" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:EnumFormatter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:EnumFormatter.cs" caret="1085" scrollPosition="0|25" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:Text/d:Formatters/f:NoAccentsFormatter.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:CircularBuffer.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:CircularBuffer.cs" caret="5675" scrollPosition="0|126" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:CircularStream.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:Compression.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:FileManager.cs" caret="0" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:SingleFileWatcher.cs" caret="659" scrollPosition="0|0" />
+      <File id="1CE6FFA8-F126-49E7-BAC6-EB9431398438/d:IO/f:Streams.cs" caret="0" scrollPosition="0|0" />
+    </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
     <CustomStartDirectory>
@@ -36,4 +85,10 @@
     <EnableUnitTesting>True</EnableUnitTesting>
     <Providers />
   </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Type" priority="0" />
+      <Item value="class" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>

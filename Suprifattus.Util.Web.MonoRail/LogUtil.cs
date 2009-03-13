@@ -1,10 +1,9 @@
 using System;
 using System.Diagnostics;
-
 using Castle.Core.Logging;
 using Castle.Services.Logging.Log4netIntegration;
 using Castle.Windsor;
-
+using log4net;
 using log4net.Config;
 
 namespace Suprifattus.Util.Web.MonoRail
@@ -17,8 +16,8 @@ namespace Suprifattus.Util.Web.MonoRail
 	/// </summary>
 	public class LogUtil
 	{
-		private static ILoggerFactory defaultFactory = null;
-		
+		private static ILoggerFactory defaultFactory;
+
 		[Obsolete("Isolando a configuração em log4net.config, não é mais necessário chamar Reconfigure()")]
 		public static void Reconfigure()
 		{
@@ -31,7 +30,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		public static void SetLoggingProperty(string name, object value)
 		{
-			log4net.LogicalThreadContext.Properties[name] = value;
+			LogicalThreadContext.Properties[name] = value;
 		}
 
 		/// <summary>
@@ -77,9 +76,9 @@ namespace Suprifattus.Util.Web.MonoRail
 		{
 			IWindsorContainer c = GetWindsorContainer();
 			if (c != null)
-				return (ILoggerFactory) c.Resolve(typeof(ILoggerFactory));
-			else
-				return defaultFactory != null ? defaultFactory : (defaultFactory = new Log4netFactory());
+				return (ILoggerFactory) c.Resolve(typeof (ILoggerFactory));
+
+			return defaultFactory ?? (defaultFactory = new Log4netFactory());
 		}
 
 		private static IWindsorContainer GetWindsorContainer()

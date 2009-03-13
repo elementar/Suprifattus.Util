@@ -7,22 +7,23 @@ namespace Suprifattus.Util.Threading
 	public sealed class CustomThreadPool : IDisposable
 	{
 		public delegate void CustomRunDelegate(RunDelegate proceed);
+
 		public delegate void RunDelegate();
-		
-		static int lastPoolId = 0;
-		int poolId = Interlocked.Increment(ref lastPoolId);
-		
-		private Semaphore workWaiting;
-		private Queue<WaitQueueItem> queue;
+
+		private static int lastPoolId;
+		private readonly int poolId = Interlocked.Increment(ref lastPoolId);
+
+		private readonly Semaphore workWaiting;
+		private readonly Queue<WaitQueueItem> queue;
 		private List<Thread> threads;
-		private volatile bool stopping = false;
-		private int running = 0;
+		private volatile bool stopping;
+		private int running;
 
 		public CustomThreadPool(int numThreads)
 			: this(numThreads, null)
 		{
 		}
-		
+
 		public CustomThreadPool(int numThreads, CustomRunDelegate customRun)
 		{
 			if (numThreads <= 0)
@@ -39,15 +40,14 @@ namespace Suprifattus.Util.Threading
 					ts = delegate { customRun(InternalRun); };
 				else
 					ts = InternalRun;
-				
-				Thread t = new Thread(ts);
-				t.IsBackground = true;
+
+				var t = new Thread(ts) { IsBackground = true };
 				t.Name = String.Format("p{0}.{1}", poolId, t.ManagedThreadId);
 				threads.Add(t);
 				t.Start();
 			}
 		}
-		
+
 		public int PooledCount
 		{
 			get { return running + queue.Count; }
@@ -73,7 +73,7 @@ namespace Suprifattus.Util.Threading
 
 			return PooledCount == 0;
 		}
-		
+
 		/// <summary>
 		/// Waits indefinitely for all queued work to finish.
 		/// </summary>
@@ -82,42 +82,36 @@ namespace Suprifattus.Util.Threading
 			while (PooledCount > 0)
 				Thread.Sleep(150);
 		}
-		
+
 		public void ClearQueue()
 		{
 			lock (queue) queue.Clear();
 		}
-		
+
 		/// <summary>
 		/// Interrupts and releases all threads.
 		/// </summary>
 		public void Dispose()
 		{
-			if (threads != null)
-			{
-				threads.ForEach(delegate(Thread t)
-				                 	{
-				                 		t.Interrupt();
-				                 	});
-				threads = null;
-			}
+			if (threads == null)
+				return;
+
+			threads.ForEach(t => t.Interrupt());
+			threads = null;
 		}
 
 		public void QueueUserWorkItem(WaitCallback callback)
 		{
 			QueueUserWorkItem(callback, null);
 		}
-		
+
 		public void QueueUserWorkItem(WaitCallback callback, object state)
 		{
 			if (threads == null)
 				throw new ObjectDisposedException(GetType().Name);
 			if (callback == null) throw new ArgumentNullException("callback");
 
-			WaitQueueItem item = new WaitQueueItem();
-			item.Callback = callback;
-			item.State = state;
-			item.Context = ExecutionContext.Capture();
+			var item = new WaitQueueItem { Callback = callback, State = state, Context = ExecutionContext.Capture() };
 
 			lock (queue) queue.Enqueue(item);
 			workWaiting.Release();
@@ -132,7 +126,7 @@ namespace Suprifattus.Util.Threading
 					workWaiting.WaitOne();
 					if (stopping)
 						break;
-					
+
 					WaitQueueItem item;
 					lock (queue) item = queue.Dequeue();
 					try

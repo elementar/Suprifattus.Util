@@ -9,7 +9,7 @@ namespace Suprifattus.Util.Collections
 	/// </summary>
 	public class ListSet<T> : ISet<T>, ISet, IDisposable
 	{
-		List<T> innerList = new List<T>();
+		private readonly List<T> innerList = new List<T>();
 
 		public bool Add(T val)
 		{
@@ -71,7 +71,7 @@ namespace Suprifattus.Util.Collections
 			get { return false; }
 		}
 		#endregion
-		
+
 		#region IEnumerator implementation
 		IEnumerator IEnumerable.GetEnumerator()
 		{

@@ -6,12 +6,10 @@ namespace Suprifattus.Util.Text
 	/// <summary>
 	/// Classe utilitária para lidar com expressões em singular e plural.
 	/// </summary>
-	public sealed class PluralForm
+	public static class PluralForm
 	{
-		static Regex rxTags = new Regex(@"\[ (?<singular>[^]:]*) (:(?<plural>[^]:]*) (:(?<zero>[^]:]*))? )? \]", RegexOptions.IgnorePatternWhitespace | RegexOptions.ExplicitCapture);
+		private static readonly Regex rxTags = new Regex(@"\[ (?<singular>[^]:]*) (:(?<plural>[^]:]*) (:(?<zero>[^]:]*))? )? \]", RegexOptions.IgnorePatternWhitespace | RegexOptions.ExplicitCapture);
 
-		private PluralForm() { throw new InvalidOperationException(); }
-		
 		/// <summary>
 		/// Formata um texto.
 		/// </summary>
@@ -50,7 +48,8 @@ namespace Suprifattus.Util.Text
 
 		private class Replacer
 		{
-			int p;
+			private readonly int p;
+
 			public Replacer(long n)
 			{
 				if (n == 1) p = 1;
@@ -58,7 +57,7 @@ namespace Suprifattus.Util.Text
 				if (n == 0) p = 3;
 			}
 
-			public string Replace(Match m) 
+			public string Replace(Match m)
 			{
 				int c = p;
 				if (!m.Groups[c].Success)

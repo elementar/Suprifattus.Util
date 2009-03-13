@@ -15,7 +15,7 @@ namespace Suprifattus.Util
 		/// <returns>O número inteiro</returns>
 		public static int ParseInt32(object obj, int defaultValue)
 		{
-			try 
+			try
 			{
 				return Convert.ToInt32(obj);
 			}
@@ -33,7 +33,7 @@ namespace Suprifattus.Util
 		/// <returns>O número inteiro</returns>
 		public static short ParseInt16(object obj, short defaultValue)
 		{
-			try 
+			try
 			{
 				return Convert.ToInt16(obj);
 			}

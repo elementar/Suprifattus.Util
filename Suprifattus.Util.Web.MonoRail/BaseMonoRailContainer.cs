@@ -152,13 +152,15 @@ namespace Suprifattus.Util.Web.MonoRail
 			bool registeredWithAttribute = false;
 			foreach (WindsorComponentAttribute attr in componentType.GetCustomAttributes(typeof(WindsorComponentAttribute), false))
 			{
-				if (attr.ComponentKey != null && (attr.ImplementedServices == null || attr.ImplementedServices.Length == 0))
+				var services = attr.ImplementedServices ?? new Type[0];
+
+				if (attr.ComponentKey != null && services.Length == 0)
 					AddComponent(attr.ComponentKey, componentType);
-				else if (attr.ComponentKey != null && attr.ImplementedServices.Length == 1)
-					AddComponent(attr.ComponentKey, attr.ImplementedServices[0], componentType);
+				else if (attr.ComponentKey != null && services.Length == 1)
+					AddComponent(attr.ComponentKey, services[0], componentType);
 				else
 				{
-					foreach (Type serviceType in attr.ImplementedServices)
+					foreach (Type serviceType in services)
 						AddComponent(String.Format("component:{0}:{1}", componentType.FullName, serviceType.FullName), serviceType, componentType);
 				}
 

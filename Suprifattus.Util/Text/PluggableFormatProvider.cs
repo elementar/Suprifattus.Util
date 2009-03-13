@@ -15,8 +15,8 @@ namespace Suprifattus.Util.Text
 		/// A única instância do formatador.
 		/// </summary>
 		public static readonly PluggableFormatProvider Instance = new PluggableFormatProvider();
-		
-		static Hashtable plugins = new Hashtable();
+
+		private static readonly Hashtable plugins = new Hashtable();
 
 		static PluggableFormatProvider()
 		{
@@ -26,7 +26,7 @@ namespace Suprifattus.Util.Text
 			RegisterFormatPlugin(new WikiFormatter());
 			RegisterFormatPlugin(new NoAccentsFormatter());
 		}
-		
+
 		/// <summary>
 		/// Registra um novo plugin de formatação, se ele ainda não estiver registrado.
 		/// </summary>
@@ -39,7 +39,7 @@ namespace Suprifattus.Util.Text
 			RegisterFormatPlugin(plugin);
 			return true;
 		}
-		
+
 		/// <summary>
 		/// Registra um novo plugin de formatação.
 		/// </summary>
@@ -52,7 +52,7 @@ namespace Suprifattus.Util.Text
 
 			plugins.Add(plugin.FormatKey, plugin);
 		}
-		
+
 		/// <summary>
 		/// Registra um novo plugin de formatação, com uma chave de formatação diferente.
 		/// </summary>
@@ -63,7 +63,7 @@ namespace Suprifattus.Util.Text
 		{
 			plugins.Add(formatKey, plugin);
 		}
-		
+
 		object IFormatProvider.GetFormat(Type formatType)
 		{
 			if (typeof(ICustomFormatter).Equals(formatType))
@@ -83,14 +83,14 @@ namespace Suprifattus.Util.Text
 		{
 			if (arg == null)
 				return null;
-			
+
 			if (formatString != null)
 			{
 				// tenta encontar o nome completo do plugin na hashtable
-				IFormatterPlugin plugIn = (IFormatterPlugin) plugins[formatString];
+				var plugIn = (IFormatterPlugin) plugins[formatString];
 				if (plugIn != null)
 					return plugIn.Format(formatString, arg);
-			
+
 				// tenta encontrar um que tenha o início igual
 				foreach (DictionaryEntry entry in plugins)
 					if (formatString.StartsWith(entry.Key.ToString()))
@@ -100,8 +100,8 @@ namespace Suprifattus.Util.Text
 			// não encontrou nenhum customizado, usa os padrões
 			if (arg is IFormattable)
 				return ((IFormattable) arg).ToString(formatString, formatProvider);
-			else 
-				return arg.ToString();
+			
+			return arg.ToString();
 		}
 	}
 }

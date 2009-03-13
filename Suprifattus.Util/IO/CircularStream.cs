@@ -39,7 +39,7 @@ namespace Suprifattus.Util.IO
 	/// </summary>
 	public class CircularStream : Stream
 	{
-		private CircularBuffer buffer;
+		private readonly CircularBuffer buffer;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CircularStream"/>

@@ -4,61 +4,54 @@ using System.Configuration;
 using System.Globalization;
 using System.Threading;
 
-using Suprifattus.Util.Web;
-
 namespace Suprifattus.Util.Web.Navigation
 {
 	[Serializable]
 	public class SiteNavigationController : HttpContextBound
 	{
-		Stack path = new Stack();
-		SiteNavigationConfig cfg;
-		string home;
-		string nextPopFallback = null;
+		private readonly Stack path = new Stack();
+		private readonly SiteNavigationConfig cfg;
+		private string home;
+		private string nextPopFallback;
 
 		#region Constructors
+
 		public SiteNavigationController(string configuration)
 		{
-			SiteNavigationSectionHandler h;
-
-#if GENERICS
-			h = (SiteNavigationSectionHandler) ConfigurationManager.GetSection("suprifattus.sitenavigation");
-#else
-			h = (SiteNavigationSectionHandler) ConfigurationSettings.GetConfig("suprifattus.sitenavigation");
-#endif
+			var h = (SiteNavigationSectionHandler) ConfigurationManager.GetSection("suprifattus.sitenavigation");
 
 			cfg = h.GetConfiguration(configuration);
 			if (cfg == null)
 			{
-#if GENERICS
 				throw new ConfigurationErrorsException("Navigation configuration not found: " + configuration);
-#else
-				throw new ConfigurationException("Navigation configuration not found: " + configuration);
-#endif
 			}
 		}
 
 		public SiteNavigationController()
-			: this("default") { }
+			: this("default")
+		{
+		}
+
 		#endregion
 
 		public string Home
 		{
-			get { return home != null ? home : cfg.DefaultHome; }
+			get { return home ?? cfg.DefaultHome; }
 			set { home = value; }
 		}
 
 		#region GoHome overloads
+
 		public void GoHome()
 		{
 			GoHome(NavigationMethod.RedirectJS);
 		}
-		
+
 		public void GoHome(string message)
 		{
 			GoHome(NavigationMethod.RedirectJS, message);
 		}
-		
+
 		public void GoHome(NavigationMethod method)
 		{
 			GoHome(method, null);
@@ -66,11 +59,13 @@ namespace Suprifattus.Util.Web.Navigation
 
 		public void GoHome(NavigationMethod method, string message)
 		{
-			Navigate(method, home != null ? home : cfg.DefaultHome, message);
+			Navigate(method, home ?? cfg.DefaultHome, message);
 		}
+
 		#endregion
 
 		#region GoLogin overloads
+
 		public void GoLogin()
 		{
 			GoLogin(NavigationMethod.RedirectJS);
@@ -90,14 +85,16 @@ namespace Suprifattus.Util.Web.Navigation
 		{
 			Navigate(method, cfg.Login, message);
 		}
+
 		#endregion
 
 		#region PushAndGo overloads
+
 		public void PushAndGo(string page)
 		{
 			PushAndGo(NavigationMethod.RedirectJS, page);
 		}
-		
+
 		public void PushAndGo(NavigationMethod method, string page)
 		{
 			if (page == null)
@@ -108,30 +105,33 @@ namespace Suprifattus.Util.Web.Navigation
 
 			Navigate(method, page);
 		}
+
 		#endregion
 
 		#region Pop overloads
+
 		public void Pop()
 		{
 			Pop(NavigationMethod.RedirectJS);
 		}
-		
+
 		public void Pop(NavigationMethod method)
 		{
 			Pop(method, 1);
 		}
-		
+
 		public void Pop(NavigationMethod method, int count)
 		{
 			PerformPop(method, count, null);
 		}
+
 		#endregion
 
-		public void	PopWithMessage(string message, params object[] args)
+		public void PopWithMessage(string message, params object[] args)
 		{
 			PerformPop(NavigationMethod.RedirectJS, 1, String.Format(CultureInfo.CurrentCulture, message, args));
 		}
-		
+
 		public void SetNextPopFallback(string nextPopFallback)
 		{
 			this.nextPopFallback = nextPopFallback;
@@ -139,7 +139,7 @@ namespace Suprifattus.Util.Web.Navigation
 
 		private void PerformPop(NavigationMethod method, int count, string message)
 		{
-			try 
+			try
 			{
 				if (count <= 0)
 					throw new ArgumentException("Must be greater than zero", "count");
@@ -148,11 +148,11 @@ namespace Suprifattus.Util.Web.Navigation
 				while (count-- >= 0 && path.Count > 0)
 					url = Convert.ToString(path.Pop());
 
-				if (Logic.StringEmpty(url)) 
+				if (Logic.StringEmpty(url))
 				{
-					if (!Logic.StringEmpty(nextPopFallback)) 
-						Navigate(method, nextPopFallback, message); 
-					else 
+					if (!Logic.StringEmpty(nextPopFallback))
+						Navigate(method, nextPopFallback, message);
+					else
 						GoHome(method, message);
 				}
 				else
@@ -172,6 +172,7 @@ namespace Suprifattus.Util.Web.Navigation
 		}
 
 		#region Navigate
+
 		public void Navigate(NavigationMethod method, string page)
 		{
 			Navigate(method, page, null);
@@ -181,17 +182,18 @@ namespace Suprifattus.Util.Web.Navigation
 		{
 			switch (method)
 			{
-				case NavigationMethod.Redirect: 
-					Response.Redirect(page); 
+				case NavigationMethod.Redirect:
+					Response.Redirect(page);
 					break;
-				case NavigationMethod.RedirectJS: 
-					WebUtil.JavascriptRedirect(page, message); 
+				case NavigationMethod.RedirectJS:
+					WebUtil.JavascriptRedirect(page, message);
 					break;
-				case NavigationMethod.Transfer: 
-					Server.Transfer(page); 
+				case NavigationMethod.Transfer:
+					Server.Transfer(page);
 					break;
 			}
 		}
+
 		#endregion
 	}
 }

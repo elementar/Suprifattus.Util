@@ -27,9 +27,9 @@ namespace Suprifattus.Util.Text.Formatters
 		/// <returns>Uma string contendo o objeto formatado</returns>
 		public string Format(string formatString, object arg)
 		{
-			using (StringWriter sw = new StringWriter())
+			using (var sw = new StringWriter())
 			{
-				using (NoAccentsTextWriter tw = new NoAccentsTextWriter(sw))
+				using (var tw = new NoAccentsTextWriter(sw))
 					tw.Write(arg);
 
 				return sw.ToString();

@@ -8,7 +8,7 @@ namespace Suprifattus.Util.Collections
 	public class SoftDictionary<T, V> : IDictionary<T, V>
 		where V: struct
 	{
-		Dictionary<T, V> inner;
+		private readonly Dictionary<T, V> inner;
 
 		public SoftDictionary()
 			: this(new Dictionary<T, V>())
@@ -26,8 +26,8 @@ namespace Suprifattus.Util.Collections
 			{
 				if (!inner.ContainsKey(key))
 					return default(V);
-				else
-					return inner[key];
+				
+				return inner[key];
 			}
 			set
 			{

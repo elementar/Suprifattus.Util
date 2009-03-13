@@ -15,19 +15,8 @@ namespace Suprifattus.Util.Collections
 	/// <summary>
 	/// Classe com métodos utilitários para lidar com coleções.
 	/// </summary>
-#if GENERICS
-	public partial class
-#else
-	public class
-#endif
-		CollectionUtils
+	public partial class CollectionUtils
 	{
-#if !GENERICS
-		private CollectionUtils() {
-			throw new NotSupportedException("Esta classe não deve ser instanciada.");
-		}
-#endif
-
 		public static object NullSafeGet(IList list, int index)
 		{
 			return (list != null && index >= 0 && index < list.Count ? list[index] : null);
@@ -66,7 +55,7 @@ namespace Suprifattus.Util.Collections
 			if (dict == null)
 				return null;
 
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			foreach (DictionaryEntry de in dict)
 				sb.Append(de.Key).Append(keyValueSeparator).Append(de.Value).Append(entrySeparator);
 			if (sb.Length > 0 && entrySeparator != null)
@@ -84,7 +73,7 @@ namespace Suprifattus.Util.Collections
 		/// <returns>Uma string com a representação string de todos os objetos, separados pelo delimitador especificado</returns>
 		public static string Join(IEnumerable en, string delimiter, FormatDelegate formatDelegate)
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			foreach (object obj in en)
 				sb.AppendFormat("{0}", formatDelegate(obj)).Append(delimiter);
 			if (sb.Length >= delimiter.Length)
@@ -101,7 +90,7 @@ namespace Suprifattus.Util.Collections
 		/// <returns>Uma string com a representação string de todos os objetos, separados pelo delimitador especificado</returns>
 		public static string Join(IEnumerable en, string delimiter, IFormatProvider formatProvider)
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			foreach (object obj in en)
 				sb.AppendFormat(formatProvider, "{0}", obj).Append(delimiter);
 			if (sb.Length >= delimiter.Length)
@@ -117,7 +106,7 @@ namespace Suprifattus.Util.Collections
 		/// <returns>Uma string com a representação string de todos os objetos, separados pelo delimitador especificado</returns>
 		public static string Join(IEnumerable en, string delimiter)
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			foreach (object obj in en)
 				sb.Append(obj).Append(delimiter);
 			if (sb.Length >= delimiter.Length)
@@ -162,7 +151,7 @@ namespace Suprifattus.Util.Collections
 			if (en is ICollection)
 				return ToArray(returnType, (ICollection) en);
 
-			ArrayList al = new ArrayList();
+			var al = new ArrayList();
 			for (IEnumerator e = en.GetEnumerator(); e.MoveNext();)
 				al.Add(e.Current);
 

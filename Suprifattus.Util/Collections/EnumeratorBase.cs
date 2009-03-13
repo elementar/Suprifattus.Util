@@ -11,7 +11,7 @@ namespace Suprifattus.Util.Collections
 	/// </summary>
 	public class EnumeratorBase : IEnumerator, IEnumerable
 	{
-		private IEnumerator en;
+		private readonly IEnumerator en;
 
 		public EnumeratorBase(IEnumerator en)
 		{

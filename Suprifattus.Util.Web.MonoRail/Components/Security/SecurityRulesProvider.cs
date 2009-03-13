@@ -1,20 +1,17 @@
 using System;
-
 using Castle.MicroKernel;
-
-using Suprifattus.Util.Web.MonoRail.Components.Security;
 
 namespace Suprifattus.Util.Web.MonoRail.Components.Security
 {
 	public class SecurityRulesProvider : ISecurityRule
 	{
-		IKernel kernel;
-		ISecurityRule[] rules;
+		private readonly IKernel kernel;
+		private ISecurityRule[] rules;
 
 		public SecurityRulesProvider(IKernel kernel)
 		{
 			this.kernel = kernel;
-			
+
 			LoadRules();
 		}
 

@@ -5,7 +5,7 @@ namespace Suprifattus.Util.Collections
 {
 	public class InsertionEnumerator : EnumeratorBase
 	{
-		private bool inserting = false;
+		private bool inserting;
 		private object currentInsertion;
 		private Queue insertionQueue;
 
@@ -30,8 +30,8 @@ namespace Suprifattus.Util.Collections
 				inserting = true;
 				return true;
 			}
-			else
-				inserting = false;
+
+			inserting = false;
 
 			return base.MoveNext();
 		}
@@ -40,6 +40,5 @@ namespace Suprifattus.Util.Collections
 		{
 			get { return (inserting ? currentInsertion : base.Current); }
 		}
-
 	}
 }

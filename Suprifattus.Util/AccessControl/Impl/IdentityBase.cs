@@ -8,9 +8,10 @@ namespace Suprifattus.Util.AccessControl.Impl
 	[Serializable]
 	public class IdentityBase : IExtendedIdentity
 	{
-		int userId;
-		string userName, login;
-		bool isAuth;
+		private readonly int userId;
+		private readonly string userName;
+		private readonly string login;
+		private readonly bool isAuth;
 
 		/// <summary>
 		/// Cria um novo usuário.
@@ -43,7 +44,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// </summary>
 		/// <param name="userId">O código do usuário.</param>
 		/// <param name="isAuth">Verdadeiro se o usuário deverá ser marcado como autenticado, Falso caso contrário.</param>
-		public IdentityBase(int userId, bool isAuth) 
+		public IdentityBase(int userId, bool isAuth)
 			: this(userId, isAuth, "Default User")
 		{
 		}
@@ -51,11 +52,11 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// <summary>
 		/// Retorna o identificador único do usuário.
 		/// </summary>
-		public virtual int UserID 
+		public virtual int UserID
 		{
 			get { return userId; }
 		}
-		
+
 		/// <summary>
 		/// Retorna o identificador único do usuário, o mesmo que o <see cref="UserID"/>
 		/// </summary>
@@ -64,7 +65,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		{
 			return userId;
 		}
-		
+
 		/// <summary>
 		/// Retorna um valor booleano indicando se o usuário está autenticado ou não.
 		/// </summary>

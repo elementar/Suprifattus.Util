@@ -19,10 +19,12 @@ namespace Suprifattus.Util.Timing
 
 	public class StaleClock : IClock
 	{
-		DateTime dateTime;
+		private DateTime dateTime;
 
 		public StaleClock()
-			: this(DateTime.MinValue) { }
+			: this(DateTime.MinValue)
+		{
+		}
 
 		public StaleClock(DateTime dateTime)
 		{

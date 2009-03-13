@@ -3,10 +3,11 @@ using System;
 namespace Suprifattus.Util
 {
 	public class Lazy<T>
+		where T: class
 	{
 		public delegate T LazyCreationDelegate();
 
-		private LazyCreationDelegate del;
+		private readonly LazyCreationDelegate del;
 		private T value;
 
 		public Lazy(LazyCreationDelegate del)
@@ -16,9 +17,9 @@ namespace Suprifattus.Util
 
 		public T Value
 		{
-			get { return value != null ? value : (value = del()); }
+			get { return value ?? (value = del()); }
 		}
-		
+
 		public static implicit operator T(Lazy<T> lazy)
 		{
 			return lazy.Value;

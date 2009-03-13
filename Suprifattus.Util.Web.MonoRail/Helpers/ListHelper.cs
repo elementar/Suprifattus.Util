@@ -6,8 +6,6 @@ using Castle.MonoRail.Framework.Helpers;
 
 using Iesi.Collections;
 
-using NHibernate;
-
 using Suprifattus.Util.Collections;
 using Suprifattus.Util.Data.XBind;
 
@@ -18,16 +16,10 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 	/// </summary>
 	public class ListHelper : AbstractHelper
 	{
-#if GENERICS
 		#region Filter e FilterScalar
 		public IEnumerable Filter(object collection, string filterString)
 		{
-			NHibernateDelegate call =
-				delegate(ISession session, object obj)
-					{
-						IQuery q = session.CreateFilter(collection, filterString);
-						return q.List();
-					};
+			NHibernateDelegate call = (session, obj) => session.CreateFilter(collection, filterString).List();
 
 			return (IEnumerable) ActiveRecordMediator.Execute(typeof(ActiveRecordBase), call, null);
 		}
@@ -40,7 +32,6 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 			return null;
 		}
 		#endregion
-#endif
 
 		#region Distinct
 		public IEnumerable Distinct(IEnumerable source, string propertyName)
@@ -50,7 +41,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 		public IEnumerable Distinct(IEnumerable source)
 		{
-			HashedSet s = new HashedSet();
+			var s = new HashedSet();
 			foreach (object item in source)
 				s.Add(item);
 			return s;
@@ -111,7 +102,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			decimal sum = 0;
 
-			XBindContext xb = new XBindContext();
+			var xb = new XBindContext();
 			foreach (object obj in en)
 			{
 				object val = xb.Resolve(obj, propertyName);

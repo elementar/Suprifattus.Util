@@ -50,7 +50,7 @@ namespace Suprifattus.Util.IO
 		/// Initializes a new instance of <see cref="CircularBuffer"/> with
 		/// the <see cref="DefaultSize"/> buffer.
 		/// </summary>
-		public CircularBuffer() 
+		public CircularBuffer()
 			: this(DefaultSize)
 		{
 		}
@@ -82,7 +82,7 @@ namespace Suprifattus.Util.IO
 
 		private void GrowTo(int newCapacity)
 		{
-			byte[] newData = new byte[newCapacity];
+			var newData = new byte[newCapacity];
 			Array.Copy(data, newData, data.Length);
 			data = newData;
 		}
@@ -116,7 +116,7 @@ namespace Suprifattus.Util.IO
 				return;
 
 			if (putIndex + length > Capacity)
-				GrowTo(Math.Max((int) (Capacity * 1.3), putIndex + length));
+				GrowTo(Math.Max((int) (Capacity*1.3), putIndex + length));
 			Array.Copy(buffer, offset, data, putIndex, length);
 			putIndex += length;
 		}

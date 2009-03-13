@@ -13,13 +13,9 @@ namespace Suprifattus.Util
 		/// </summary>
 		public static bool IsNull(object obj)
 		{
-#if GENERICS
 			return obj == null || obj is DBNull;
-#else
-			return obj == null || obj is DBNull || (obj is INullableType && !((INullableType) obj).HasValue);
-#endif
 		}
-		
+
 		/// <summary>
 		/// Obtém o valor.
 		/// </summary>
@@ -27,10 +23,6 @@ namespace Suprifattus.Util
 		{
 			if (IsNull(nullableObject))
 				return null;
-#if !GENERICS
-			if (nullableObject is Nullables.INullableType)
-				return ((Nullables.INullableType) nullableObject).Value;
-#endif
 			return nullableObject;
 		}
 
@@ -39,11 +31,7 @@ namespace Suprifattus.Util
 		/// </summary>
 		public static bool IsNullableType(Type type)
 		{
-#if !GENERICS
-			return typeof(INullableType).IsAssignableFrom(columnDataType);
-#else
 			return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
-#endif
 		}
 	}
 }

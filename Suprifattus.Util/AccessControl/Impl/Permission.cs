@@ -1,6 +1,6 @@
 using System;
-using System.Diagnostics;
 using System.Collections;
+using System.Diagnostics;
 
 namespace Suprifattus.Util.AccessControl.Impl
 {
@@ -10,9 +10,10 @@ namespace Suprifattus.Util.AccessControl.Impl
 	[Serializable]
 	public class Permission : IPermission
 	{
-		static Hashtable allPerms = new Hashtable();
+		private static readonly Hashtable allPerms = new Hashtable();
 
-		string id, name;
+		private readonly string id;
+		private string name;
 
 		private Permission(string id)
 		{
@@ -31,7 +32,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		{
 			return PermissionChecker.HasPermission(user, this);
 		}
-		
+
 		/// <summary>
 		/// Obtém o objeto referente à permissão com o código especificado.
 		/// Caso a permissão não exista, é criada uma nova.
@@ -40,7 +41,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// <returns>O objeto <see cref="Permission"/> existente, ou um novo</returns>
 		public static IPermission GetPermission(string id)
 		{
-			IPermission perm = (IPermission) allPerms[id];
+			var perm = (IPermission) allPerms[id];
 			if (perm == null)
 				allPerms[id] = perm = new Permission(id);
 
@@ -54,10 +55,10 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// <param name="id">O código da permissão</param>
 		/// <param name="name">O nome da permissão</param>
 		/// <returns>A permissão criada ou modificada.</returns>
-		public static IPermission SetPermission(string id, string name) 
+		public static IPermission SetPermission(string id, string name)
 		{
 			IPermission perm = GetPermission(id);
-			if (perm is Permission) 
+			if (perm is Permission)
 			{
 				((Permission) perm).name = name;
 				Debug.WriteLine("Atribuído nome à permissão " + id + ": " + name);
@@ -68,7 +69,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// <summary>
 		/// Retorna o código da permissão.
 		/// </summary>
-		public string ID 
+		public string ID
 		{
 			get { return id; }
 		}
@@ -76,7 +77,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// <summary>
 		/// Retorna o nome da permissão.
 		/// </summary>
-		public string Name 
+		public string Name
 		{
 			get { return name; }
 		}
@@ -90,8 +91,10 @@ namespace Suprifattus.Util.AccessControl.Impl
 		{
 			if (that is string)
 				return this.id == (string) that;
-			else if (that is IPermission)
+
+			if (that is IPermission)
 				return this.id == ((IPermission) that).ID;
+
 			return false;
 		}
 
@@ -110,8 +113,7 @@ namespace Suprifattus.Util.AccessControl.Impl
 		/// <returns>A representação string da permissão.</returns>
 		public override string ToString()
 		{
-			return (name == null ? id : name);
+			return (name ?? id);
 		}
-
 	}
 }

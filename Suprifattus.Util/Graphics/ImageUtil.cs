@@ -18,12 +18,12 @@ namespace Suprifattus.Util.Graphics
 		/// <returns>A nova imagem</returns>
 		public static Image MakeThumbnail(Image b, SizeF s, int margin)
 		{
-			Bitmap r = new Bitmap((int) s.Width, (int) s.Height);
+			var r = new Bitmap((int) s.Width, (int) s.Height);
 
 			float divisor = Math.Max(b.Width / (float) r.Width, b.Height / (float) r.Height);
-			SizeF newSize = new SizeF(b.Width / divisor - margin * 2, b.Height / divisor - margin * 2);
-			PointF pos = new PointF((r.Width - newSize.Width) / 2, (r.Height - newSize.Height) / 2);
-			RectangleF resRect = new RectangleF(new Point(0, 0), s);
+			var newSize = new SizeF(b.Width / divisor - margin * 2, b.Height / divisor - margin * 2);
+			var pos = new PointF((r.Width - newSize.Width) / 2, (r.Height - newSize.Height) / 2);
+			var resRect = new RectangleF(new Point(0, 0), s);
 
 			Color c1 = Color.FromArgb(50, 50, 50);
 			Color c2 = Color.FromArgb(200, 200, 200);

@@ -20,11 +20,11 @@ namespace Suprifattus.Util.Collections
 					Add(key, nvc[key]);
 		}
 	}
-	
+
 	public class NameValueCollectionDictionaryAdapter : IDictionary
 	{
 		private readonly NameValueCollection nvc;
-		
+
 		/// <summary>
 		/// Armazenao o <see cref="NameValueCollection"/> em <paramref name="nvc"/>,
 		/// delegando a implementação de <see cref="IDictionary"/> para os membros

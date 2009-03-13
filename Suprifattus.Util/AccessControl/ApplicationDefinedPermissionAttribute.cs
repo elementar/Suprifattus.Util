@@ -8,7 +8,7 @@ namespace Suprifattus.Util.AccessControl
 	[AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Constructor | AttributeTargets.Method)]
 	public class ApplicationDefinedPermissionAttribute : CodeAccessSecurityAttribute
 	{
-		string[] neededPermissions;
+		private readonly string[] neededPermissions;
 
 		public ApplicationDefinedPermissionAttribute(SecurityAction action)
 			: base(action)
@@ -24,10 +24,9 @@ namespace Suprifattus.Util.AccessControl
 		public override System.Security.IPermission CreatePermission()
 		{
 			System.Security.IPermission result = null;
-			foreach (string perm in neededPermissions) 
+			foreach (string perm in neededPermissions)
 			{
-				ApplicationDefinedPermission p = new ApplicationDefinedPermission(PermissionState.Unrestricted);
-				p.Name = perm;
+				var p = new ApplicationDefinedPermission(PermissionState.Unrestricted) { Name = perm };
 				result = (result == null ? p : result.Intersect(p));
 			}
 			return result;
@@ -35,10 +34,10 @@ namespace Suprifattus.Util.AccessControl
 	}
 
 	[Serializable]
-	public class ApplicationDefinedPermission : CodeAccessPermission, System.Security.IPermission
+	public class ApplicationDefinedPermission : CodeAccessPermission
 	{
-		PermissionState state;
-		string name;
+		private readonly PermissionState state;
+		private string name;
 
 		public ApplicationDefinedPermission(PermissionState state)
 		{
@@ -53,21 +52,20 @@ namespace Suprifattus.Util.AccessControl
 
 		public override bool IsSubsetOf(System.Security.IPermission target)
 		{
-			ApplicationDefinedPermission p = target as ApplicationDefinedPermission;
-			
+			var p = target as ApplicationDefinedPermission;
+
 			if (p == null || p.Name == null || Name == null)
 				return false;
 
-			return 
-				this.Name.Length > p.Name.Length && 
+			return
+				this.Name.Length > p.Name.Length &&
 				this.Name.Substring(0, p.Name.Length) == p.Name &&
 				this.name[p.name.Length] == '.';
 		}
 
 		public override System.Security.IPermission Copy()
 		{
-			ApplicationDefinedPermission p = new ApplicationDefinedPermission(state);
-			p.Name = this.Name;
+			var p = new ApplicationDefinedPermission(state) { Name = this.Name };
 			return p;
 		}
 
@@ -86,5 +84,4 @@ namespace Suprifattus.Util.AccessControl
 			throw new NotImplementedException();
 		}
 	}
-
 }

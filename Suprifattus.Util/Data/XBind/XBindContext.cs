@@ -11,17 +11,17 @@ namespace Suprifattus.Util.Data.XBind
 {
 	public class XBindContext
 	{
-		static readonly Regex rxSplit = new Regex(@"\s*[.]\s*", RegexOptions.Compiled);
-		static readonly Regex rxOr = new Regex(@"\s*[|]{2}\s*", RegexOptions.Compiled);
+		private static readonly Regex rxSplit = new Regex(@"\s*[.]\s*", RegexOptions.Compiled);
+		private static readonly Regex rxOr = new Regex(@"\s*[|]{2}\s*", RegexOptions.Compiled);
 
-		[ThreadStatic] static XBindContext ctx;
+		[ThreadStatic] private static XBindContext ctx;
 
 		public static XBindContext Current
 		{
-			get { return (ctx != null ? ctx : (ctx = new XBindContext())); }
+			get { return (ctx ?? (ctx = new XBindContext())); }
 		}
 
-		Hashtable ht = CollectionsUtil.CreateCaseInsensitiveHashtable();
+		private readonly Hashtable ht = CollectionsUtil.CreateCaseInsensitiveHashtable();
 
 		public object Resolve(string expression)
 		{
@@ -53,10 +53,11 @@ namespace Suprifattus.Util.Data.XBind
 			foreach (string part in s)
 				SetValue(v, part, null, value);
 		}
-		
-		static ReflectionCache cache = new ReflectionCache();
-		static BindingFlags bf = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
-		static MemberTypes mt = MemberTypes.Property | MemberTypes.Method | MemberTypes.Field;
+
+		private static readonly ReflectionCache cache = new ReflectionCache();
+		private const BindingFlags bf = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
+		private const MemberTypes mt = MemberTypes.Property | MemberTypes.Method | MemberTypes.Field;
+
 		private object GetValue(object root, object obj, string prop, object[] parameters)
 		{
 			if (obj == null)
@@ -65,18 +66,24 @@ namespace Suprifattus.Util.Data.XBind
 			string[] or = rxOr.Split(prop);
 			if (or.Length > 1)
 				prop = or[0];
-			
+
 			MemberInfo mi = FindMemberInfo(obj, prop);
 
 			if (mi == null)
 				return null;
-			
+
 			object val = null;
 			switch (mi.MemberType)
 			{
-				case MemberTypes.Property: val = ((PropertyInfo) mi).GetValue(obj, parameters); break;
-				case MemberTypes.Field: val = ((FieldInfo) mi).GetValue(obj); break;
-				case MemberTypes.Method: val = ((MethodInfo) mi).Invoke(obj, parameters); break;
+				case MemberTypes.Property:
+					val = ((PropertyInfo) mi).GetValue(obj, parameters);
+					break;
+				case MemberTypes.Field:
+					val = ((FieldInfo) mi).GetValue(obj);
+					break;
+				case MemberTypes.Method:
+					val = ((MethodInfo) mi).Invoke(obj, parameters);
+					break;
 			}
 
 			if (val == null && or.Length > 1)
@@ -99,7 +106,7 @@ namespace Suprifattus.Util.Data.XBind
 						break;
 					}
 				}
-				
+
 				if (mi != null)
 					cache.Set(t, prop, mi);
 			}
@@ -119,20 +126,20 @@ namespace Suprifattus.Util.Data.XBind
 			switch (mi.MemberType)
 			{
 				case MemberTypes.Property:
-					PropertyInfo pi = (PropertyInfo) mi;
+					var pi = (PropertyInfo) mi;
 					EnsureCompatibility(pi.PropertyType, ref value);
 					pi.SetValue(obj, value, parameters);
 					break;
 				case MemberTypes.Field:
-					FieldInfo fi = (FieldInfo) mi;
+					var fi = (FieldInfo) mi;
 					EnsureCompatibility(fi.FieldType, ref value);
 					fi.SetValue(obj, value);
 					break;
 				default:
 					throw new AppError("Erro Inesperado", "Tipo de membro indefinido: " + mi.MemberType);
-			}		
+			}
 		}
-		
+
 		private void EnsureCompatibility(Type type, ref object value)
 		{
 			if (type.IsEnum && value is string)

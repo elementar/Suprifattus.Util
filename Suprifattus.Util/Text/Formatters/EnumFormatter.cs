@@ -10,7 +10,7 @@ namespace Suprifattus.Util.Text.Formatters
 	/// </summary>
 	public class EnumFormatter : IFormatterPlugin
 	{
-		static Hashtable enumNamesCache = new Hashtable();
+		private static readonly Hashtable enumNamesCache = new Hashtable();
 
 		/// <summary>
 		/// A chave utilizada ao registrar o formatador.
@@ -31,17 +31,17 @@ namespace Suprifattus.Util.Text.Formatters
 		{
 			if (arg == null)
 				return null;
-			
+
 			Type t = arg.GetType();
 			if (!t.IsEnum)
 				return null;
-			
-			Hashtable enValues = (Hashtable) enumNamesCache[t];
+
+			var enValues = (Hashtable) enumNamesCache[t];
 
 			if (enValues == null)
 				enValues = BuildEnumValuesMap(t);
 
-			string val = (string) enValues[arg];
+			var val = (string) enValues[arg];
 			if (val == null)
 				val = arg.ToString();
 
@@ -50,7 +50,7 @@ namespace Suprifattus.Util.Text.Formatters
 
 		private Hashtable BuildEnumValuesMap(Type t)
 		{
-			Hashtable enValues = new Hashtable();
+			var enValues = new Hashtable();
 			foreach (FieldInfo fi in t.GetFields(BindingFlags.Static | BindingFlags.Public))
 			{
 				foreach (DescriptionAttribute d in fi.GetCustomAttributes(typeof(DescriptionAttribute), false))

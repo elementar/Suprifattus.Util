@@ -10,9 +10,9 @@ namespace Suprifattus.Util.AccessControl.Impl
 	[Serializable]
 	public class UserBase : IExtendedPrincipal
 	{
-		private IExtendedIdentity id;
-		private IRole[] userRoles;
-		private Hashtable customProps = new Hashtable();
+		private readonly IExtendedIdentity id;
+		private readonly IRole[] userRoles;
+		private readonly Hashtable customProps = new Hashtable();
 
 		/// <summary>
 		/// Cria um novo usuário.

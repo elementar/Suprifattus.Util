@@ -258,7 +258,7 @@ namespace Suprifattus.Util.IO
 
 		protected static int SaveStream(Stream from, Stream to)
 		{
-			return Streams.SaveStream(1024 * 20, from, to);
+			return Streams.SaveStream(1024*20, from, to);
 		}
 	}
 }

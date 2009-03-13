@@ -27,7 +27,7 @@ namespace Suprifattus.Util.Threading
 	public class CriticalSection : IDisposable
 	{
 		private readonly CriticalSectionHandler handler;
-		private bool left = false;
+		private bool left;
 
 		internal CriticalSection(CriticalSectionHandler handler)
 		{
@@ -54,7 +54,7 @@ namespace Suprifattus.Util.Threading
 				handler.resetEvent.Set();
 			}
 		}
-		
+
 		void IDisposable.Dispose()
 		{
 			Leave();

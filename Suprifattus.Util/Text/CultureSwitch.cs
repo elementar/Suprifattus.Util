@@ -6,31 +6,31 @@ namespace Suprifattus.Util.Text
 {
 	public class CultureSwitch : IDisposable
 	{
-		CultureInfo oldCulture;
-		
+		private CultureInfo oldCulture;
+
 		public CultureSwitch(CultureInfo ci)
 		{
 			this.oldCulture = GetCulture();
 			SetCulture(ci);
 		}
 
-		protected virtual CultureInfo GetCulture()
+		protected CultureInfo GetCulture()
 		{
 			return Thread.CurrentThread.CurrentCulture;
 		}
 
-		protected virtual void SetCulture(CultureInfo ci)
+		protected void SetCulture(CultureInfo ci)
 		{
 			Thread.CurrentThread.CurrentCulture = ci;
 		}
 
 		public void Dispose()
 		{
-			if (this.oldCulture != null)
-			{
-				SetCulture(this.oldCulture);
-				this.oldCulture = null;
-			}
+			if (this.oldCulture == null)
+				return;
+
+			SetCulture(this.oldCulture);
+			this.oldCulture = null;
 		}
 	}
 }

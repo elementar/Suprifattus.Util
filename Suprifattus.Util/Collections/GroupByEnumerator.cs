@@ -10,16 +10,18 @@ namespace Suprifattus.Util.Collections
 	/// </summary>
 	public class GroupByEnumerable : IEnumerable
 	{
-		readonly IEnumerable source;
-		readonly string field;
-		readonly int maxPerGroup;
+		private readonly IEnumerable source;
+		private readonly string field;
+		private readonly int maxPerGroup;
 
 		/// <summary>
 		/// Cria um <see cref="GroupByEnumerable"/>, percorrendo os dados em
 		/// <paramref name="source"/>, e agrupando pelo campo em <paramref name="field"/>.
 		/// </summary>
 		public GroupByEnumerable(IEnumerable source, string field)
-			: this(source, field, -1) { }
+			: this(source, field, -1)
+		{
+		}
 
 		/// <summary>
 		/// Cria um <see cref="GroupByEnumerable"/>, percorrendo os dados em
@@ -41,20 +43,20 @@ namespace Suprifattus.Util.Collections
 			return new GroupByEnumerator(source, field, maxPerGroup);
 		}
 	}
-	
+
 	/// <summary>
 	/// Enumerador que agrupa os itens.
 	/// Útil em linguagens de template, como NVelocity.
 	/// </summary>
 	public class GroupByEnumerator : IEnumerator
 	{
-		static readonly XBindContext xbind = new XBindContext();
-		readonly IEnumerable source;
-		readonly string field;
-		readonly int maxItensPerGroup = -1;
+		private static readonly XBindContext xbind = new XBindContext();
+		private readonly IEnumerable source;
+		private readonly string field;
+		private readonly int maxItensPerGroup = -1;
 
-		IEnumerator en;
-		GroupEnumerator currentGroup;
+		private IEnumerator en;
+		private GroupEnumerator currentGroup;
 
 		/// <summary>
 		/// Cria um novo <see cref="GroupByEnumerator"/>.
@@ -125,15 +127,15 @@ namespace Suprifattus.Util.Collections
 		#region GroupEnumerator inner class
 		public class GroupEnumerator : IEnumerator, IEnumerable
 		{
-			readonly IEnumerator en;
-			readonly string field;
-			readonly object groupValue;
-			readonly GroupByEnumerator g;
-			readonly static XBindContext xbind = GroupByEnumerator.xbind;
+			private readonly IEnumerator en;
+			private readonly string field;
+			private readonly object groupValue;
+			private readonly GroupByEnumerator g;
+			private static readonly XBindContext xbind = GroupByEnumerator.xbind;
 
-			int skip = 1;
-			int count = 0;
-			bool got = false;
+			private int skip = 1;
+			private int count;
+			private bool got;
 
 			public GroupEnumerator(GroupByEnumerator g)
 			{
@@ -167,7 +169,7 @@ namespace Suprifattus.Util.Collections
 
 			public bool MoveNext()
 			{
-				if (skip > 0) 
+				if (skip > 0)
 				{
 					skip--;
 					return true;
@@ -187,7 +189,7 @@ namespace Suprifattus.Util.Collections
 
 			public IEnumerator GetEnumerator()
 			{
-				if (!got) 
+				if (!got)
 				{
 					got = true;
 					return this;

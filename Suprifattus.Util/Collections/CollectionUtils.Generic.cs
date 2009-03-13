@@ -288,7 +288,7 @@ namespace Suprifattus.Util.Collections
 		}
 		#endregion
 
-		public static V GetValueOrDefault<K,V>(this IDictionary<K,V> dict, K key, V def)
+		public static V GetValueOrDefault<K, V>(this IDictionary<K, V> dict, K key, V def)
 		{
 			V val;
 			return dict.TryGetValue(key, out val) ? val : def;

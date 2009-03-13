@@ -16,18 +16,18 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 		{
 			Dispose(false);
 		}
-		
+
 		[Obsolete("Use RailsContext")]
 		public static IRailsEngineContext MonoRailContext
 		{
 			get { return MonoRailHttpHandler.CurrentContext; }
 		}
-		
+
 		public static IRailsEngineContext RailsContext
 		{
 			get { return MonoRailHttpHandler.CurrentContext; }
 		}
-		
+
 		public static HttpContext AspNetContext
 		{
 			get { return RailsContext == null ? HttpContext.Current : RailsContext.UnderlyingContext; }
@@ -37,10 +37,7 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 		{
 			get
 			{
-				if (AspNetContext != null)
-					return AspNetContext.Request.UserHostAddress;
-				else
-					return "0.0.0.0";
+				return AspNetContext != null ? AspNetContext.Request.UserHostAddress : "0.0.0.0";
 			}
 		}
 
@@ -48,13 +45,10 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 		{
 			get
 			{
-				if (AspNetContext != null)
-					return AspNetContext.Request.UserHostName;
-				else
-					return "0.0.0.0";
+				return AspNetContext != null ? AspNetContext.Request.UserHostName : "0.0.0.0";
 			}
 		}
-		
+
 		[Obsolete("Use a propriedade RailsContext diretamente")]
 		protected static IRailsEngineContext GetMonoRailContext()
 		{
@@ -66,7 +60,7 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 			if (disposing)
 				GC.SuppressFinalize(this);
 		}
-		
+
 		public void Dispose()
 		{
 			Dispose(true);

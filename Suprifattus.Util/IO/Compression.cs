@@ -46,7 +46,7 @@ namespace Suprifattus.Util.IO
 		private Stream OutputStream(Stream inputStream)
 		{
 			const string asm = "ICSharpCode.SharpZipLib";
-			object[] p = new object[] {inputStream};
+			var p = new object[] { inputStream };
 
 			switch (CompressionProvider)
 			{
@@ -64,7 +64,7 @@ namespace Suprifattus.Util.IO
 		private Stream InputStream(Stream inputStream)
 		{
 			const string asm = "ICSharpCode.SharpZipLib";
-			object[] p = new object[] {inputStream};
+			var p = new object[] { inputStream };
 
 			switch (CompressionProvider)
 			{
@@ -86,7 +86,7 @@ namespace Suprifattus.Util.IO
 		/// <returns>Um array com os bytes compactados</returns>
 		public byte[] Compress(byte[] bytesToCompress)
 		{
-			using (MemoryStream ms = new MemoryStream())
+			using (var ms = new MemoryStream())
 			{
 				using (Stream s = OutputStream(ms))
 					s.Write(bytesToCompress, 0, bytesToCompress.Length);
@@ -113,7 +113,7 @@ namespace Suprifattus.Util.IO
 		/// <returns>Uma string codificada em Base64 contendo o resultado da compactação</returns>
 		public string CompressToBase64(Stream streamToCompress)
 		{
-			byte[] inBytes = new byte[streamToCompress.Length];
+			var inBytes = new byte[streamToCompress.Length];
 			streamToCompress.Read(inBytes, 0, inBytes.Length);
 			return CompressToBase64(inBytes);
 		}
@@ -171,10 +171,10 @@ namespace Suprifattus.Util.IO
 		/// <returns>Um conjunto de bytes com os dados descompactados</returns>
 		public byte[] Decompress(byte[] bytesToDecompress)
 		{
-			byte[] writeData = new byte[4096];
-			using (MemoryStream inStream = new MemoryStream(bytesToDecompress))
+			var writeData = new byte[4096];
+			using (var inStream = new MemoryStream(bytesToDecompress))
 			using (Stream s2 = InputStream(inStream))
-			using (MemoryStream outStream = new MemoryStream())
+			using (var outStream = new MemoryStream())
 			{
 				int size;
 				do

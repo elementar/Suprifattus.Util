@@ -17,9 +17,9 @@ namespace Suprifattus.Util.Collections
 	/// </remarks>
 	public class DistinctEnumerable : IEnumerable
 	{
-		readonly IEnumerable source;
-		readonly string propertyName;
-		readonly IComparer comparer;
+		private readonly IEnumerable source;
+		private readonly string propertyName;
+		private readonly IComparer comparer;
 
 		public DistinctEnumerable(IEnumerable source, string propertyName)
 		{
@@ -37,8 +37,8 @@ namespace Suprifattus.Util.Collections
 		{
 			if (comparer != null)
 				return new DistinctEnumeratorWithComparer(source, propertyName, comparer);
-			else
-				return new DistinctEnumerator(source, propertyName);
+
+			return new DistinctEnumerator(source, propertyName);
 		}
 	}
 
@@ -48,7 +48,7 @@ namespace Suprifattus.Util.Collections
 		protected static readonly XBindContext ctx = new XBindContext();
 
 		protected readonly string propertyName;
-		
+
 		protected object last = first;
 
 		public DistinctEnumerator(IEnumerable source, string propertyName)
@@ -67,23 +67,21 @@ namespace Suprifattus.Util.Collections
 				last = ctx.Resolve(base.Current, propertyName);
 				return true;
 			}
-			else
+			
+			object old = last;
+			bool next = true;
+			do
 			{
-				object old = last;
-				bool next = true;
-				do 
-				{
-					last = ctx.Resolve(base.Current, propertyName);
-				} while (IsEqualToLast(old) && (next = base.MoveNext()));
-				return next;
-			}
+				last = ctx.Resolve(base.Current, propertyName);
+			} while (IsEqualToLast(old) && (next = base.MoveNext()));
+			return next;
 		}
 
 		protected virtual bool IsEqualToLast(object old)
 		{
-			return 
+			return
 				(last == old) ||
-				(last == null && old == null) || 
+				(last == null && old == null) ||
 				(last != null && last.Equals(old)) ||
 				(old != null && old.Equals(last));
 		}
@@ -91,7 +89,7 @@ namespace Suprifattus.Util.Collections
 
 	public class DistinctEnumeratorWithComparer : DistinctEnumerator
 	{
-		readonly IComparer comparer;
+		private readonly IComparer comparer;
 
 		public DistinctEnumeratorWithComparer(IEnumerable source, string propertyName, IComparer comparer)
 			: base(source, propertyName)

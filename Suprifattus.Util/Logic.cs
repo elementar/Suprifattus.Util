@@ -2,23 +2,18 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 
+using Suprifattus.Util.Reflection;
+using Suprifattus.Util.Text;
+
 namespace Suprifattus.Util
 {
-	using Reflection;
-	using Text;
-
 	/// <summary>
 	/// Classe com métodos auxiliares para lidar com operações lógicas.
 	/// </summary>
-	public sealed class Logic
+	public static class Logic
 	{
-		private static Regex rxTrue = new Regex("^(-?1|y(es)?|t(rue)?|s(im)?|on)$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-		private static Regex rxValidNumber = new Regex(@"^[-+]?\d+$", RegexOptions.Compiled);
-
-		private Logic()
-		{
-			throw new NotSupportedException("This class can't be instanciated");
-		}
+		private static readonly Regex rxTrue = new Regex("^(-?1|y(es)?|t(rue)?|s(im)?|on)$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+		private static readonly Regex rxValidNumber = new Regex(@"^[-+]?\d+$", RegexOptions.Compiled);
 
 		/// <summary>
 		/// Realiza a formatação utilizando 
@@ -34,10 +29,10 @@ namespace Suprifattus.Util
 		{
 			if (AnyNullOrEmpty(args))
 				return null;
-			
+
 			return String.Format(PluggableFormatProvider.Instance, format, args);
 		}
-		
+
 		#region Nullify, NullifyIfEqual
 		/// <summary>
 		/// Retorna <c>null</c> se a string for vazia,
@@ -48,9 +43,9 @@ namespace Suprifattus.Util
 		/// <paramref name="s"/> caso contrário</returns>
 		public static string Nullify(string s)
 		{
-			return s == null || s.Length == 0 ? null : s;
+			return string.IsNullOrEmpty(s) ? null : s;
 		}
-		
+
 		/// <summary>
 		/// Retorna <c>null</c> se as duas strings forem idênticas,
 		/// caso contrário, retorna a primeira string.
@@ -83,7 +78,7 @@ namespace Suprifattus.Util
 
 			foreach (string o in other)
 				if (s.Equals(o)) return null;
-			
+
 			return s;
 		}
 
@@ -108,7 +103,7 @@ namespace Suprifattus.Util
 
 			foreach (string o in other)
 				if (comp.Compare(s, o) == 0) return null;
-			
+
 			return s;
 		}
 		#endregion
@@ -121,7 +116,7 @@ namespace Suprifattus.Util
 		{
 			return (string) Coalesce((object[]) strings);
 		}
-		
+
 		/// <summary>
 		/// Retorna o primeiro objeto não-nulo da lista.
 		/// </summary>
@@ -175,7 +170,7 @@ namespace Suprifattus.Util
 		/// <returns>Verdadeiro se for fazia, falso caso tenha conteúdo.</returns>
 		public static bool StringEmpty(string s)
 		{
-			return s == null || s.Length == 0;
+			return String.IsNullOrEmpty(s);
 		}
 
 		/// <summary>
@@ -213,7 +208,7 @@ namespace Suprifattus.Util
 
 			return false;
 		}
-		
+
 		/// <summary>
 		/// Verifica se uma string está vazia.
 		/// Uma string é vazia quando é nula ou tem largura zero.
@@ -241,7 +236,7 @@ namespace Suprifattus.Util
 					return true;
 			return false;
 		}
-		
+
 		/// <summary>
 		/// Verifica se há algum item nulo ou string vazia na lista.
 		/// </summary>
@@ -257,7 +252,7 @@ namespace Suprifattus.Util
 					return true;
 			return false;
 		}
-		
+
 		#region AllTrue, AllFalse
 		/// <summary>
 		/// Testa se todos os booleanos da lista são verdadeiros.
@@ -297,13 +292,13 @@ namespace Suprifattus.Util
 		[CLSCompliant(false)]
 		public static bool AllEqual<T>(T obj, params T[] items)
 		{
-			bool compareAgainstNull = (obj == null);
+			bool compareAgainstNull = Equals(obj, default(T));
 
 			foreach (T item in items)
 			{
-				if (compareAgainstNull && item != null) 
+				if (compareAgainstNull && !Equals(item, default(T)))
 					return false;
-				if (item == null || !item.Equals(obj))
+				if (Equals(item, default(T)) || !item.Equals(obj))
 					return false;
 			}
 			return true;
@@ -324,7 +319,7 @@ namespace Suprifattus.Util
 		public static bool AllEqual<T, P>(T obj, string propName, params T[] items)
 		{
 			P val = Properties.GetValue<T, P>(propName, obj);
-			return AllEqual<T, P>(val, propName, items);
+			return AllEqual(val, propName, items);
 		}
 
 		/// <summary>
@@ -342,7 +337,7 @@ namespace Suprifattus.Util
 		public static bool AllEqual<T, P>(P val, string propName, params T[] items)
 		{
 			P[] vals = Properties.GetValues<T, P>(propName, items);
-			return AllEqual<P>(val, vals);
+			return AllEqual(val, vals);
 		}
 #endif
 
@@ -355,7 +350,7 @@ namespace Suprifattus.Util
 		/// </returns>
 		public static bool IsNumeric(string s)
 		{
-			return s != null && s.Length > 0 && rxValidNumber.IsMatch(s);
+			return !String.IsNullOrEmpty(s) && rxValidNumber.IsMatch(s);
 		}
 
 		#region RepresentsTrue
@@ -378,15 +373,15 @@ namespace Suprifattus.Util
 		{
 			if (NullableHelper.IsNull(obj))
 				return false;
-			
+
 			obj = NullableHelper.GetValue(obj);
 			if (obj is bool)
 				return (bool) obj;
 			if (obj.GetType().IsPrimitive)
 				obj = Convert.ToString(obj);
 			if (obj is string)
-				return !"".Equals(obj) && Logic.RepresentsTrue((string) obj);
-			
+				return !"".Equals(obj) && RepresentsTrue((string) obj);
+
 			// qualquer outro objeto não-null representa verdadeiro
 			return !NullableHelper.IsNull(obj);
 		}

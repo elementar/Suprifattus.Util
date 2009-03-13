@@ -20,7 +20,7 @@ namespace Suprifattus.Util.Text.Formatters
 	/// </example>
 	public class CPFFormatter : IFormatterPlugin
 	{
-		Regex rxCpf = new Regex(@"^(\d\d\d)\.?(\d\d\d)\.?(\d\d\d)-?(\d\d)$", RegexOptions.RightToLeft | RegexOptions.Compiled);
+		private readonly Regex rxCpf = new Regex(@"^(\d\d\d)\.?(\d\d\d)\.?(\d\d\d)-?(\d\d)$", RegexOptions.RightToLeft | RegexOptions.Compiled);
 
 		/// <summary>
 		/// A chave utilizada ao registrar o formatador.
@@ -46,13 +46,13 @@ namespace Suprifattus.Util.Text.Formatters
 				mask = "{0}{1}{2}{3}";
 			else
 				mask = "{0}.{1}.{2}-{3}";
-			
+
 			string cnpj = Convert.ToString(arg, ci);
 			Match m = rxCpf.Match(cnpj);
 			if (m != null && m.Success)
 				return String.Format(ci, mask, m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value, m.Groups[4].Value);
-			else
-				return cnpj;
+			
+			return cnpj;
 		}
 	}
 }

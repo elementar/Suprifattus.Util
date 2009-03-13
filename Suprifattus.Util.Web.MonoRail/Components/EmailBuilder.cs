@@ -29,46 +29,27 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 			rxEmailWithName = new Regex(@"^.* <[\w._%+-]+@[\w+-]+(\.[\w+-]+)+>$", RegexOptions.Compiled);
 
 		private readonly string from;
-		private string to;
-		private string[] cc;
-		private string baseUrl;
-		private string xsltHtml4 = "~/res/xsl/html-email.xsl";
 
 		private XslCompiledTransform xslHtmlEmail;
 		
 		public EmailBuilder(string from)
 		{
+			XsltHtml4 = "~/res/xsl/html-email.xsl";
 			this.from = from;
 		}
 
-		public string To
-		{
-			get { return to; }
-			set { to = value; }
-		}
+		public string To { get; set; }
 
 		public string From
 		{
 			get { return from; }
 		}
 
-		public string[] Cc
-		{
-			get { return cc; }
-			set { cc = value; }
-		}
+		public string[] Cc { get; set; }
 
-		public string BaseUrl
-		{
-			get { return baseUrl; }
-			set { baseUrl = value; }
-		}
+		public string BaseUrl { get; set; }
 
-		public string XsltHtml4
-		{
-			get { return xsltHtml4; }
-			set { xsltHtml4 = value; }
-		}
+		public string XsltHtml4 { get; set; }
 
 		public void Initialize()
 		{
@@ -95,8 +76,8 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 				throw new AppError("Arquivo Faltante", "O arquivo XSLT para degradação para HTML4 não foi encontrado.");
 			
 			// aplica o XSL de email
-			using (StringReader sr = new StringReader(mail.Body))
-			using (StringWriter sw = new StringWriter())
+			using (var sr = new StringReader(mail.Body))
+			using (var sw = new StringWriter())
 			using (XmlReader r = XmlReader.Create(sr))
 			{
 				xslHtmlEmail.Transform(r, null, sw);

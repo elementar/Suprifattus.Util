@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Reflection;
-
 using Castle.DynamicProxy;
 
 namespace Suprifattus.Util.Web.MonoRail.Components
@@ -13,17 +12,13 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 	/// <remarks>
 	/// Got from: http://www.ayende.com/Blog/2005/06/03/DynamicCasterIsDone.aspx
 	/// </remarks>
-	public sealed class DynamicCaster
+	public static class DynamicCaster
 	{
-		private DynamicCaster() { }
-		
-#if GENERICS
 		public static T Cast<T>(object source)
 		{
 			return (T) Cast(typeof(T), source);
 		}
-#endif
-		
+
 		public static object Cast(Type destinationType, object source)
 		{
 			if (destinationType == null)
@@ -35,7 +30,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 			if (source.GetType().GetInterface(destinationType.Name) != null)
 				return source;
 
-			ProxyGenerator generator = new ProxyGenerator();
+			var generator = new ProxyGenerator();
 			return generator.CreateProxy(destinationType, new DelegatingInterceptor(source.GetType()), source);
 		}
 
@@ -49,10 +44,11 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 				this.type = type;
 			}
 
-			protected override void PreProceed(IInvocation invocation, params object[] args)
+			protected override void PreProceed(IInvocation invocation, object[] args)
 			{
 				if (!DoesMethodExists(invocation.Method))
-					throw new NotImplementedException(String.Format("Type '{0}' does not implement method '{1}'!", type.FullName, invocation.Method.ToString()));
+					throw new NotImplementedException(String.Format("Type '{0}' does not implement method '{1}'!", type.FullName,
+					                                                invocation.Method));
 			}
 
 			private bool DoesMethodExists(MethodInfo method)
@@ -61,7 +57,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 					return (bool) methodCache[method];
 
 				ParameterInfo[] parameters = method.GetParameters();
-				Type[] types = new Type[parameters.Length];
+				var types = new Type[parameters.Length];
 				for (int i = 0; i < parameters.Length; i++)
 					types[i] = parameters[i].ParameterType;
 

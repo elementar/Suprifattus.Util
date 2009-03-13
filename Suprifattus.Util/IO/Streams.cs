@@ -11,7 +11,7 @@ namespace Suprifattus.Util.IO
 		{
 			return SaveStream(DefaultBufferSize, from, to);
 		}
-		
+
 		public static int SaveStream(int bufSize, Stream from, Stream to)
 		{
 			var buf = new byte[bufSize];

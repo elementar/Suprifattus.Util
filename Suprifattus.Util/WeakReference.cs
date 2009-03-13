@@ -6,9 +6,9 @@ namespace Suprifattus.Util
 	public delegate T WeakRefCreationDelegate<T>();
 
 	[CLSCompliant(false)]
-	public class WeakReference<T> : System.WeakReference
+	public class WeakReference<T> : WeakReference
 	{
-		WeakRefCreationDelegate<T> del;
+		private readonly WeakRefCreationDelegate<T> del;
 
 		public WeakReference(WeakRefCreationDelegate<T> createDelegate)
 			: base(createDelegate())
@@ -18,7 +18,7 @@ namespace Suprifattus.Util
 
 		public new T Target
 		{
-			get { return (T) (base.Target == null ? base.Target = del() : base.Target); }
+			get { return (T) (base.Target ?? (base.Target = del())); }
 			set { base.Target = value; }
 		}
 	}

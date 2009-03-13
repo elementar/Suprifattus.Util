@@ -12,8 +12,8 @@ namespace Suprifattus.Util.Data
 	/// </summary>
 	public class DbMetadataCache
 	{
-		IDbConnectionFactory connFactory;
-		IDictionary tables = new HybridDictionary(true);
+		private readonly IDbConnectionFactory connFactory;
+		private readonly IDictionary tables = new HybridDictionary(true);
 
 		/// <summary>
 		/// Cria um novo cacheador de metadados para a conexão SQL especificada.
@@ -43,10 +43,10 @@ namespace Suprifattus.Util.Data
 		/// <returns>A linha que contém os metadados sobre o campo especificado.</returns>
 		protected DataRow GetFieldMetadata(string table, string field)
 		{
-			DataTable fields = (DataTable) tables[table];
+			var fields = (DataTable) tables[table];
 			if (fields == null)
 			{
-				lock (this) 
+				lock (this)
 				{
 					using (IDbConnection conn = connFactory.GetConnection())
 					{
@@ -59,7 +59,7 @@ namespace Suprifattus.Util.Data
 					}
 				}
 			}
-			
+
 			DataRow[] rr = fields.Select(String.Format("ColumnName = '{0}'", field));
 			return (rr.Length > 0 ? rr[0] : null);
 		}
@@ -70,7 +70,7 @@ namespace Suprifattus.Util.Data
 		/// <param name="table">A tabela</param>
 		/// <param name="field">O campo</param>
 		/// <returns>O tamanho máximo do campo especificado.</returns>
-		public int MaxLength(string table, string field) 
+		public int MaxLength(string table, string field)
 		{
 			DataRow dr = GetFieldMetadata(table, field);
 
@@ -89,7 +89,7 @@ namespace Suprifattus.Util.Data
 		/// </summary>
 		private class SqlConnectionFactory : IDbConnectionFactory
 		{
-			string connectionString;
+			private readonly string connectionString;
 
 			public SqlConnectionFactory(string connectionString)
 			{

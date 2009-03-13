@@ -10,9 +10,9 @@ namespace Suprifattus.Util.Collections
 	public class RangeEnumerator : IEnumerator, IEnumerable
 	{
 		private int _index;
-		private int _begin;
-		private int _end;
-		private int _step;
+		private readonly int _begin;
+		private readonly int _end;
+		private readonly int _step;
 
 		public RangeEnumerator(int begin, int end, int step)
 		{

@@ -5,7 +5,7 @@ namespace Suprifattus.Util.Collections
 {
 	public class ReverseEnumerable : IEnumerable
 	{
-		IEnumerable source;
+		private readonly IEnumerable source;
 
 		public ReverseEnumerable(IEnumerable source)
 		{
@@ -27,7 +27,7 @@ namespace Suprifattus.Util.Collections
 
 		private static IEnumerator Reverse(IEnumerable en)
 		{
-			ArrayList al = new ArrayList();
+			var al = new ArrayList();
 			foreach (object item in en)
 				al.Add(item);
 			al.Reverse();
