@@ -96,15 +96,15 @@
     <EmbeddedResource Include="JavaScript\Sources\xml.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Suprifattus.Util.snk">
+      <Link>Suprifattus.Util.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Suprifattus.Util\Suprifattus.Util-3.5.csproj">
       <Project>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</Project>
       <Name>Suprifattus.Util-3.5</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Suprifattus.Util.snk">
-      <Link>Suprifattus.Util.snk</Link>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
 </Project>

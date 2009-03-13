@@ -75,7 +75,7 @@
   <ItemGroup>
     <Reference Include="ApacheFop.Net, Version=0.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\net-2.0\ApacheFop.Net.dll</HintPath>
+      <HintPath>..\lib\castle\ApacheFop.Net.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
