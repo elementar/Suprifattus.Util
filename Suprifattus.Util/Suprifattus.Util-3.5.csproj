@@ -1,0 +1,268 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Suprifattus.Util</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\Suprifattus.Util.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Suprifattus.Util</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyKeyProviderName>
+    </AssemblyKeyProviderName>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;GENERICS</DefineConstants>
+    <DocumentationFile>bin\Debug\Suprifattus.Util.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>1699,1587,1591</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;GENERICS</DefineConstants>
+    <DocumentationFile>bin\Release\Suprifattus.Util.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>1699,1591,1587</NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessControl\AccessDeniedException.cs" />
+    <Compile Include="AccessControl\ApplicationDefinedPermissionAttribute.cs" />
+    <Compile Include="AccessControl\DemandPermissionsAttribute.cs" />
+    <Compile Include="AccessControl\IExtendedIdentity.cs" />
+    <Compile Include="AccessControl\IExtendedPrincipal.cs" />
+    <Compile Include="AccessControl\Impl\IdentityBase.cs" />
+    <Compile Include="AccessControl\Impl\Permission.cs" />
+    <Compile Include="AccessControl\Impl\RoleBase.cs" />
+    <Compile Include="AccessControl\Impl\SuprifattusIdentity.cs" />
+    <Compile Include="AccessControl\Impl\SuprifattusPrincipal.cs" />
+    <Compile Include="AccessControl\Impl\UserBase.cs" />
+    <Compile Include="AccessControl\IPermission.cs" />
+    <Compile Include="AccessControl\IRole.cs" />
+    <Compile Include="AccessControl\PermissionChecker.cs" />
+    <Compile Include="Collections\GenericComparer.cs" />
+    <Compile Include="Encryption\EncryptionUtil.cs" />
+    <Compile Include="Encryption\SimpleTripleDES.cs" />
+    <Compile Include="Exceptions\AppAssertionError.cs" />
+    <Compile Include="Exceptions\AppError.cs" />
+    <Compile Include="Exceptions\AppException.cs" />
+    <Compile Include="Exceptions\BaseException.cs" />
+    <Compile Include="Exceptions\BusinessRuleViolationException.cs" />
+    <Compile Include="Exceptions\PermissionDeniedException.cs" />
+    <Compile Include="AccessControl\UserBuilder.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bool2.cs" />
+    <Compile Include="Collections\ColumnEnumerator.cs" />
+    <Compile Include="Collections\Dict.cs" />
+    <Compile Include="Collections\ListSet.Generic.cs" />
+    <Compile Include="Collections\Set.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\Set.Generic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\SoftDictionary.cs" />
+    <Compile Include="Collections\CollectionBaseEx.cs" />
+    <Compile Include="Collections\CollectionUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\ConcatEnumerator.cs" />
+    <Compile Include="Collections\CollectionUtils.Generic.cs" />
+    <Compile Include="Collections\DistinctEnumerator.cs" />
+    <Compile Include="Collections\EnumeratorBase.cs" />
+    <Compile Include="Collections\GroupByEnumerator.cs" />
+    <Compile Include="Collections\InsertionEnumerator.cs" />
+    <Compile Include="Collections\ListSet.cs" />
+    <Compile Include="Collections\NameValueCollectionDictionaryAdapter.cs" />
+    <Compile Include="Collections\PagedEnumerator.cs" />
+    <Compile Include="Collections\RangeEnumerator.cs" />
+    <Compile Include="Collections\ReverseEnumerator.cs" />
+    <Compile Include="Collections\ValueConditionAttribute.cs" />
+    <Compile Include="Config\AppEnvironment.cs" />
+    <Compile Include="Data\DbMetadataCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\IConnector.cs" />
+    <Compile Include="Data\IDbConnectionFactory.cs" />
+    <Compile Include="Data\Sql\ISqlQuery.cs" />
+    <Compile Include="Data\Sql\ISqlRenderable.cs" />
+    <Compile Include="Data\Sql\SqlComplexCondition.cs" />
+    <Compile Include="Data\Sql\SqlCondition.cs" />
+    <Compile Include="Data\Sql\SqlField.cs" />
+    <Compile Include="Data\Sql\SqlFieldCollection.cs" />
+    <Compile Include="Data\Sql\SqlFieldCondition.cs" />
+    <Compile Include="Data\Sql\SqlIsNullCondition.cs" />
+    <Compile Include="Data\Sql\SqlLiteralCondition.cs" />
+    <Compile Include="Data\Sql\SqlNegatedCondition.cs" />
+    <Compile Include="Data\Sql\SqlOrder.cs" />
+    <Compile Include="Data\Sql\SqlQuery.cs" />
+    <Compile Include="Data\Sql\SqlSource.cs" />
+    <Compile Include="Data\Sql\SqlStaticQuery.cs" />
+    <Compile Include="Data\XBind\IXBindAware.cs" />
+    <Compile Include="Data\XBind\XBindContext.cs" />
+    <Compile Include="DesignPatterns\ICommand.cs" />
+    <Compile Include="DesignPatterns\IObjectFactory.cs" />
+    <Compile Include="DesignPatterns\ITaggedObject.cs" />
+    <Compile Include="Encryption\HashUtil.cs" />
+    <Compile Include="Exceptions\RequiredFieldNotFilledException.cs" />
+    <Compile Include="Exceptions\SecurityException.cs" />
+    <Compile Include="Graphics\ImageUtil.cs" />
+    <Compile Include="IO\Base64InputStream.cs" />
+    <Compile Include="IO\Base64OutputStream.cs" />
+    <Compile Include="IO\CircularBuffer.cs" />
+    <Compile Include="IO\CircularStream.cs" />
+    <Compile Include="IO\Compression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\Serialization\DrawingFastSerializationHelper.cs" />
+    <Compile Include="IO\Serialization\FastSerializer.cs" />
+    <Compile Include="IO\Serialization\WebFastSerializationHelper.cs" />
+    <Compile Include="IO\FileManager.cs" />
+    <Compile Include="IO\HoloFS\HoloDirectory.cs" />
+    <Compile Include="IO\HoloFS\HoloFile.cs" />
+    <Compile Include="IO\HoloFS\HoloFSItem.cs" />
+    <Compile Include="IO\HoloFS\Impl\FallThroughDirectory.cs" />
+    <Compile Include="IO\HoloFS\Impl\LocalDirectory.cs" />
+    <Compile Include="IO\HoloFS\Impl\LocalFile.cs" />
+    <Compile Include="IO\ManagedTempFile.cs" />
+    <Compile Include="IO\NoAccentsTextWriter.cs" />
+    <Compile Include="IO\SingleFileWatcher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IO\Streams.cs" />
+    <Compile Include="IO\TempFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="KeyValueFormatter.cs" />
+    <Compile Include="Lazy.cs" />
+    <Compile Include="Licensing\LicenseKeyAttribute.cs" />
+    <Compile Include="Logic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NameValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NullableHelper.cs" />
+    <Compile Include="ParseUtil.cs" />
+    <Compile Include="Reflection\Attributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reflection\ObjectQuery.Generic.cs" />
+    <Compile Include="Reflection\EnumDescriptor.cs" />
+    <Compile Include="Reflection\ObjectQuery.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\ComplexCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\NegatedCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\TypeCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\PropertyValueCondition.cs" />
+    <Compile Include="Reflection\ObjQueryConditions\Condition.cs" />
+    <Compile Include="Reflection\Properties.cs" />
+    <Compile Include="Reflection\ReflectionCache.cs" />
+    <Compile Include="Resources\Strings.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="Text\CultureSwitch.cs" />
+    <Compile Include="Text\Formatters\CNPJFormatter.cs" />
+    <Compile Include="Text\Formatters\CPFFormatter.cs" />
+    <Compile Include="Text\Formatters\EnumFormatter.cs" />
+    <Compile Include="Text\Formatters\NoAccentsFormatter.cs" />
+    <Compile Include="Text\Formatters\WikiFormatter.cs" />
+    <Compile Include="Text\IFormatterPlugin.cs" />
+    <Compile Include="Text\PluggableFormatProvider.cs" />
+    <Compile Include="Text\PluralForm.cs" />
+    <Compile Include="Threading\CriticalSectionHandler.cs" />
+    <Compile Include="Threading\CustomThreadPool.cs" />
+    <Compile Include="Timing\Clock.cs" />
+    <Compile Include="WeakReference.cs" />
+    <Compile Include="Win32\ShellApi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Xml\XmlEncoder.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.pt_BR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Suprifattus.Util.snk">
+      <Link>Suprifattus.Util.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

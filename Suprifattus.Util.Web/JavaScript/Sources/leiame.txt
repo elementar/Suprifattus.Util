@@ -1,0 +1,35 @@
+COMO ESCREVER CÓDIGO JAVASCRIPT PARA O SUPRIFATTUS FRAMEWORK
+============================================================
+
+- A estrutura de um objeto é a seguinte:
+
+// colocar na primeira linha, para objetos auto-instanciáveis
+EventUtil.bind(window, "load", "eval('MeuObjeto').init()");
+
+function MinhaClasse(argumentos, do, construtor)
+{
+	this.campoNormal = valorDoCampoNormal;
+	this.campoInicializadoNoConstrutor = null;
+	this.campoArrayQueIniciaVazio = [];
+	
+	this.init = init;
+	function init()
+	{
+		// função de inicialização.
+		// utilizada por classes "auto-instanciáveis".
+	}
+	
+	this.meuMetodo = meuMetodo;
+	function meuMetodo(arg1, arg2)
+	{
+		// se for chamar outro método dessa mesma classe,
+		this.outroMetodo(arg2);
+	}
+	
+	this.outroMetodo = outroMetodo;
+	function outroMetodo(arg)
+	{
+	}
+}
+// colocar na última linha, para o caso de objetos auto-instanciáveis
+var MeuObjeto = new MinhaClasse();

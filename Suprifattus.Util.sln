@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util", "Suprifattus.Util\Suprifattus.Util.csproj", "{1CE6FFA8-F126-49E7-BAC6-EB9431398438}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suprifattus.Util.Web", "Suprifattus.Util.Web\Suprifattus.Util.Web.csproj", "{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1CE6FFA8-F126-49E7-BAC6-EB9431398438}.Debug.ActiveCfg = Debug|.NET
+		{1CE6FFA8-F126-49E7-BAC6-EB9431398438}.Debug.Build.0 = Debug|.NET
+		{1CE6FFA8-F126-49E7-BAC6-EB9431398438}.Release.ActiveCfg = Release|.NET
+		{1CE6FFA8-F126-49E7-BAC6-EB9431398438}.Release.Build.0 = Release|.NET
+		{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}.Debug.ActiveCfg = Debug|.NET
+		{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}.Debug.Build.0 = Debug|.NET
+		{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}.Release.ActiveCfg = Release|.NET
+		{F62AC07E-6F03-476F-88DE-2FADD9AF95B4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

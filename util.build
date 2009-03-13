@@ -1,0 +1,53 @@
+<!-- vim:syntax=xml:ts=2:
+-->
+<project name="Solution Build Example" default="rebuild">
+	<property name="configuration" value="release"/>
+	<property name="keyfile" value="Suprifattus.Util.snk"/>
+	
+	<target name="clean" description="Delete all previously compiled binaries.">
+		<delete>
+			<fileset>
+				<include name="bin/**" />
+				<include name="obj/**" />
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="build" description="Build all targets.">
+		<call target="build.util"/>
+		<call target="build.web"/>
+	</target>
+	
+	<target name="rebuild" depends="clean, build" />
+	
+	<target name="build.util">
+		<mkdir dir="bin" />
+		<csc target="library" output="bin/Suprifattus.Util.dll" define="GENERICS" keyfile="${keyfile}">
+			<sources>
+				<include name="Suprifattus.Util/**/*.cs" />
+			</sources>
+			<references>
+				<include name="System.Data.dll" />
+				<include name="System.Drawing.dll" />
+				<include name="System.Web.dll" />
+				<include name="System.Windows.Forms.dll" />
+			</references>
+		</csc>
+	</target>
+
+	<target name="build.web">
+		<mkdir dir="bin" />
+		<csc target="library" output="bin/Suprifattus.Util.Web.dll" define="GENERICS" keyfile="${keyfile}">
+			<sources>
+				<include name="Suprifattus.Util.Web/**/*.cs" />
+			</sources>
+			<references>
+				<include name="bin/Suprifattus.Util.dll" />
+				<include name="System.Data.dll" />
+				<include name="System.Drawing.dll" />
+				<include name="System.Web.dll" />
+				<include name="System.Windows.Forms.dll" />
+			</references>
+		</csc>
+	</target>
+</project>

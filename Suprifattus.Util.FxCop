@@ -1,0 +1,3170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.32" Name="Suprifattus.Util">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">e:\program files\microsoft fxcop 1.32 beta 1\Xml\FxCopReport.Xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>100</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>10</RuleExceptionsThreshold>
+  <Spelling Locale="en-us" />
+  <VersionAware>False</VersionAware>
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/../../../../../../../Program Files/NUnit 2.2/bin/</Directory>
+   <Directory>$(ProjectDir)/Suprifattus.Util.Web/bin/Debug/</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/Suprifattus.Util/bin/Debug/Suprifattus.Util.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.32">
+  <Namespaces>
+   <Namespace Name="Suprifattus.Util.Encryption">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.Encryption</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Suprifattus.Util.Graphics">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.Graphics</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Suprifattus.Util.IO">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.IO</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Suprifattus.Util.Licensing">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.Licensing</Item>
+      </Issue>
+     </Message>
+     <Message Id="Suprifattus" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-04-25 03:56:47Z">
+      <Issue Name="Namespace">
+       <Item>Suprifattus</Item>
+       <Item>Suprifattus.Util.Licensing</Item>
+      </Issue>
+      <Notes>
+       <User Name="fabio">
+        <Note Id="0" />
+       </User>
+      </Notes>
+     </Message>
+     <Message Id="Util" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-04-25 03:56:47Z">
+      <Issue Name="Namespace">
+       <Item>Util</Item>
+       <Item>Suprifattus.Util.Licensing</Item>
+      </Issue>
+      <Notes>
+       <User Name="fabio">
+        <Note Id="1" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Suprifattus.Util.Text">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.Text</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Suprifattus.Util.Text.Formatters">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.Text.Formatters</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Suprifattus.Util.Win32">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-04-25 03:56:47Z">
+      <Issue>
+       <Item>Suprifattus.Util.Win32</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/Suprifattus.Util/bin/Debug/Suprifattus.Util.dll">
+    <Modules>
+     <Module Name="suprifattus.util.dll">
+      <Namespaces>
+       <Namespace Name="Suprifattus.Util">
+        <Types>
+         <Type Name="KeyValueFormatter">
+          <Members>
+           <Member Name="FormatKeyValue(Suprifattus.Util.KeyValue,System.String):System.String">
+            <Messages>
+             <Message Id="format" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue>
+               <Item>format</Item>
+               <Item>KeyValueFormatter.FormatKeyValue(KeyValue, String):String</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>KeyValueFormatter.FormatKeyValue(KeyValue, String):String</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'nv'</Item>
+               <Item>KeyValueFormatter.FormatKeyValue(KeyValue, String):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="System.ICustomFormatter.Format(System.String,System.Object,System.IFormatProvider):System.String">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>arg</Item>
+               <Item>Suprifattus.Util.KeyValue</Item>
+               <Item>KeyValueFormatter.System.ICustomFormatter.Format(String, Object, IFormatProvider):String</Item>
+               <Item>isint</Item>
+              </Issue>
+              <Issue Name="Parameter">
+               <Item>arg</Item>
+               <Item>System.IFormattable</Item>
+               <Item>KeyValueFormatter.System.ICustomFormatter.Format(String, Object, IFormatProvider):String</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>KeyValueFormatter</Item>
+               <Item>ICustomFormatter.Format(String, Object, IFormatProvider):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="System.IFormatProvider.GetFormat(System.Type):System.Object">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>KeyValueFormatter</Item>
+               <Item>IFormatProvider.GetFormat(Type):Object</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Logic">
+          <Members>
+           <Member Name=".ctor()">
+            <Messages>
+             <Message Id="System.NotSupportedException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Logic..ctor()</Item>
+               <Item>1</Item>
+               <Item>NotSupportedException..ctor(String)</Item>
+               <Item>This class can't be instanciated</Item>
+              </Issue>
+             </Message>
+             <Message Id="instanciated" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>instanciated</Item>
+               <Item>This class can't be instanciated</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="RepresentsTrue(System.String):System.Boolean">
+            <Messages>
+             <Message Id="0#s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>Logic.RepresentsTrue(String):Boolean</Item>
+               <Item>s</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="StringEmpty(System.Object):System.Boolean">
+            <Messages>
+             <Message Id="System.Convert.ToString(System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Logic.StringEmpty(Object):Boolean</Item>
+               <Item>System.Convert.ToString(System.Object)</Item>
+               <Item>System.Convert.ToString(System.Object,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="StringEmpty(System.String):System.Boolean">
+            <Messages>
+             <Message Id="0#s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>Logic.StringEmpty(String):Boolean</Item>
+               <Item>s</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ParseUtil">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>ParseUtil</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="ParseInt16(System.Object,System.Int16):System.Int16">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ParseUtil.ParseInt16(Object, Int16):Int16</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToInt16(System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ParseUtil.ParseInt16(Object, Int16):Int16</Item>
+               <Item>System.Convert.ToInt16(System.Object)</Item>
+               <Item>System.Convert.ToInt16(System.Object,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ParseInt32(System.Object,System.Int32):System.Int32">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ParseUtil.ParseInt32(Object, Int32):Int32</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToInt32(System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ParseUtil.ParseInt32(Object, Int32):Int32</Item>
+               <Item>System.Convert.ToInt32(System.Object)</Item>
+               <Item>System.Convert.ToInt32(System.Object,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.AccessControl">
+        <Types>
+         <Type Name="AccessDeniedException">
+          <Messages>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.AccessControl.AccessDeniedException</Item>
+             <Item>protected AccessDeniedException(SerializationInfo, StreamingContext)</Item>
+            </Issue>
+            <Issue>
+             <Item>Suprifattus.Util.AccessControl.AccessDeniedException</Item>
+             <Item>public AccessDeniedException()</Item>
+            </Issue>
+            <Issue>
+             <Item>Suprifattus.Util.AccessControl.AccessDeniedException</Item>
+             <Item>public AccessDeniedException(String)</Item>
+            </Issue>
+            <Issue>
+             <Item>Suprifattus.Util.AccessControl.AccessDeniedException</Item>
+             <Item>public AccessDeniedException(String, Exception)</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Created="2005-04-25 03:56:47Z">
+            <Issue Level="Error">
+             <Item>AccessDeniedException</Item>
+            </Issue>
+           </Message>
+           <Message Id="System.ApplicationException" TypeName="TypesShouldNotExtendCertainBaseTypes" Category="Microsoft.Design" CheckId="CA1058" Created="2005-04-25 03:56:47Z">
+            <Issue Name="System.ApplicationException">
+             <Item>AccessDeniedException</Item>
+             <Item>System.ApplicationException</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor(Suprifattus.Util.AccessControl.UserBase,Suprifattus.Util.AccessControl.Permission,System.String)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>AccessDeniedException..ctor(UserBase, Permission, String)</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(Suprifattus.Util.AccessControl.UserBase,System.String)">
+            <Messages>
+             <Message TypeName="ProvideObsoleteAttributeMessage" Category="Microsoft.Design" CheckId="CA1041" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>AccessDeniedException..ctor(UserBase, String)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="DefaultMessageFormat">
+            <Messages>
+             <Message TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>DefaultMessageFormat</Item>
+               <Item>O usuário '{0}' não tem a permissão necessária:&#xA;- {1}</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="BypassACLOnDebugAttribute">
+          <Messages>
+           <Message TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.AccessControl.BypassACLOnDebugAttribute</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>BypassACLOnDebugAttribute</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkAttributesWithAttributeUsage" Category="Microsoft.Design" CheckId="CA1018" Created="2005-04-25 03:56:47Z">
+            <Issue Level="Error">
+             <Item>Suprifattus.Util.AccessControl.BypassACLOnDebugAttribute</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="IsDefined(System.Type):System.Boolean">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>type</Item>
+               <Item>System.Type</Item>
+               <Item>System.Reflection.MemberInfo</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="DemandPermissionsAttribute">
+          <Messages>
+           <Message TypeName="DefineAccessorsForAttributeArguments" Category="Microsoft.Design" CheckId="CA1019" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>permissions</Item>
+             <Item>Suprifattus.Util.AccessControl.DemandPermissionsAttribute</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Permissions">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>DemandPermissionsAttribute.Permissions:Permission[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IdentityBase">
+          <Members>
+           <Member Name="UserID">
+            <Messages>
+             <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+              <Issue Name="MemberId">
+               <Item>IdentityBase.UserID:Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Permission">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.AccessControl.Permission</Item>
+             <Item>Permission</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Equals(System.Object):System.Boolean">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>that</Item>
+               <Item>Suprifattus.Util.AccessControl.Permission</Item>
+               <Item>Permission.Equals(Object):Boolean</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Issue Name="Parameter">
+               <Item>that</Item>
+               <Item>System.String</Item>
+               <Item>Permission.Equals(Object):Boolean</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>that</Item>
+               <Item>obj</Item>
+               <Item>Permission.Equals(Object):Boolean</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'that'</Item>
+               <Item>Permission.Equals(Object):Boolean</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ID">
+            <Messages>
+             <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+              <Issue Name="MemberId">
+               <Item>Permission.ID:String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PermissionChecker">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>PermissionChecker</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CheckPermissions(System.Type,Suprifattus.Util.AccessControl.UserBase,System.String):System.Void">
+            <Messages>
+             <Message Id="System.ArgumentNullException.#ctor(System.String,System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>PermissionChecker.CheckPermissions(Type, UserBase, String):Void</Item>
+               <Item>2</Item>
+               <Item>ArgumentNullException..ctor(String, String)</Item>
+               <Item>User must not be NULL.</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#t" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>PermissionChecker.CheckPermissions(Type, UserBase, String):Void</Item>
+               <Item>t</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetDemandedPermissions(System.Type,System.Int32):Suprifattus.Util.AccessControl.Permission[]">
+            <Messages>
+             <Message Id="0#t" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>PermissionChecker.GetDemandedPermissions(Type, Int32):Permission[]</Item>
+               <Item>t</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="HasPermission(Suprifattus.Util.AccessControl.UserBase,Suprifattus.Util.AccessControl.Permission):System.Boolean">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'user'</Item>
+               <Item>PermissionChecker.HasPermission(UserBase, Permission):Boolean</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="UserBase">
+          <Members>
+           <Member Name="IsInRole(System.String):System.Boolean">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>UserBase.IsInRole(String):Boolean</Item>
+               <Item>System.String.Compare(System.String,System.String,System.Boolean)</Item>
+               <Item>System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Roles">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>UserBase.Roles:RoleBase[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="UserBuilder">
+          <Members>
+           <Member Name="Build():Suprifattus.Util.AccessControl.UserBase">
+            <Messages>
+             <Message Id="System.Collections.IEnumerator.get_Current" TypeName="AvoidCallsThatRequireUnboxing" Category="Microsoft.Performance" CheckId="CA1808" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>UserBuilder.Build():UserBase</Item>
+               <Item>IEnumerator.get_Current():Object</Item>
+               <Item>DictionaryEntry</Item>
+              </Issue>
+              <Issue>
+               <Item>UserBuilder.Build():UserBase</Item>
+               <Item>IEnumerator.get_Current():Object</Item>
+               <Item>DictionaryEntry</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="DisposeImplementation">
+               <Item>UserBuilder.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ID">
+            <Messages>
+             <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+              <Issue Name="MemberId">
+               <Item>UserBuilder.ID:Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Collections">
+        <Types>
+         <Type Name="CollectionBaseEx">
+          <Messages>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Collections.CollectionBaseEx</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>Ex</Item>
+             <Item>Suprifattus.Util.Collections.CollectionBaseEx</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="OnValidate(System.Object):System.Void">
+            <Messages>
+             <Message Id="System.ArgumentException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>CollectionBaseEx.OnValidate(Object):Void</Item>
+               <Item>1</Item>
+               <Item>ArgumentException..ctor(String)</Item>
+               <Item>Invalid value for this collection.</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CollectionUtils">
+          <Messages>
+           <Message Id="Utils" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>Utils</Item>
+             <Item>Suprifattus.Util.Collections.CollectionUtils</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor()">
+            <Messages>
+             <Message Id="System.NotSupportedException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>CollectionUtils..ctor()</Item>
+               <Item>1</Item>
+               <Item>NotSupportedException..ctor(String)</Item>
+               <Item>Esta classe não deve ser instanciada.</Item>
+              </Issue>
+             </Message>
+             <Message Id="classe" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>classe</Item>
+               <Item>Esta classe não deve ser instanciada.</Item>
+              </Issue>
+             </Message>
+             <Message Id="deve" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>deve</Item>
+               <Item>Esta classe não deve ser instanciada.</Item>
+              </Issue>
+             </Message>
+             <Message Id="Esta" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Esta</Item>
+               <Item>Esta classe não deve ser instanciada.</Item>
+              </Issue>
+             </Message>
+             <Message Id="instanciada" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>instanciada</Item>
+               <Item>Esta classe não deve ser instanciada.</Item>
+              </Issue>
+             </Message>
+             <Message Id="não" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>não</Item>
+               <Item>Esta classe não deve ser instanciada.</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Join(System.Collections.IEnumerable):System.String">
+            <Messages>
+             <Message Id="Suprifattus.Util.Collections.CollectionUtils.Join(System.Collections.IEnumerable,System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>CollectionUtils.Join(IEnumerable):String</Item>
+               <Item>Suprifattus.Util.Collections.CollectionUtils.Join(System.Collections.IEnumerable,System.String)</Item>
+               <Item>Suprifattus.Util.Collections.CollectionUtils.Join(System.Collections.IEnumerable,System.String,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Join(System.Collections.IEnumerable,System.String):System.String">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'delimiter'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String):String</Item>
+              </Issue>
+              <Issue>
+               <Item>'en'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Join(System.Collections.IEnumerable,System.String,Suprifattus.Util.Collections.FormatDelegate):System.String">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'delimiter'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String, FormatDelegate):String</Item>
+              </Issue>
+              <Issue>
+               <Item>'en'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String, FormatDelegate):String</Item>
+              </Issue>
+              <Issue>
+               <Item>'formatDelegate'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String, FormatDelegate):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Join(System.Collections.IEnumerable,System.String,System.IFormatProvider):System.String">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'delimiter'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String, IFormatProvider):String</Item>
+              </Issue>
+              <Issue>
+               <Item>'en'</Item>
+               <Item>CollectionUtils.Join(IEnumerable, String, IFormatProvider):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MaxMin(System.Collections.ICollection,System.Collections.ICollection,System.Collections.ICollection&amp;,System.Collections.ICollection&amp;):System.Int32">
+            <Messages>
+             <Message Id="2#" TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>max</Item>
+              </Issue>
+             </Message>
+             <Message Id="3#" TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>min</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'col1'</Item>
+               <Item>CollectionUtils.MaxMin(ICollection, ICollection, ICollection&amp;, ICollection&amp;):Int32</Item>
+              </Issue>
+              <Issue>
+               <Item>'col2'</Item>
+               <Item>CollectionUtils.MaxMin(ICollection, ICollection, ICollection&amp;, ICollection&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToArray(System.Type,System.Collections.ICollection):System.Array">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>CollectionUtils.ToArray(Type, ICollection):Array</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'col'</Item>
+               <Item>CollectionUtils.ToArray(Type, ICollection):Array</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToArray(System.Type,System.Collections.IEnumerable):System.Array">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>en</Item>
+               <Item>System.Collections.ICollection</Item>
+               <Item>CollectionUtils.ToArray(Type, IEnumerable):Array</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'en'</Item>
+               <Item>CollectionUtils.ToArray(Type, IEnumerable):Array</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FormatDelegate">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Collections.FormatDelegate</Item>
+             <Item>Delegate</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HashSet">
+          <Messages>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Collections.HashSet</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="DisposeImplementation">
+               <Item>HashSet.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ListSet">
+          <Messages>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Collections.ListSet</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="DisposeImplementation">
+               <Item>ListSet.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Set">
+          <Messages>
+           <Message TypeName="IdentifiersShouldHaveCorrectPrefix" Category="Microsoft.Naming" CheckId="CA1715" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Set</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Collections.Set</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>Set</Item>
+             <Item>Set</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="AddRange(System.Object[]):System.Void">
+            <Messages>
+             <Message Id="0#vals" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>Set.AddRange(Object[]):Void</Item>
+               <Item>vals</Item>
+               <Item>vals</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ValueConditionAttribute">
+          <Messages>
+           <Message TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Collections.ValueConditionAttribute</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="DefineAccessorsForAttributeArguments" Category="Microsoft.Design" CheckId="CA1019" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>cond</Item>
+             <Item>Suprifattus.Util.Collections.ValueConditionAttribute</Item>
+            </Issue>
+            <Issue>
+             <Item>condId</Item>
+             <Item>Suprifattus.Util.Collections.ValueConditionAttribute</Item>
+            </Issue>
+            <Issue>
+             <Item>propName</Item>
+             <Item>Suprifattus.Util.Collections.ValueConditionAttribute</Item>
+            </Issue>
+            <Issue>
+             <Item>propValue</Item>
+             <Item>Suprifattus.Util.Collections.ValueConditionAttribute</Item>
+            </Issue>
+            <Issue>
+             <Item>t</Item>
+             <Item>Suprifattus.Util.Collections.ValueConditionAttribute</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor(System.String,System.String,System.Object)">
+            <Messages>
+             <Message Id="0#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>ValueConditionAttribute..ctor(String, String, Object)</Item>
+               <Item>cond</Item>
+               <Item>condId</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(System.String,System.Type)">
+            <Messages>
+             <Message Id="0#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>ValueConditionAttribute..ctor(String, Type)</Item>
+               <Item>cond</Item>
+               <Item>condId</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#t" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>ValueConditionAttribute..ctor(String, Type)</Item>
+               <Item>t</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(System.Type)">
+            <Messages>
+             <Message Id="0#t" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>ValueConditionAttribute..ctor(Type)</Item>
+               <Item>t</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CheckValue(System.String,System.Object):System.Boolean">
+            <Messages>
+             <Message Id="0#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>ValueConditionAttribute.CheckValue(String, Object):Boolean</Item>
+               <Item>cond</Item>
+               <Item>condId</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ConditionID">
+            <Messages>
+             <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+              <Issue Name="MemberId">
+               <Item>ValueConditionAttribute.ConditionID:String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Data">
+        <Types>
+         <Type Name="ConnectorBase">
+          <Members>
+           <Member Name="BuildCommands(Advanced.Data.Provider.AdpDataAdapter,Advanced.Data.Provider.AdpConnection,System.Data.DataTable):System.Boolean">
+            <Messages>
+             <Message Id="1#conn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>ConnectorBase.BuildCommands(AdpDataAdapter, AdpConnection, DataTable):Boolean</Item>
+               <Item>conn</Item>
+               <Item>conn</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CommitChanges(System.Data.DataRow[]):System.Void">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ConnectorBase.CommitChanges(DataRow[]):Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="Advanced.Data.Provider.AdpCommandBuilder" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Performance" CheckId="CA1806" Created="2005-05-09 17:48:40Z">
+              <Issue Name="ObjectCreation">
+               <Item>ConnectorBase.CommitChanges(DataRow[]):Void</Item>
+               <Item>Advanced.Data.Provider.AdpCommandBuilder</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CommitChanges(System.String[]):System.Int32">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ConnectorBase.CommitChanges(String[]):Int32</Item>
+              </Issue>
+             </Message>
+             <Message Id="Advanced.Data.Provider.AdpCommandBuilder" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Performance" CheckId="CA1806" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ObjectCreation">
+               <Item>ConnectorBase.CommitChanges(String[]):Int32</Item>
+               <Item>Advanced.Data.Provider.AdpCommandBuilder</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CreateConnection():Advanced.Data.Provider.AdpConnection">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ConnectorBase.CreateConnection():AdpConnection</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ConnectorBase.CreateConnection():AdpConnection</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Delete(System.String,System.Array,System.Boolean,System.Boolean):System.Int32">
+            <Messages>
+             <Message Id="System.ArgumentException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ConnectorBase.Delete(String, Array, Boolean, Boolean):Int32</Item>
+               <Item>1</Item>
+               <Item>ArgumentException..ctor(String)</Item>
+               <Item>Primary key must have exactly one element.</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ChangeType(System.Object,System.Type)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ConnectorBase.Delete(String, Array, Boolean, Boolean):Int32</Item>
+               <Item>System.Convert.ChangeType(System.Object,System.Type)</Item>
+               <Item>System.Convert.ChangeType(System.Object,System.Type,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ConnectorBase.Delete(String, Array, Boolean, Boolean):Int32</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'cods'</Item>
+               <Item>ConnectorBase.Delete(String, Array, Boolean, Boolean):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Suprifattus.Util.Data.ConnectorBase</Item>
+               <Item>view</Item>
+               <Item>System.Data.DataView</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="DisposeImplementation">
+               <Item>ConnectorBase.Dispose():Void</Item>
+              </Issue>
+              <Issue Name="DisposeSignature">
+               <Item>ConnectorBase.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ds">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ds</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>ds</Item>
+               <Item>ConnectorBase.ds</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="FillData(System.String,Suprifattus.Util.Data.Sql.ISqlQuery):System.Int32">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ConnectorBase.FillData(String, ISqlQuery):Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'query'</Item>
+               <Item>ConnectorBase.FillData(String, ISqlQuery):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="FillData(System.String,Suprifattus.Util.Data.Sql.SqlCondition,Suprifattus.Util.Data.Sql.SqlOrder):System.Int32">
+            <Messages>
+             <Message Id="1#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>ConnectorBase.FillData(String, SqlCondition, SqlOrder):Int32</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="FillData(System.String[]):System.Int32">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-05-09 17:48:40Z">
+              <Issue>
+               <Item>ConnectorBase.FillData(String[]):Int32</Item>
+              </Issue>
+             </Message>
+             <Message Id="Advanced.Data.Provider.AdpCommandBuilder" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Performance" CheckId="CA1806" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ObjectCreation">
+               <Item>ConnectorBase.FillData(String[]):Int32</Item>
+               <Item>Advanced.Data.Provider.AdpCommandBuilder</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>sources</Item>
+               <Item>tables</Item>
+               <Item>ConnectorBase.FillData(String[]):Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SELECT * FROM __</Item>
+               <Item>AdpCommand..ctor(String, AdpConnection)</Item>
+               <Item>ConnectorBase.FillData(String[]):Int32</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ConnectorBase.FillData(String[]):Int32</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetPhysicalTableName(System.Data.DataTable):System.String">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>ConnectorBase.GetPhysicalTableName(DataTable):String</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToString(System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>ConnectorBase.GetPhysicalTableName(DataTable):String</Item>
+               <Item>System.Convert.ToString(System.Object)</Item>
+               <Item>System.Convert.ToString(System.Object,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'table'</Item>
+               <Item>ConnectorBase.GetPhysicalTableName(DataTable):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SetEmptyStringsNull(System.Data.DataRow):System.Void">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>ConnectorBase.SetEmptyStringsNull(DataRow):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'row'</Item>
+               <Item>ConnectorBase.SetEmptyStringsNull(DataRow):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SetPhysicalTableName(System.Data.DataTable,System.String):System.Void">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>ConnectorBase.SetPhysicalTableName(DataTable, String):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'table'</Item>
+               <Item>ConnectorBase.SetPhysicalTableName(DataTable, String):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="view">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>view</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ConnectorException">
+          <Messages>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Data.ConnectorException</Item>
+             <Item>protected ConnectorException(SerializationInfo, StreamingContext)</Item>
+            </Issue>
+            <Issue>
+             <Item>Suprifattus.Util.Data.ConnectorException</Item>
+             <Item>public ConnectorException()</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Created="2005-04-25 03:56:47Z">
+            <Issue Level="Error">
+             <Item>ConnectorException</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor(Suprifattus.Util.Data.ConnectorException+Types,System.Exception)">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'innerException'</Item>
+               <Item>ConnectorException..ctor(Types, Exception)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(System.Exception)">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'innerException'</Item>
+               <Item>ConnectorException..ctor(Exception)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ConnectorException+Types">
+          <Messages>
+           <Message TypeName="OnlyFlagsEnumsShouldHavePluralNames" Category="Microsoft.Naming" CheckId="CA1717" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Types</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="DataSetTools">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>DataSetTools</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="FillDeleteCommand(System.Data.DataTable,System.String,System.Data.IDbCommand):System.Data.IDbCommand">
+            <Messages>
+             <Message Id="1#param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>DataSetTools.FillDeleteCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+               <Item>param</Item>
+               <Item>paramReplacement</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'cmd'</Item>
+               <Item>DataSetTools.FillDeleteCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+              </Issue>
+              <Issue>
+               <Item>'cmd'</Item>
+               <Item>DataSetTools.FillDeleteCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+              </Issue>
+              <Issue>
+               <Item>'cmd'</Item>
+               <Item>DataSetTools.FillDeleteCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+              </Issue>
+              <Issue>
+               <Item>'dt'</Item>
+               <Item>DataSetTools.FillDeleteCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="FillInsertCommand(System.Data.DataTable,System.String,System.Data.IDbCommand):System.Data.IDbCommand">
+            <Messages>
+             <Message Id="1#param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>DataSetTools.FillInsertCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+               <Item>param</Item>
+               <Item>paramReplacement</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'cmd'</Item>
+               <Item>DataSetTools.FillInsertCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+              </Issue>
+              <Issue>
+               <Item>'dt'</Item>
+               <Item>DataSetTools.FillInsertCommand(DataTable, String, IDbCommand):IDbCommand</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MakeSelectSQL(System.Data.DataTable):System.String">
+            <Messages>
+             <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>DataSetTools.MakeSelectSQL(DataTable):String</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'dt'</Item>
+               <Item>DataSetTools.MakeSelectSQL(DataTable):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="DbMetadataCache">
+          <Messages>
+           <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>Db</Item>
+             <Item>Suprifattus.Util.Data.DbMetadataCache</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="GetFieldMetadata(System.String,System.String):System.Data.DataRow">
+            <Messages>
+             <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SELECT TOP 1 * FROM __</Item>
+               <Item>SqlCommand..ctor(String, SqlConnection)</Item>
+               <Item>DbMetadataCache.GetFieldMetadata(String, String):DataRow</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>DbMetadataCache.GetFieldMetadata(String, String):DataRow</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MaxLength(System.String,System.String):System.Int32">
+            <Messages>
+             <Message Id="System.Data.DataRow.get_Item(System.String)" TypeName="AvoidCallsThatRequireUnboxing" Category="Microsoft.Performance" CheckId="CA1808" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>DbMetadataCache.MaxLength(String, String):Int32</Item>
+               <Item>DataRow.get_Item(String):Object</Item>
+               <Item>Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IConnector">
+          <Members>
+           <Member Name="FillData(System.String,Suprifattus.Util.Data.Sql.SqlCondition):System.Int32">
+            <Messages>
+             <Message Id="1#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>IConnector.FillData(String, SqlCondition):Int32</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Data.Sql">
+        <Types>
+         <Type Name="ISqlRenderable">
+          <Messages>
+           <Message Id="Renderable" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>Renderable</Item>
+             <Item>Suprifattus.Util.Data.Sql.ISqlRenderable</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="SqlComplexCondition">
+          <Members>
+           <Member Name="AppendEnd(Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlComplexCondition">
+            <Messages>
+             <Message Id="0#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlComplexCondition.AppendEnd(SqlCondition):SqlComplexCondition</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="AppendStart(Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlComplexCondition">
+            <Messages>
+             <Message Id="0#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlComplexCondition.AppendStart(SqlCondition):SqlComplexCondition</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlComplexCondition.Render(IndentedTextWriter):Void</Item>
+               <Item>IndentedTextWriter.get_Indent():Int32</Item>
+               <Item>&#xD;&#xA;-&gt;System.CodeDom.Compiler.IndentedTextWriter.get_Indent : Int32&#xD;&#xA;-&gt;Suprifattus.Util.Data.Sql.SqlComplexCondition.Render(System.CodeDom.Compiler.IndentedTextWriter) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>SqlComplexCondition.Render(IndentedTextWriter):Void</Item>
+               <Item>IndentedTextWriter.set_Indent(Int32):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.CodeDom.Compiler.IndentedTextWriter.set_Indent(System.Int32) : Void&#xD;&#xA;-&gt;Suprifattus.Util.Data.Sql.SqlComplexCondition.Render(System.CodeDom.Compiler.IndentedTextWriter) : Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlComplexCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlComplexCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlCondition">
+          <Members>
+           <Member Name="InferType(System.Object):System.Data.DbType">
+            <Messages>
+             <Message Id="System.Enum.Parse(System.Type,System.String)" TypeName="AvoidCallsThatRequireUnboxing" Category="Microsoft.Performance" CheckId="CA1808" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlCondition.InferType(Object):DbType</Item>
+               <Item>Enum.Parse(Type, String):Object</Item>
+               <Item>DbType</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MergeConditions(Suprifattus.Util.Data.Sql.SqlCondition,Suprifattus.Util.Data.Sql.SqlCondition,Suprifattus.Util.Data.Sql.SqlLogicOperation):Suprifattus.Util.Data.Sql.SqlCondition">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>cLeft</Item>
+               <Item>Suprifattus.Util.Data.Sql.SqlComplexCondition</Item>
+               <Item>SqlCondition.MergeConditions(SqlCondition, SqlCondition, SqlLogicOperation):SqlCondition</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_BitwiseAnd(Suprifattus.Util.Data.Sql.SqlCondition,Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlCondition">
+            <Messages>
+             <Message Id="0#c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlCondition.op_BitwiseAnd(SqlCondition, SqlCondition):SqlCondition</Item>
+               <Item>c</Item>
+               <Item>cLeft</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlCondition.op_BitwiseAnd(SqlCondition, SqlCondition):SqlCondition</Item>
+               <Item>c</Item>
+               <Item>cRight</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>BitwiseAnd</Item>
+               <Item>SqlCondition.op_BitwiseAnd(SqlCondition, SqlCondition):SqlCondition</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_BitwiseOr(Suprifattus.Util.Data.Sql.SqlCondition,Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlCondition">
+            <Messages>
+             <Message Id="0#c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlCondition.op_BitwiseOr(SqlCondition, SqlCondition):SqlCondition</Item>
+               <Item>c</Item>
+               <Item>cLeft</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlCondition.op_BitwiseOr(SqlCondition, SqlCondition):SqlCondition</Item>
+               <Item>c</Item>
+               <Item>cRight</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>BitwiseOr</Item>
+               <Item>SqlCondition.op_BitwiseOr(SqlCondition, SqlCondition):SqlCondition</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_LogicalNot(Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlCondition">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>c</Item>
+               <Item>Suprifattus.Util.Data.Sql.SqlNegatedCondition</Item>
+               <Item>SqlCondition.op_LogicalNot(SqlCondition):SqlCondition</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>SqlCondition.op_LogicalNot(SqlCondition):SqlCondition</Item>
+               <Item>c</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>LogicalNot</Item>
+               <Item>SqlCondition.op_LogicalNot(SqlCondition):SqlCondition</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlField">
+          <Members>
+           <Member Name="ToString():System.String">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlField.ToString():String</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlFieldCollection">
+          <Messages>
+           <Message TypeName="ICollectionImplementationsHaveStronglyTypedMembers" Category="Microsoft.Design" CheckId="CA1035" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>SqlFieldCollection</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="ListsAreStronglyTyped" Category="Microsoft.Design" CheckId="CA1039" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>SqlFieldCollection</Item>
+             <Item>IndexOf</Item>
+            </Issue>
+            <Issue>
+             <Item>SqlFieldCollection</Item>
+             <Item>Insert</Item>
+            </Issue>
+            <Issue>
+             <Item>SqlFieldCollection</Item>
+             <Item>Remove</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="FindByName(System.String):Suprifattus.Util.Data.Sql.SqlField">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlFieldCollection.FindByName(String):SqlField</Item>
+               <Item>System.String.Compare(System.String,System.String,System.Boolean)</Item>
+               <Item>System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="OnValidate(System.Object):System.Void">
+            <Messages>
+             <Message Id="System.ArgumentException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlFieldCollection.OnValidate(Object):Void</Item>
+               <Item>1</Item>
+               <Item>ArgumentException..ctor(String)</Item>
+               <Item>Value must be of type __</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlFieldCondition">
+          <Members>
+           <Member Name="CheckType():System.Void">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlFieldCondition.CheckType():Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ChangeType(System.Object,System.Type)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlFieldCondition.CheckType():Void</Item>
+               <Item>System.Convert.ChangeType(System.Object,System.Type)</Item>
+               <Item>System.Convert.ChangeType(System.Object,System.Type,System.IFormatProvider)</Item>
+              </Issue>
+              <Issue>
+               <Item>SqlFieldCondition.CheckType():Void</Item>
+               <Item>System.Convert.ChangeType(System.Object,System.Type)</Item>
+               <Item>System.Convert.ChangeType(System.Object,System.Type,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlFieldCondition.CheckType():Void</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Quote(System.Object):System.String">
+            <Messages>
+             <Message TypeName="ProvideCorrectArgumentsToFormattingMethods" Category="Microsoft.Usage" CheckId="CA2241" Created="2005-04-25 03:56:47Z">
+              <Issue Name="MissingSpecifier">
+               <Item>String.Format(String, Object, Object):String</Item>
+               <Item>SqlFieldCondition.Quote(Object):String</Item>
+               <Item>'s'</Item>
+               <Item>{1}{0}{1}</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlFieldCondition.Quote(Object):String</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlFieldCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlFieldCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlIsNullCondition">
+          <Members>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlIsNullCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlIsNullCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToString():System.String">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlIsNullCondition.ToString():String</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlJoin">
+          <Members>
+           <Member Name=".ctor(Suprifattus.Util.Data.Sql.SqlJoin+Type,System.String,Suprifattus.Util.Data.Sql.SqlCondition)">
+            <Messages>
+             <Message Id="2#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlJoin..ctor(Type, String, SqlCondition)</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(System.String,Suprifattus.Util.Data.Sql.SqlCondition)">
+            <Messages>
+             <Message Id="1#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlJoin..ctor(String, SqlCondition)</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlLiteralCondition">
+          <Members>
+           <Member Name=".ctor(System.String,System.Object[])">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object[])" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlLiteralCondition..ctor(String, Object[])</Item>
+               <Item>System.String.Format(System.String,System.Object[])</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlLiteralCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlLiteralCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlNegatedCondition">
+          <Members>
+           <Member Name=".ctor(Suprifattus.Util.Data.Sql.SqlCondition)">
+            <Messages>
+             <Message Id="0#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlNegatedCondition..ctor(SqlCondition)</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlNegatedCondition.Render(IndentedTextWriter):Void</Item>
+               <Item>IndentedTextWriter.get_Indent():Int32</Item>
+               <Item>&#xD;&#xA;-&gt;System.CodeDom.Compiler.IndentedTextWriter.get_Indent : Int32&#xD;&#xA;-&gt;Suprifattus.Util.Data.Sql.SqlNegatedCondition.Render(System.CodeDom.Compiler.IndentedTextWriter) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>SqlNegatedCondition.Render(IndentedTextWriter):Void</Item>
+               <Item>IndentedTextWriter.set_Indent(Int32):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.CodeDom.Compiler.IndentedTextWriter.set_Indent(System.Int32) : Void&#xD;&#xA;-&gt;Suprifattus.Util.Data.Sql.SqlNegatedCondition.Render(System.CodeDom.Compiler.IndentedTextWriter) : Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlNegatedCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlNegatedCondition.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToString():System.String">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlNegatedCondition.ToString():String</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlOrder">
+          <Members>
+           <Member Name="Order">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlOrder.Order:String[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>tw</Item>
+               <Item>writer</Item>
+               <Item>SqlOrder.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlOrder.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlOrder.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToString():System.String">
+            <Messages>
+             <Message Id="Suprifattus.Util.Collections.CollectionUtils.Join(System.Collections.IEnumerable,System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlOrder.ToString():String</Item>
+               <Item>Suprifattus.Util.Collections.CollectionUtils.Join(System.Collections.IEnumerable,System.String)</Item>
+               <Item>Suprifattus.Util.Collections.CollectionUtils.Join(System.Collections.IEnumerable,System.String,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlQuery">
+          <Members>
+           <Member Name="AddField(System.String):System.Void">
+            <Messages>
+             <Message TypeName="ProvideObsoleteAttributeMessage" Category="Microsoft.Design" CheckId="CA1041" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlQuery.AddField(String):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="AddFields(System.String[]):System.Void">
+            <Messages>
+             <Message TypeName="ProvideObsoleteAttributeMessage" Category="Microsoft.Design" CheckId="CA1041" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlQuery.AddFields(String[]):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Render(System.CodeDom.Compiler.IndentedTextWriter):System.Void">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlQuery.Render(IndentedTextWriter):Void</Item>
+               <Item>IndentedTextWriter.get_Indent():Int32</Item>
+               <Item>&#xD;&#xA;-&gt;System.CodeDom.Compiler.IndentedTextWriter.get_Indent : Int32&#xD;&#xA;-&gt;Suprifattus.Util.Data.Sql.SqlQuery.Render(System.CodeDom.Compiler.IndentedTextWriter) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>SqlQuery.Render(IndentedTextWriter):Void</Item>
+               <Item>IndentedTextWriter.set_Indent(Int32):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.CodeDom.Compiler.IndentedTextWriter.set_Indent(System.Int32) : Void&#xD;&#xA;-&gt;Suprifattus.Util.Data.Sql.SqlQuery.Render(System.CodeDom.Compiler.IndentedTextWriter) : Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#tw" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlQuery.Render(IndentedTextWriter):Void</Item>
+               <Item>tw</Item>
+               <Item>tw</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'tw'</Item>
+               <Item>SqlQuery.Render(IndentedTextWriter):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToString():System.String">
+            <Messages>
+             <Message Id="System.IO.StringWriter.#ctor(System.Text.StringBuilder)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>SqlQuery.ToString():String</Item>
+               <Item>System.IO.StringWriter.#ctor(System.Text.StringBuilder)</Item>
+               <Item>System.IO.StringWriter.#ctor(System.Text.StringBuilder,System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlStaticQuery">
+          <Members>
+           <Member Name="Suprifattus.Util.Data.Sql.ISqlQuery.Fields">
+            <Accessors>
+             <Accessor Name="Suprifattus.Util.Data.Sql.ISqlQuery.get_Fields():Suprifattus.Util.Data.Sql.SqlFieldCollection">
+              <Messages>
+               <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2005-04-25 03:56:47Z">
+                <Issue>
+                 <Item>SqlStaticQuery</Item>
+                 <Item>ISqlQuery.get_Fields():SqlFieldCollection</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="Suprifattus.Util.Data.Sql.ISqlQuery.Order">
+            <Accessors>
+             <Accessor Name="Suprifattus.Util.Data.Sql.ISqlQuery.get_Order():Suprifattus.Util.Data.Sql.SqlOrder">
+              <Messages>
+               <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2005-04-25 03:56:47Z">
+                <Issue>
+                 <Item>SqlStaticQuery</Item>
+                 <Item>ISqlQuery.get_Order():SqlOrder</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="Suprifattus.Util.Data.Sql.ISqlQuery.set_Order(Suprifattus.Util.Data.Sql.SqlOrder):System.Void">
+              <Messages>
+               <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2005-04-25 03:56:47Z">
+                <Issue>
+                 <Item>SqlStaticQuery</Item>
+                 <Item>ISqlQuery.set_Order(SqlOrder):Void</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SqlTableSource">
+          <Members>
+           <Member Name="Join(Suprifattus.Util.Data.Sql.SqlJoin+Type,System.String,Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlTableSource">
+            <Messages>
+             <Message Id="2#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlTableSource.Join(Type, String, SqlCondition):SqlTableSource</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Join(System.String,Suprifattus.Util.Data.Sql.SqlCondition):Suprifattus.Util.Data.Sql.SqlTableSource">
+            <Messages>
+             <Message Id="1#cond" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>SqlTableSource.Join(String, SqlCondition):SqlTableSource</Item>
+               <Item>cond</Item>
+               <Item>cond</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Encryption">
+        <Types>
+         <Type Name="EncryptionUtil">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldBeSealed" Category="Microsoft.Design" CheckId="CA1052" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>EncryptionUtil</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Encrypt(System.Security.Cryptography.HashAlgorithm,System.String):System.String">
+            <Messages>
+             <Message Id="0#Alg" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>EncryptionUtil.Encrypt(HashAlgorithm, String):String</Item>
+               <Item>Alg</Item>
+               <Item>hashAlg</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>EncryptionUtil.Encrypt(HashAlgorithm, String):String</Item>
+               <Item>str</Item>
+               <Item>str</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'hashAlg'</Item>
+               <Item>EncryptionUtil.Encrypt(HashAlgorithm, String):String</Item>
+              </Issue>
+              <Issue>
+               <Item>'str'</Item>
+               <Item>EncryptionUtil.Encrypt(HashAlgorithm, String):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Encrypt(System.String):System.String">
+            <Messages>
+             <Message Id="0#str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>EncryptionUtil.Encrypt(String):String</Item>
+               <Item>str</Item>
+               <Item>str</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Graphics">
+        <Types>
+         <Type Name="ImageUtil">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>ImageUtil</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="MakeThumbnail(System.Drawing.Image,System.Drawing.SizeF,System.Int32):System.Drawing.Image">
+            <Messages>
+             <Message Id="0#b" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>ImageUtil.MakeThumbnail(Image, SizeF, Int32):Image</Item>
+               <Item>b</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>ImageUtil.MakeThumbnail(Image, SizeF, Int32):Image</Item>
+               <Item>s</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'b'</Item>
+               <Item>ImageUtil.MakeThumbnail(Image, SizeF, Int32):Image</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.IO">
+        <Types>
+         <Type Name="Compression">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Compression</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CompressionProvider">
+            <Messages>
+             <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>CompressionProvider</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CompressToBase64(System.IO.Stream):System.String">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'streamToCompress'</Item>
+               <Item>Compression.CompressToBase64(Stream):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CompressToBase64(System.String):System.String">
+            <Messages>
+             <Message Id="0#" TypeName="AvoidTypeNamesInParameters" Category="Microsoft.Naming" CheckId="CA1720" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>stringToCompress</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CompressToByte(System.String):System.Byte[]">
+            <Messages>
+             <Message Id="0#" TypeName="AvoidTypeNamesInParameters" Category="Microsoft.Naming" CheckId="CA1720" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>stringToCompress</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Decompress(System.String,System.Text.Encoding):System.String">
+            <Messages>
+             <Message Id="0#" TypeName="AvoidTypeNamesInParameters" Category="Microsoft.Naming" CheckId="CA1720" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>stringToDecompress</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.ArgumentNullException.#ctor(System.String,System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Compression.Decompress(String, Encoding):String</Item>
+               <Item>2</Item>
+               <Item>ArgumentNullException..ctor(String, String)</Item>
+               <Item>You tried to use an empty string</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'textEncoding'</Item>
+               <Item>Compression.Decompress(String, Encoding):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="TempFile">
+          <Members>
+           <Member Name=".ctor(System.String,System.IO.Stream)">
+            <Messages>
+             <Message Id="System.ApplicationException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>TempFile..ctor(String, Stream)</Item>
+               <Item>1</Item>
+               <Item>ApplicationException..ctor(String)</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="alguns" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>alguns</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="arquivo" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>arquivo</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="arquivos" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>arquivos</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="Exclua" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Exclua</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="extensão" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>extensão</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="foi" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>foi</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="gerar" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>gerar</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="Não" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Não</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="possível" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>possível</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="solicitada" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>solicitada</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="temporário" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>temporário</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+             <Message Id="temporários" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>temporários</Item>
+               <Item>Não foi possível gerar um arquivo temporário com a extensão solicitada.&#xA;&#xA;Exclua alguns arquivos temporários.</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="DisposeMethodsShouldCallSuppressFinalize" Category="Microsoft.Performance" CheckId="CA1816" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>TempFile.Dispose():Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotUseTimersThatPreventPowerStateChanges" Category="Microsoft.Mobility" CheckId="CA1601" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Timer..ctor(TimerCallback, Object, Int32, Int32)</Item>
+               <Item>TempFile.Dispose():Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="DisposeImplementation">
+               <Item>TempFile.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Finalize():System.Void">
+            <Messages>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="FinalizeImplementation">
+               <Item>TempFile.Finalize():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MaxTries">
+            <Messages>
+             <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>MaxTries</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Reflection">
+        <Types>
+         <Type Name="Attributes">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Attributes</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="GetDescription(System.Enum):System.String">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'value'</Item>
+               <Item>Attributes.GetDescription(Enum):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Condition">
+          <Members>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2005-04-25 03:56:47Z">
+              <Issue Name="DisposeImplementation">
+               <Item>Condition.Dispose():Void</Item>
+              </Issue>
+              <Issue Name="DisposeSignature">
+               <Item>Condition.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_BitwiseAnd(Suprifattus.Util.Reflection.Condition,Suprifattus.Util.Reflection.Condition):Suprifattus.Util.Reflection.Condition">
+            <Messages>
+             <Message TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>BitwiseAnd</Item>
+               <Item>Condition.op_BitwiseAnd(Condition, Condition):Condition</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_BitwiseOr(Suprifattus.Util.Reflection.Condition,Suprifattus.Util.Reflection.Condition):Suprifattus.Util.Reflection.Condition">
+            <Messages>
+             <Message TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>BitwiseOr</Item>
+               <Item>Condition.op_BitwiseOr(Condition, Condition):Condition</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_LogicalNot(Suprifattus.Util.Reflection.Condition):Suprifattus.Util.Reflection.Condition">
+            <Messages>
+             <Message Id="0#c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>Condition.op_LogicalNot(Condition):Condition</Item>
+               <Item>c</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>LogicalNot</Item>
+               <Item>Condition.op_LogicalNot(Condition):Condition</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NegatedCondition">
+          <Members>
+           <Member Name="Dispose():System.Void">
+            <Messages>
+             <Message TypeName="DisposeMethodsShouldCallBaseClassDispose" Category="Microsoft.Usage" CheckId="CA2215" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>NegatedCondition.Dispose():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ObjectQuery">
+          <Members>
+           <Member Name="Select(System.Type,System.Collections.IEnumerable,Suprifattus.Util.Reflection.Condition):System.Array">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'condition'</Item>
+               <Item>ObjectQuery.Select(Type, IEnumerable, Condition):Array</Item>
+              </Issue>
+              <Issue>
+               <Item>'source'</Item>
+               <Item>ObjectQuery.Select(Type, IEnumerable, Condition):Array</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SelectRecursive(System.Collections.IEnumerable,System.String,Suprifattus.Util.Reflection.Condition):System.Collections.IList">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'condition'</Item>
+               <Item>ObjectQuery.SelectRecursive(IEnumerable, String, Condition):IList</Item>
+              </Issue>
+              <Issue>
+               <Item>'source'</Item>
+               <Item>ObjectQuery.SelectRecursive(IEnumerable, String, Condition):IList</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SelectRecursive(System.Type,System.Collections.IEnumerable,System.String,Suprifattus.Util.Reflection.Condition):System.Array">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'condition'</Item>
+               <Item>ObjectQuery.SelectRecursive(Type, IEnumerable, String, Condition):Array</Item>
+              </Issue>
+              <Issue>
+               <Item>'source'</Item>
+               <Item>ObjectQuery.SelectRecursive(Type, IEnumerable, String, Condition):Array</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Properties">
+          <Members>
+           <Member Name="GetValue(System.String,System.Object):System.Object">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'obj'</Item>
+               <Item>Properties.GetValue(String, Object):Object</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="TypeCondition">
+          <Members>
+           <Member Name=".ctor(System.Type)">
+            <Messages>
+             <Message Id="0#t" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>TypeCondition..ctor(Type)</Item>
+               <Item>t</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Text">
+        <Types>
+         <Type Name="IFormatterPlugin">
+          <Members>
+           <Member Name="Format(System.String,System.Object):System.String">
+            <Messages>
+             <Message Id="0#" TypeName="AvoidTypeNamesInParameters" Category="Microsoft.Naming" CheckId="CA1720" Created="2005-05-09 18:05:41Z">
+              <Issue>
+               <Item>formatString</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PluggableFormatProvider">
+          <Members>
+           <Member Name=".cctor()">
+            <Messages>
+             <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>Suprifattus.Util.Text.PluggableFormatProvider</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Format(System.String,System.Object,System.IFormatProvider):System.String">
+            <Messages>
+             <Message Id="System.Collections.IEnumerator.get_Current" TypeName="AvoidCallsThatRequireUnboxing" Category="Microsoft.Performance" CheckId="CA1808" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>PluggableFormatProvider.Format(String, Object, IFormatProvider):String</Item>
+               <Item>IEnumerator.get_Current():Object</Item>
+               <Item>DictionaryEntry</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Parameter">
+               <Item>arg</Item>
+               <Item>System.IFormattable</Item>
+               <Item>PluggableFormatProvider.Format(String, Object, IFormatProvider):String</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2005-05-09 18:05:41Z">
+              <Issue>
+               <Item>formatString</Item>
+               <Item>format</Item>
+               <Item>PluggableFormatProvider.Format(String, Object, IFormatProvider):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Instance">
+            <Messages>
+             <Message TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>PluggableFormatProvider.Instance</Item>
+               <Item>Suprifattus.Util.Text.PluggableFormatProvider</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="TryRegisterFormatPlugin(Suprifattus.Util.Text.IFormatterPlugin):System.Boolean">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>'plugin'</Item>
+               <Item>PluggableFormatProvider.TryRegisterFormatPlugin(IFormatterPlugin):Boolean</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PluggableFormatProviderTests">
+          <Members>
+           <Member Name="CNPJ_Format():System.Void">
+            <Messages>
+             <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>CNPJ_Format</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>PluggableFormatProviderTests.CNPJ_Format():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CNPJ_Unformat():System.Void">
+            <Messages>
+             <Message Id="Unformat" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>Unformat</Item>
+               <Item>PluggableFormatProviderTests.CNPJ_Unformat():Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>CNPJ_Unformat</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>PluggableFormatProviderTests.CNPJ_Unformat():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CNPJ2_Format():System.Void">
+            <Messages>
+             <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>CNPJ2_Format</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>PluggableFormatProviderTests.CNPJ2_Format():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CNPJ2_Unformat():System.Void">
+            <Messages>
+             <Message Id="Unformat" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>Unformat</Item>
+               <Item>PluggableFormatProviderTests.CNPJ2_Unformat():Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>CNPJ2_Unformat</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+              <Issue Name="Member">
+               <Item>PluggableFormatProviderTests.CNPJ2_Unformat():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SetUp():System.Void">
+            <Messages>
+             <Message Id="SetUp" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ShouldBeDiscreteTerm">
+               <Item>SetUp</Item>
+               <Item>method</Item>
+               <Item>SetUp</Item>
+               <Item>Setup</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PluralForm">
+          <Members>
+           <Member Name="Format(System.Int32,System.IFormatProvider,System.String,System.Object[]):System.String">
+            <Messages>
+             <Message Id="0#n" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>PluralForm.Format(Int32, IFormatProvider, String, Object[]):String</Item>
+               <Item>n</Item>
+              </Issue>
+             </Message>
+             <Message Id="2#" TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719" Created="2005-04-25 04:25:29Z">
+              <Issue>
+               <Item>format</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Format(System.Int32,System.String):System.String">
+            <Messages>
+             <Message Id="0#n" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>PluralForm.Format(Int32, String):String</Item>
+               <Item>n</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>PluralForm.Format(Int32, String):String</Item>
+               <Item>s</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Format(System.Int32,System.String,System.Object[]):System.String">
+            <Messages>
+             <Message Id="0#n" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-04-25 03:56:47Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>PluralForm.Format(Int32, String, Object[]):String</Item>
+               <Item>n</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719" Created="2005-04-25 04:25:29Z">
+              <Issue>
+               <Item>format</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object[])" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>PluralForm.Format(Int32, String, Object[]):String</Item>
+               <Item>System.String.Format(System.String,System.Object[])</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PluralForm+Tests">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Created="2005-04-25 03:56:47Z">
+            <Issue>
+             <Item>Suprifattus.Util.Text.PluralForm+Tests</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Test1():System.Void">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>Tests.Test1():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Test2():System.Void">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>Tests.Test2():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Test3():System.Void">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-04-25 03:56:47Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>Tests.Test3():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Text.Formatters">
+        <Types>
+         <Type Name="CNPJFormatter">
+          <Messages>
+           <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>CNPJFormatter</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="CPFFormatter">
+          <Messages>
+           <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Created="2005-04-25 03:56:47Z">
+            <Issue Name="Type">
+             <Item>CPFFormatter</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Suprifattus.Util.Win32">
+        <Types>
+         <Type Name="ShellApi">
+          <Members>
+           <Member Name="ShellExecute(System.Windows.Forms.Form,System.String,System.String):System.Void">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2005-04-25 03:56:47Z">
+              <Issue>
+               <Item>parent</Item>
+               <Item>System.Windows.Forms.Form</Item>
+               <Item>System.Windows.Forms.Control</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ShellApi+NativeMethods">
+          <Members>
+           <Member Name="GetHResultCode(System.Int32):System.Int16">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.GetHResultCode(Int32):Int16</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHAddToRecentDocs(Suprifattus.Util.Win32.ShellApi+NativeMethods+SHAddToRecentDocsFlags,System.IntPtr):System.Void">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHAddToRecentDocs(SHAddToRecentDocsFlags, IntPtr):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHBindToParent(System.IntPtr,System.Guid,System.IntPtr&amp;,System.IntPtr&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHBindToParent(IntPtr, Guid, IntPtr&amp;, IntPtr&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHBrowseForFolder(Suprifattus.Util.Win32.ShellApi+NativeMethods+BROWSEINFO&amp;):System.IntPtr">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHBrowseForFolder(BROWSEINFO&amp;):IntPtr</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ShellExecuteEx(Suprifattus.Util.Win32.ShellApi+NativeMethods+SHELLEXECUTEINFO&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.ShellExecuteEx(SHELLEXECUTEINFO&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHFileOperation(Suprifattus.Util.Win32.ShellApi+NativeMethods+SHFILEOPSTRUCT&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHFileOperation(SHFILEOPSTRUCT&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHGetDesktopFolder(System.IntPtr&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHGetDesktopFolder(IntPtr&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHGetFolderLocation(System.IntPtr,System.Int32,System.IntPtr,System.UInt32,System.IntPtr&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHGetFolderLocation(IntPtr, Int32, IntPtr, UInt32, IntPtr&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHGetFolderPath(System.IntPtr,System.Int32,System.IntPtr,System.UInt32,System.Text.StringBuilder):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHGetFolderPath(IntPtr, Int32, IntPtr, UInt32, StringBuilder):Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="UseManagedEquivalentsOfWin32Api" Category="Microsoft.Usage" CheckId="CA2205" Created="2005-05-09 18:14:00Z">
+              <Issue Name="PlatformInvokeDeclaration">
+               <Item>NativeMethods.SHGetFolderPath(IntPtr, Int32, IntPtr, UInt32, StringBuilder):Int32</Item>
+               <Item>System.Environment.GetFolderPath</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHGetMalloc(System.IntPtr&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHGetMalloc(IntPtr&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHGetPathFromIDList(System.IntPtr,System.Text.StringBuilder):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHGetPathFromIDList(IntPtr, StringBuilder):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHInvokePrinterCommand(System.IntPtr,System.UInt32,System.String,System.String,System.Int32):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHInvokePrinterCommand(IntPtr, UInt32, String, String, Int32):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SHParseDisplayName(System.String,System.IntPtr,System.IntPtr&amp;,System.UInt32,System.UInt32&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.SHParseDisplayName(String, IntPtr, IntPtr&amp;, UInt32, UInt32&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="StrRetToBSTR(Suprifattus.Util.Win32.ShellApi+NativeMethods+STRRET&amp;,System.IntPtr,System.String&amp;):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.StrRetToBSTR(STRRET&amp;, IntPtr, String&amp;):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="StrRetToBuf(Suprifattus.Util.Win32.ShellApi+NativeMethods+STRRET&amp;,System.IntPtr,System.Text.StringBuilder,System.UInt32):System.Int32">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2005-05-09 18:17:26Z">
+              <Issue>
+               <Item>NativeMethods.StrRetToBuf(STRRET&amp;, IntPtr, StringBuilder, UInt32):Int32</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ShellApi+NativeMethods+STRRET">
+          <Messages>
+           <Message Id="cStr" TypeName="ValueTypeFieldsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1900" Created="2005-05-09 18:14:00Z" FixCategory="Breaking">
+            <Issue>
+             <Item>Suprifattus.Util.Win32.ShellApi+NativeMethods+STRRET</Item>
+             <Item>STRRET.cStr</Item>
+            </Issue>
+           </Message>
+           <Message Id="pOleStr" TypeName="ValueTypeFieldsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1900" Created="2005-05-09 18:14:00Z" FixCategory="Breaking">
+            <Issue>
+             <Item>Suprifattus.Util.Win32.ShellApi+NativeMethods+STRRET</Item>
+             <Item>STRRET.pOleStr</Item>
+            </Issue>
+           </Message>
+           <Message Id="pStr" TypeName="ValueTypeFieldsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1900" Created="2005-05-09 18:14:00Z" FixCategory="Breaking">
+            <Issue>
+             <Item>Suprifattus.Util.Win32.ShellApi+NativeMethods+STRRET</Item>
+             <Item>STRRET.pStr</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ShellApiException">
+          <Messages>
+           <Message Id="System.ApplicationException" TypeName="TypesShouldNotExtendCertainBaseTypes" Category="Microsoft.Design" CheckId="CA1058" Created="2005-04-25 03:56:47Z">
+            <Issue Name="System.ApplicationException">
+             <Item>ShellApiException</Item>
+             <Item>System.ApplicationException</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="fabio">
+    <Note Id="0" Modified="2005-04-25 04:17:16Z">Suprifattus é o nome da empresa.</Note>
+    <Note Id="1" Modified="2005-04-25 04:17:44Z">Util é um nome válido.</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AvoidCallsThatRequireUnboxing" Category="Microsoft.Performance" CheckId="CA1808">
+    <Resolution Name="Default">{0} calls {1}, a weakly-typed method, and unboxes the result as {2}, a value type.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021">
+    <Resolution Name="Default">Consider a design that does not require that '{0}' be an out parameter.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidTypeNamesInParameters" Category="Microsoft.Naming" CheckId="CA1720">
+    <Resolution Name="Default">Remove the type identifier from parameter name '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">'{0}' appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813">
+    <Resolution Name="Default">Seal '{0}', if possible.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801">
+    <Resolution Name="Default">Parameter '{0}' of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+    <Resolution Name="MarkAsStatic">The 'this' parameter (or 'Me' in VB) of {0} is never used. Mark the method as static (or Shared in VB) or use 'this'/Me in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102">
+    <Resolution Name="Default">{0} contains a catch(Exception) handler that is not matched with a generic catch clause (catch{{}} in C#, catch(System::Object*){{}} in mc++) for non-CLSCompliant exception. Eliminate the catch(Exception) clause by catching a specific set of Exceptions or add a generic catch (catch() in C#) that duplicates the code contained within the catch(Exception) handler.</Resolution>
+   </Rule>
+   <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+    <Resolution Name="ShouldBeDiscreteTerm">The compound word '{0}' in {1} '{2}' exists as a discrete term. If your usage is intended to be single word, case it as '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+    <Resolution Name="Default">Consider changing the type of parameter '{0}' from '{1}' to '{2}' since '{1}' derives from '{2}' and this method only calls methods that are defined in '{2}'.</Resolution>
+   </Rule>
+   <Rule TypeName="DefineAccessorsForAttributeArguments" Category="Microsoft.Design" CheckId="CA1019">
+    <Resolution Name="Default">Add a read-only property accessor for positional argument '{0}' of Attribute '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213">
+    <Resolution Name="Default">'{0}' contains field '{1}' that is of IDisposable type: {2}. Change {0}'s Dispose method to call Dispose on this field.</Resolution>
+   </Rule>
+   <Rule TypeName="DisposeMethodsShouldCallBaseClassDispose" Category="Microsoft.Usage" CheckId="CA2215">
+    <Resolution Name="Default">Change {0} so that it calls its base class Dispose method for all code paths. Place the call in a finally block to ensure that resources are cleaned up when an exception is raised.</Resolution>
+   </Rule>
+   <Rule TypeName="DisposeMethodsShouldCallSuppressFinalize" Category="Microsoft.Performance" CheckId="CA1816">
+    <Resolution Name="Default">Change {0} to call GC.SuppressFinalize.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Parameter">'{0}', a parameter, is cast to type '{1}' multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify '{0}' to catch a more specific exception than '{1}' or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104">
+    <Resolution Name="Default">Remove the readonly declaration from '{0}' or change the field to one that is an immutable reference type. If the reference type '{1}' is, in fact, immutable, exclude this message.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Make '{0}' private or internal (Friend in VB, public private in C++) and provide a public or protected property to access it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Performance" CheckId="CA1806">
+    <Resolution Name="ObjectCreation">{0} creates an instance of {1} which is either not assigned to a variable or is never used. Remove the object creation if it is unnecessary or use it within the method.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122">
+    <Resolution Name="Default">{0} calls into {1} which has a LinkDemand. By making this call, {1} is indirectly exposed to user code. Review the following call stack that might expose a way to circumvent security protection: {2}</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303">
+    <Resolution Name="Default">{0} passes a literal as parameter {1} of a call to {2}. Retrieve the following string argument from a resource table instead: '{3}'</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotUseTimersThatPreventPowerStateChanges" Category="Microsoft.Mobility" CheckId="CA1601">
+    <Resolution Name="Default">Modify the call to {0} in method {1} to set the timer interval to a value that's greater than or equal to one second.</Resolution>
+   </Rule>
+   <Rule TypeName="ICollectionImplementationsHaveStronglyTypedMembers" Category="Microsoft.Design" CheckId="CA1035">
+    <Resolution Name="Default">'{0}' should provide a strongly typed implementation of ICollection.CopyTo.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of the unrecognized token '{0}' in member name '{1}'.</Resolution>
+    <Resolution Name="Parameter">In method {0}, correct the spelling of the unrecognized token '{1}' in parameter name '{2}' or strip it entirely if it represents any sort of hungarian notation.</Resolution>
+    <Resolution Name="ParameterOneLetter">In method {0}, consider providing a more meaningful name than the one-letter parameter name '{1}'.</Resolution>
+    <Resolution Name="Type">Correct the spelling of the unrecognized token '{0}' in type name '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldHaveCorrectPrefix" Category="Microsoft.Naming" CheckId="CA1715">
+    <Resolution Name="Default">Prefix interface name '{0}' with 'I'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710">
+    <Resolution Name="Default">Rename '{0}' to end in '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+    <Resolution Name="Member">Remove all underscores from member '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+    <Resolution Name="Default">Rename '{0}' so that it does not end in '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Type">Change type name '{0}' so that it does not conflict with reserved keyword:'{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063">
+    <Resolution Name="DisposeImplementation">Modify {0} so that it calls Dispose(true), then calls GC.SuppressFinalize on the current object instance ('this' or 'Me' in VB), and then returns.</Resolution>
+    <Resolution Name="DisposeSignature">Ensure that {0} is declared as public and sealed.</Resolution>
+    <Resolution Name="FinalizeImplementation">Modify {0} so that it calls Dispose(false) and then returns.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
+    <Resolution Name="Default">Add the following constructor to {0}: {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810">
+    <Resolution Name="Default">Initialize all static fields in {0} when those fields are declared and remove the explicit static constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+    <Resolution Name="Default">Make '{0}' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of '{1}' and is visible to derived classes.</Resolution>
+   </Rule>
+   <Rule TypeName="ListsAreStronglyTyped" Category="Microsoft.Design" CheckId="CA1039">
+    <Resolution Name="Default">'{0}' should provide a strongly typed implementation of IList.{1}.</Resolution>
+   </Rule>
+   <Rule TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204">
+    <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705">
+    <Resolution Name="Member">Correct the capitalization of member name '{0}'.</Resolution>
+    <Resolution Name="Type">Correct the capitalization of type name '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAttributesWithAttributeUsage" Category="Microsoft.Design" CheckId="CA1018">
+    <Resolution Name="Default">Specify AttributeUsage on {0}.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+    <Resolution Name="Default">Add [Serializable] to type '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034">
+    <Resolution Name="Default">Do not nest type '{0}' or change its accessibility so that it is not externally visible.</Resolution>
+   </Rule>
+   <Rule TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211">
+    <Resolution Name="Default">Consider making '{0}' a constant.</Resolution>
+   </Rule>
+   <Rule TypeName="OnlyFlagsEnumsShouldHavePluralNames" Category="Microsoft.Naming" CheckId="CA1717">
+    <Resolution Name="Default">If the name '{0}' is plural, change it to its singular form.</Resolution>
+   </Rule>
+   <Rule TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225">
+    <Resolution Name="Default">Provide a method named '{0}' as a friendly alternate for operator {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725">
+    <Resolution Name="Default">Change parameter name '{0}' to '{1}' in order to match the base declaration of overridden method {2}.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719">
+    <Resolution Name="Default">Change either member or parameter name '{0}' so that one differs from the other.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
+    <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>
+   </Rule>
+   <Rule TypeName="ProvideCorrectArgumentsToFormattingMethods" Category="Microsoft.Usage" CheckId="CA2241">
+    <Resolution Name="MissingSpecifier">A call to {0} in {1} does not appear to provide a format specifier for argument {2}. The complete format string provided is '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="ProvideObsoleteAttributeMessage" Category="Microsoft.Design" CheckId="CA1041">
+    <Resolution Name="Default">Provide a message for the ObsoleteAttribute that marks '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100">
+    <Resolution Name="Default">Review if the query string "{0}", passed to {1} in {2}, accepts any user input. If so, consider using a parameterized Sql query instead of building up the query via string concatenations.</Resolution>
+   </Rule>
+   <Rule TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706">
+    <Resolution Name="Member">Correct the capitalization of '{0}' in member name '{1}'.</Resolution>
+    <Resolution Name="MemberId">'Id' is an abbreviation and therefore is not subject to acronym casing guidelines. Correct the capitalization of 'ID' in member name '{0}' by changing it to 'Id'.</Resolution>
+    <Resolution Name="Type">Correct the capitalization of '{0}' in type name '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+    <Resolution Name="Default">{0} makes a call to {1} that does not explicitly provide a CultureInfo. This should be replaced with a call to {2}.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="Default">{0} makes a call to {1} that does not explicitly provide an IFormatProvider. This should be replaced with a call to {2}.</Resolution>
+   </Rule>
+   <Rule TypeName="StaticHolderTypesShouldBeSealed" Category="Microsoft.Design" CheckId="CA1052">
+    <Resolution Name="Default">Mark '{0}' as sealed.</Resolution>
+   </Rule>
+   <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+    <Resolution Name="Default">Remove the public constructors from '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="TypesShouldNotExtendCertainBaseTypes" Category="Microsoft.Design" CheckId="CA1058">
+    <Resolution Name="System.ApplicationException">Change {0}'s base type so that it no longer extends {1}. This base exception type does not provide any additional value for framework classes. Extend System.Exception or an existing unsealed exception type instead. Do not create a new exception base type unless there is specific value in enabling the creation of a catch handler for an entire class of exceptions.</Resolution>
+   </Rule>
+   <Rule TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802">
+    <Resolution Name="Default">Field '{0}' is declared as 'static readonly' but is initialized with a constant value '{1}'. Mark this field as 'const' instead.</Resolution>
+   </Rule>
+   <Rule TypeName="UseManagedEquivalentsOfWin32Api" Category="Microsoft.Usage" CheckId="CA2205">
+    <Resolution Name="PlatformInvokeDeclaration">Remove the declaration for '{0}'. Callers should use the following managed alternative: {1}</Resolution>
+   </Rule>
+   <Rule TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062">
+    <Resolution Name="Default">Validate parameter {0} passed to externally visible method {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="ValueTypeFieldsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1900">
+    <Resolution Name="Default">Structure '{0}' contains the following non-portable fields: '{1}'.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>
