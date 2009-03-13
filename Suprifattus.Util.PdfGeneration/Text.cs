@@ -30,6 +30,6 @@ namespace Suprifattus.Util.PdfGeneration
 		#endregion
 
 		public TextStyle Style { get; set; }
-    public string Contents { get; set; }
+		public string Contents { get; set; }
 	}
 }

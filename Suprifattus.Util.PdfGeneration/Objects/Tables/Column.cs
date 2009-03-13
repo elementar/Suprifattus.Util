@@ -34,11 +34,11 @@ namespace Suprifattus.Util.PdfGeneration.Objects.Tables
 		}
 
 		public TextStyle Style { get; set; }
-    public Text Header { get; set; }
-    public string FormatString { get; set; }
-    public string NullValue { get; set; }
-    public bool AlwaysFullVisible { get; set; }
-    public string Expression { get; set; }
+		public Text Header { get; set; }
+		public string FormatString { get; set; }
+		public string NullValue { get; set; }
+		public bool AlwaysFullVisible { get; set; }
+		public string Expression { get; set; }
 		#endregion
 
 		#region Constructors

@@ -32,6 +32,6 @@ namespace Suprifattus.Util.PdfGeneration
 		#endregion
 
 		public Unit Size { get; set; }
-    public TextAlignment Alignment { get; set; }
+		public TextAlignment Alignment { get; set; }
 	}
 }

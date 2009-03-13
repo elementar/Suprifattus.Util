@@ -4,7 +4,6 @@ using System.Data;
 
 namespace Suprifattus.Util.PdfGeneration.Objects.Tables
 {
-#if GENERICS
 	using NullableInt32 = Nullable<Int32>;
 	using NullableInt16 = Nullable<Int16>;
 	using NullableInt64 = Nullable<Int64>;
@@ -15,10 +14,6 @@ namespace Suprifattus.Util.PdfGeneration.Objects.Tables
 	using NullableDecimal = Nullable<Decimal>;
 	using NullableDateTime = Nullable<DateTime>;
 	using NullableBoolean = Nullable<Boolean>;
-
-#else
-	using Nullables;
-#endif
 
 	/// <summary>
 	/// Calcula a largura das colunas de dados.
