@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<Target Name="Compile">
+		<MSBuild Projects="Suprifattus.Util/Suprifattus.Util.csproj" Properties="Configuration=Debug" />
+		<MSBuild Projects="Suprifattus.Util.PdfGeneration/Suprifattus.Util.PdfGeneration.csproj" Properties="Configuration=Debug" />
+		<MSBuild Projects="Suprifattus.Util.Web/Suprifattus.Util.Web.csproj" Properties="Configuration=Debug" />
+		<MSBuild Projects="Suprifattus.Util.Web.MonoRail/Suprifattus.Util.Web.MonoRail.csproj" Properties="Configuration=Debug" />
+		
+		<MSBuild Projects="Suprifattus.Util/Suprifattus.Util.csproj" Properties="Configuration=Release" />
+		<MSBuild Projects="Suprifattus.Util.PdfGeneration/Suprifattus.Util.PdfGeneration.csproj" Properties="Configuration=Release" />
+		<MSBuild Projects="Suprifattus.Util.Web/Suprifattus.Util.Web.csproj" Properties="Configuration=Release" />
+		<MSBuild Projects="Suprifattus.Util.Web.MonoRail/Suprifattus.Util.Web.MonoRail.csproj" Properties="Configuration=Release" />
+
+		<Copy SourceFiles="Suprifattus.Util.Web.MonoRail/bin/Debug/Suprifattus.Util.Web.MonoRail.dll" DestinationFolder="../bin/Debug" />
+		<Copy SourceFiles="Suprifattus.Util.Web/bin/Debug/Suprifattus.Util.Web.dll" DestinationFolder="../bin/Debug" />
+		<Copy SourceFiles="Suprifattus.Util.PdfGeneration/bin/Debug/Suprifattus.Util.PdfGeneration.dll" DestinationFolder="../bin/Debug" />
+		<Copy SourceFiles="Suprifattus.Util/bin/Debug/Suprifattus.Util.dll" DestinationFolder="../bin/Debug" />
+		
+		<Copy SourceFiles="Suprifattus.Util.Web.MonoRail/bin/Release/Suprifattus.Util.Web.MonoRail.dll" DestinationFolder="../bin/Release" />
+		<Copy SourceFiles="Suprifattus.Util.Web/bin/Release/Suprifattus.Util.Web.dll" DestinationFolder="../bin/Release" />
+		<Copy SourceFiles="Suprifattus.Util.PdfGeneration/bin/Release/Suprifattus.Util.PdfGeneration.dll" DestinationFolder="../bin/Release" />
+		<Copy SourceFiles="Suprifattus.Util/bin/Release/Suprifattus.Util.dll" DestinationFolder="../bin/Release" />
+	</Target>
+
+</Project>

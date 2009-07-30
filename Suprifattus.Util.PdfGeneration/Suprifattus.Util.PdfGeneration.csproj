@@ -38,7 +38,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;GENERICS</DefineConstants>
-    <DocumentationFile>bin\Debug\Suprifattus.SGLab.Classes.PdfGeneration.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Suprifattus.Util.PdfGeneration.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -59,7 +59,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;GENERICS</DefineConstants>
-    <DocumentationFile>bin\Release\Suprifattus.SGLab.Classes.PdfGeneration.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Suprifattus.Util.PdfGeneration.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
