@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace Suprifattus.Util.Collections
@@ -23,9 +24,10 @@ namespace Suprifattus.Util.Collections
 		/// <summary>
 		/// Obtém um item da lista, ou NULL se estiver fora dos limites da lista.
 		/// </summary>
+		[Obsolete("Usar LINQ: collection.ElementAtOrDefault(index)")]
 		public static T NullSafeGet<T>(ICollection collection, int index)
 		{
-			if (collection.Count == 0)
+			if (collection.Count == 0 || index >= collection.Count)
 				return default(T);
 
 			return NullSafeGet<T>((IEnumerable) collection, index);
@@ -34,6 +36,7 @@ namespace Suprifattus.Util.Collections
 		/// <summary>
 		/// Obtém um item da lista, ou NULL se estiver fora dos limites da lista.
 		/// </summary>
+		[Obsolete("Usar LINQ: list.ElementAtOrDefault(index)")]
 		public static T NullSafeGet<T>(IEnumerable list, int index)
 		{
 			foreach (T obj in list)
@@ -45,6 +48,7 @@ namespace Suprifattus.Util.Collections
 		/// <summary>
 		/// Obtém um item da lista, ou NULL se estiver fora dos limites da lista.
 		/// </summary>
+		[Obsolete("Usar LINQ: list.ElementAtOrDefault(index)")]
 		public static T NullSafeGet<T>(IList list, int index)
 		{
 			return (T) (list != null && index >= 0 && index < list.Count ? list[index] : null);
@@ -53,9 +57,10 @@ namespace Suprifattus.Util.Collections
 		/// <summary>
 		/// Obtém um item da lista, ou NULL se estiver fora dos limites da lista.
 		/// </summary>
+		[Obsolete("Usar LINQ: list.ElementAtOrDefault(index)")]
 		public static T NullSafeGet<T>(IList<T> list, int index)
 		{
-			return (list != null && index >= 0 && index < list.Count ? list[index] : default(T));
+			return list.ElementAtOrDefault(index);
 		}
 		#endregion
 
@@ -88,6 +93,7 @@ namespace Suprifattus.Util.Collections
 		/// <param name="start">A posição onde começar a seção.</param>
 		/// <param name="length">O tamanho da seção.</param>
 		/// <returns>Um novo vetor, contendo os valores contidos na seção solicitada.</returns>
+		[Obsolete("Usar LINQ: array.Skip(start).Take(length)")]
 		public static T[] SubArray<T>(T[] array, int start, int length)
 		{
 			if (start + length > array.Length)
@@ -106,6 +112,7 @@ namespace Suprifattus.Util.Collections
 		/// <param name="array">O vetor</param>
 		/// <param name="start">A posição onde começar a seção.</param>
 		/// <returns>Um novo vetor, contendo os valores contidos da posição solicitada até o final do vetor.</returns>
+		[Obsolete("Usar LINQ: array.Skip(start)")]
 		public static T[] SubArray<T>(T[] array, int start)
 		{
 			return SubArray(array, start, array.Length - start);
@@ -119,6 +126,7 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="T">O tipo do vetor de retorno</typeparam>
 		/// <param name="en">O enumerável de origem</param>
 		/// <returns>Um array do tipo <typeparamref name="T"/></returns>
+		[Obsolete("Usar LINQ: en.ToArray()")]
 		public static T[] ToArray<T>(IEnumerable<T> en)
 		{
 			return ToArray(en.GetEnumerator());
@@ -130,6 +138,7 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="T">O tipo do vetor de retorno</typeparam>
 		/// <param name="en">O enumerador de origem</param>
 		/// <returns>Um array do tipo <typeparamref name="T"/></returns>
+		[Obsolete("Usar LINQ: en.ToArray()")]
 		public static T[] ToArray<T>(IEnumerator<T> en)
 		{
 			var col = new Collection<T>();
@@ -144,6 +153,7 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="T">O tipo do vetor de retorno</typeparam>
 		/// <param name="col">A coleção de origem</param>
 		/// <returns>Um array do tipo <typeparamref name="T"/></returns>
+		[Obsolete("Usar LINQ: col.Cast<T>.ToArray()")]
 		public static T[] ToArray<T>(ICollection col)
 		{
 			if (col is List<T>)
@@ -160,6 +170,7 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="T">O tipo do vetor de retorno</typeparam>
 		/// <param name="col">A coleção de origem</param>
 		/// <returns>Um array do tipo <typeparamref name="T"/></returns>
+		[Obsolete("Usar LINQ: col.ToArray()")]
 		public static T[] ToArray<T>(ICollection<T> col)
 		{
 			if (col is T[])
@@ -179,6 +190,7 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="I">O tipo da coleção de origem</typeparam>
 		/// <param name="col">A coleção de origem</param>
 		/// <returns>Um array do tipo <typeparamref name="T"/></returns>
+		[Obsolete("Usar LINQ: col.Cast<T>.ToArray()")]
 		public static T[] ToArray<T, I>(ICollection<I> col)
 			where I: T
 		{
@@ -196,6 +208,7 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="I">Tipo do vetor de saída</typeparam>
 		/// <param name="input">A coleção de entrada</param>
 		/// <param name="converter">O conversor de <typeparamref name="I"/> para <typeparamref name="T"/></param>
+		[Obsolete("Usar LINQ: input.Select(i => ...).ToArray()")]
 		public static T[] ToArray<T, I>(IEnumerable<I> input, Converter<I, T> converter)
 		{
 			var result = new List<T>();
@@ -212,12 +225,13 @@ namespace Suprifattus.Util.Collections
 		/// <typeparam name="T">O tipo do vetor de retorno</typeparam>
 		/// <param name="col">A coleção de origem</param>
 		/// <returns>Um array do tipo <typeparamref name="T"/></returns>
+		[Obsolete("Usar LINQ: col.Cast<object>().Select(item => (T) Convert.ChangeType(item, typeof(T))).ToArray()")]
 		public static T[] ConvertAll<T>(ICollection col)
 			where T: IConvertible
 		{
 			var arr = new T[col.Count];
 			var i = 0;
-			foreach (object item in col)
+			foreach (var item in col)
 				arr[i++] = (T) Convert.ChangeType(item, typeof(T));
 			return arr;
 		}
@@ -231,14 +245,21 @@ namespace Suprifattus.Util.Collections
 		/// <param name="delimiter">O delimitador</param>
 		/// <param name="formatDelegate">O formatador</param>
 		/// <returns>Uma string com a representação string de todos os objetos, separados pelo delimitador especificado</returns>
+		[Obsolete("Usar interface 3.5: en.StringJoin(delimiter, s => ...)")]
 		public static string Join<T>(IEnumerable<T> en, string delimiter, FormatDelegate<T> formatDelegate)
 		{
+			String.Join(delimiter, en.Select(s => formatDelegate(s)).ToArray());
 			var sb = new StringBuilder();
-			foreach (T obj in en)
+			foreach (var obj in en)
 				sb.AppendFormat("{0}", formatDelegate(obj)).Append(delimiter);
 			if (sb.Length >= delimiter.Length)
 				sb.Length -= delimiter.Length;
 			return sb.ToString();
+		}
+
+		public static string StringJoin<T>(this IEnumerable<T> en, string delimiter, Func<T, string> converter)
+		{
+			return String.Join(delimiter, en.Select(converter).ToArray());
 		}
 		#endregion
 
@@ -246,6 +267,7 @@ namespace Suprifattus.Util.Collections
 		/// <summary>
 		/// Filtra um <see cref="IEnumerable{T}"/>
 		/// </summary>
+		[Obsolete("Usar LINQ: items.Where(i => ...)")]
 		public static IEnumerable<T> Filter<T>(IEnumerable<T> items, Predicate<T> filterCriteria)
 		{
 			foreach (T item in items)
@@ -258,7 +280,7 @@ namespace Suprifattus.Util.Collections
 		/// <summary>
 		/// Agrupa os itens de uma coleção.
 		/// </summary>
-		public static Dictionary<G, List<V>> Group<V, G>(IEnumerable<V> itens, Converter<V, G> getter)
+		public static Dictionary<G, List<V>> Group<V, G>(this IEnumerable<V> itens, Func<V, G> getter)
 		{
 			var dict = new Dictionary<G, List<V>>();
 

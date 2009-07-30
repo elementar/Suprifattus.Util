@@ -5,7 +5,6 @@ using System.Threading;
 using System.Web;
 
 using Castle.ActiveRecord;
-using Castle.Core.Logging;
 using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
 
@@ -67,17 +66,17 @@ namespace Suprifattus.Util.Web.MonoRail
 
 			using (new WebApplicationLock(this))
 			{
-				if (StoredContainer == null && !initializingWindsor)
+				if (StoredContainer != null || initializingWindsor)
+					return;
+
+				initializingWindsor = true;
+				try
 				{
-					initializingWindsor = true;
-					try
-					{
-						StoredContainer = CreateWindsorContainer();
-					}
-					finally
-					{
-						initializingWindsor = false;
-					}
+					StoredContainer = CreateWindsorContainer();
+				}
+				finally
+				{
+					initializingWindsor = false;
 				}
 			}
 		}
@@ -188,10 +187,9 @@ namespace Suprifattus.Util.Web.MonoRail
 			if (!Container.Kernel.HasComponent(typeof(ISecurityComponent)))
 				return Context.User;
 
-			var sec =
-				(ISecurityComponent) Container.Resolve(typeof(ISecurityComponent));
+			var sec = Container.Resolve<ISecurityComponent>();
 
-			IPrincipal principal = sec.PreparePrincipal();
+			var principal = sec.PreparePrincipal();
 
 			this.SetUserNameOnLogs();
 
@@ -202,7 +200,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		{
 			string userName = null;
 
-			IPrincipal p = Context.User;
+			var p = Context.User;
 			if (p != null && p.Identity != null && p.Identity.IsAuthenticated)
 			{
 				var pex = p as IExtendedPrincipal;
@@ -228,7 +226,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		private void Application_AuthenticateRequest(object sender, EventArgs e)
 		{
-			IPrincipal newPrincipal = LoadPrincipal();
+			var newPrincipal = LoadPrincipal();
 			if (newPrincipal != null)
 				Thread.CurrentPrincipal = Context.User = newPrincipal;
 
@@ -263,20 +261,19 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		protected void Application_Error(Object sender, EventArgs e)
 		{
-			const string LoggedContextFlag = "suprifattus:apperror:logged";
+			const string loggedContextFlag = "suprifattus:apperror:logged";
 
-			if (!Context.Items.Contains(LoggedContextFlag))
-			{
-				Exception ex = Context.Server.GetLastError();
+			if (Context.Items.Contains(loggedContextFlag))
+				return;
 
-				ILogger log = LogUtil.GetLogger();
-				log.Error("Erro na requisição: " + Context.Request.Url.PathAndQuery, ex);
+			var ex = Context.Server.GetLastError();
+			var log = LogUtil.GetLogger();
+			log.Error("Erro na requisição: " + Context.Request.Url.PathAndQuery, ex);
 
-				// se o log de erro está desabilitado e o Trace do ASP.NET está, loga no Trace
-				if (!log.IsErrorEnabled && Context.Trace.IsEnabled)
-					Context.Trace.Write("Suprifattus.Framework", "Error: ", ex);
-				Context.Items[LoggedContextFlag] = true;
-			}
+			// se o log de erro está desabilitado e o Trace do ASP.NET está, loga no Trace
+			if (!log.IsErrorEnabled && Context.Trace.IsEnabled)
+				Context.Trace.Write("Suprifattus.Framework", "Error: ", ex);
+			Context.Items[loggedContextFlag] = true;
 		}
 		#endregion
 	}

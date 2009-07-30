@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 
 using Suprifattus.Util.Collections;
 
+using System.Linq;
+
 namespace Suprifattus.Util.Reflection
 {
 	/// <summary>
@@ -22,11 +24,11 @@ namespace Suprifattus.Util.Reflection
 		/// <returns>Um vetor com apenas os elementos que atendem à condição em <paramref name="condition"/></returns>
 		public static T[] Select<T>(ICollection source, Condition condition)
 		{
-			Collection<T> result = new Collection<T>();
+			var result = new Collection<T>();
 			foreach (object o in source)
 				if (condition.Satisfied(o))
 					result.Add((T) o);
-			return CollectionUtils.ToArray<T>((ICollection<T>) result);
+			return result.ToArray();
 		}
 	}
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
@@ -11,7 +12,6 @@ using System.Web.Security;
 
 using Suprifattus.Util.AccessControl;
 using Suprifattus.Util.AccessControl.Impl;
-using Suprifattus.Util.Collections;
 using Suprifattus.Util.Exceptions;
 
 namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
@@ -28,7 +28,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 
 		protected override IExtendedPrincipal DefineUsuarioConectado(ISimpleAppUser user, bool persist, bool fromAutoLogin)
 		{
-			IExtendedPrincipal principal = CriaIPrincipal(user, true);
+			var principal = CriaIPrincipal(user, true);
 
 			if (user == null)
 			{
@@ -44,23 +44,24 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 			// atribui o login do usuário ao log
 			LogUtil.SetLoggingProperty("id", principal.Identity.Login);
 
-			IDictionary userData = this.CriaDadosUsuario(user);
+			var userData = this.CriaDadosUsuario(user);
 
 			// cria o ticket do FormsAuthentication
-			FormsAuthenticationTicket ticket = ConstroiTicket(user, userData, persist);
+			var ticket = ConstroiTicket(user, userData, persist);
 
 			// encripta o ticket e adiciona a um cookie
-			string encTicket = FormsAuthentication.Encrypt(ticket);
-			HttpCookie cookie = this.CreateCookieForFormsAuth();
+			var encTicket = FormsAuthentication.Encrypt(ticket);
+			var cookie = this.CreateCookieForFormsAuth();
 			cookie.Value = encTicket;
 			AspNetContext.Response.Cookies.Add(cookie);
 
 			// redireciona à página correta
-			string redirectUrl = FormsAuthentication.GetRedirectUrl(principal.Identity.Login, false);
+			var redirectUrl = FormsAuthentication.GetRedirectUrl(principal.Identity.Login, false);
 			if (!String.IsNullOrEmpty(redirectUrl) && redirectUrl.StartsWith(RailsContext.ApplicationPath))
 				RailsContext.Response.Redirect(redirectUrl);
 			else
 				RailsContext.Response.Redirect(RailsContext.ApplicationPath + '/');
+
 			return principal;
 		}
 
@@ -69,14 +70,14 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 		/// </summary>
 		protected virtual IDictionary CriaDadosUsuario(ISimpleAppUser user)
 		{
-			IDictionary userData = new Hashtable();
-
-			string[] papeis = CollectionUtils.ToArray(user.Roles, r => r.Name);
-
-			userData.Add("id", user.Id);
-			userData.Add("papeis", papeis);
-			userData.Add("nomeCompleto", user.Name);
-			userData.Add("ip", AspNetContext.Request.UserHostAddress);
+			IDictionary userData =
+				new Hashtable
+					{
+						{ "id", user.Id },
+						{ "papeis", user.Roles.Select(r => r.Name).ToArray() },
+						{ "nomeCompleto", user.Name },
+						{ "ip", AspNetContext.Request.UserHostAddress },
+					};
 
 			if (user is IAppUser)
 				userData.Add("hash", this.ObtemTokenParaLoginAutomatico((IAppUser) user, true, true));
@@ -95,14 +96,14 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 			if (!FormsAuthentication.CookiesSupported)
 				throw new SecurityException("Autenticação Forms do ASP.NET sem Cookies não é suportada.");
 
-			HttpCookie formsCookie = AspNetContext.Request.Cookies[FormsAuthentication.FormsCookieName];
+			var formsCookie = AspNetContext.Request.Cookies[FormsAuthentication.FormsCookieName];
 
 			if (formsCookie == null)
 			{
 				Log.DebugFormat("Cookie '{0}' não presente na requisição. Sessão sem autenticação. Url: {1}", FormsAuthentication.FormsCookieName, AspNetContext.Request.Url);
 				return null;
 			}
-
+			
 			if (String.IsNullOrEmpty(formsCookie.Value))
 			{
 				Log.DebugFormat("Cookie '{0}' vazio. Sessão sem autenticação. Url: {1}", FormsAuthentication.FormsCookieName, AspNetContext.Request.Url);
@@ -111,7 +112,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 
 			try
 			{
-				FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(formsCookie.Value);
+				var ticket = FormsAuthentication.Decrypt(formsCookie.Value);
 
 				return ExtraiPrincipalDeTicket(ticket);
 			}
@@ -123,18 +124,16 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 
 		private HttpCookie CreateCookieForFormsAuth()
 		{
-			var cookie =
-				new HttpCookie(FormsAuthentication.FormsCookieName)
-					{
-						HttpOnly = true,
-						Path = (RailsContext.ApplicationPath + "/")
-					};
-			return cookie;
+			return new HttpCookie(FormsAuthentication.FormsCookieName)
+			       	{
+			       		HttpOnly = true, 
+								Path = RailsContext.ApplicationPath + "/",
+			       	};
 		}
 
 		public override void Logout()
 		{
-			IPrincipal principal = RailsContext.CurrentUser;
+			var principal = RailsContext.CurrentUser;
 			if (principal != null)
 				Log.WarnFormat("Usuário '{0}' desconectou.", principal.Identity.Name);
 			else
@@ -147,7 +146,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 				usuario.Save();
 			}
 
-			HttpCookie emptyCookie = CreateCookieForFormsAuth();
+			var emptyCookie = CreateCookieForFormsAuth();
 			emptyCookie.Value = "-";
 			emptyCookie.Expires = DateTime.Now.AddYears(-2);
 
@@ -200,7 +199,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 			try
 			{
 				Log.Debug("Carregando informações do ticket");
-				byte[] serializedUserData = Convert.FromBase64String(ticket.UserData);
+				var serializedUserData = Convert.FromBase64String(ticket.UserData);
 
 				IDictionary userData;
 				using (var ms = new MemoryStream(serializedUserData))
@@ -251,18 +250,19 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 		{
 			var ip = (string) principal.Properties["ip"];
 			if (ip != AspNetContext.Request.UserHostAddress)
-				throw new SecurityException("Ticket inválido");
+				throw new SecurityException("Ticket inválido")
+					.SetAdditionalInfo("ip original: {0}, ip atual: {1}", ip, AspNetContext.Request.UserHostAddress);
 
-			if (typeof(T).IsSubclassOf(typeof(IAppUser)))
-			{
-				var hash = (string) principal.Properties["hash"];
-				if (String.IsNullOrEmpty(hash))
-					throw new AppError("Hash em branco", "É obrigatório o uso de hash com IAppUser");
+			if (!typeof(T).IsSubclassOf(typeof(IAppUser)))
+				return;
 
-				var usuario = (IAppUser) this.LoadAppUser(principal.Identity.UserID);
-				if (hash != this.ObtemTokenParaLoginAutomatico(usuario, false, true))
-					throw new SecurityException("Hashs não conferem");
-			}
+			var hash = (string) principal.Properties["hash"];
+			if (String.IsNullOrEmpty(hash))
+				throw new AppError("Hash em branco", "É obrigatório o uso de hash com IAppUser");
+
+			var usuario = (IAppUser) this.LoadAppUser(principal.Identity.UserID);
+			if (hash != this.ObtemTokenParaLoginAutomatico(usuario, false, true))
+				throw new SecurityException("Hashs não conferem");
 		}
 	}
 }

@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Web;
-
-using Suprifattus.Util.Collections;
 
 namespace Suprifattus.Util.IO
 {
@@ -195,15 +194,15 @@ namespace Suprifattus.Util.IO
 		/// </summary>
 		public DirectoryInfo GetDirectoryInfo(string espaco, object pasta)
 		{
-			DirectoryInfo espacoDir = this.GetDirectoryInfo(espaco);
-			DirectoryInfo pastaDir = espacoDir;
+			var espacoDir = this.GetDirectoryInfo(espaco);
+			var pastaDir = espacoDir;
 
 			string[] pastas;
 
 			if (pasta is IEnumerable<string>)
-				pastas = CollectionUtils.ToArray((IEnumerable<string>) pasta);
+				pastas = ((IEnumerable<string>) pasta).ToArray();
 			else if (pasta is IEnumerable<object>)
-				pastas = CollectionUtils.ToArray((IEnumerable<object>) pasta, p => Convert.ToString(p));
+				pastas = ((IEnumerable<object>) pasta).Select(p => Convert.ToString(p)).ToArray();
 			else
 				pastas = Convert.ToString(pasta).Split('/', '\\');
 
@@ -258,7 +257,7 @@ namespace Suprifattus.Util.IO
 
 		protected static int SaveStream(Stream from, Stream to)
 		{
-			return Streams.SaveStream(1024*20, from, to);
+			return Streams.SaveStream(1024 * 20, from, to);
 		}
 	}
 }

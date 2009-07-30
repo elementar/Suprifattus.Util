@@ -66,8 +66,8 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		protected virtual void RegisterFilters()
 		{
-			foreach (Assembly assembly in assembliesToInspect)
-				foreach (Type t in assembly.GetExportedTypes())
+			foreach (var assembly in assembliesToInspect)
+				foreach (var t in assembly.GetExportedTypes())
 					if (typeof(IFilter).IsAssignableFrom(t) && !t.IsAbstract)
 						AddComponent("filter:" + t.FullName, t);
 		}
@@ -77,8 +77,8 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		protected virtual void RegisterControllers()
 		{
-			foreach (Assembly assembly in assembliesToInspect)
-				foreach (Type t in assembly.GetExportedTypes())
+			foreach (var assembly in assembliesToInspect)
+				foreach (var t in assembly.GetExportedTypes())
 					if (typeof(Controller).IsAssignableFrom(t) && !t.IsAbstract)
 						AddComponent("controller:" + t.FullName, t);
 		}
@@ -89,9 +89,9 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		protected virtual void RegisterComponents()
 		{
-			Type rn = typeof(BusinessRule);
-			foreach (Assembly assembly in assembliesToInspect)
-				foreach (Type t in assembly.GetExportedTypes())
+			var rn = typeof(BusinessRule);
+			foreach (var assembly in assembliesToInspect)
+				foreach (var t in assembly.GetExportedTypes())
 				{
 					if (t.IsSubclassOf(rn) || t.IsAbstract)
 						continue;
@@ -105,10 +105,10 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		protected virtual void RegisterBusinessRules()
 		{
-			Type rn = typeof(BusinessRule);
-			foreach (Assembly assembly in assembliesToInspect)
+			var rn = typeof(BusinessRule);
+			foreach (var assembly in assembliesToInspect)
 			{
-				foreach (Type t in assembly.GetExportedTypes())
+				foreach (var t in assembly.GetExportedTypes())
 				{
 					if (!t.IsSubclassOf(rn) || t.IsAbstract)
 						continue;
@@ -123,10 +123,10 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </summary>
 		protected virtual void RegisterViewComponents()
 		{
-			Type viewComponentType = typeof(ViewComponent);
-			foreach (Assembly assembly in assembliesToInspect)
+			var viewComponentType = typeof(ViewComponent);
+			foreach (var assembly in assembliesToInspect)
 			{
-				foreach (Type t in assembly.GetTypes())
+				foreach (var t in assembly.GetTypes())
 					if (t.IsSubclassOf(viewComponentType) && !t.IsAbstract)
 						RegisterViewComponent(t);
 			}
@@ -149,22 +149,31 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// <returns>Verdadeiro se o componente foi registrado através do atributo, falso caso contrário</returns>
 		protected bool AutoRegister(Type componentType, bool registerEvenIfNotTagged)
 		{
-			bool registeredWithAttribute = false;
+			var registeredWithAttribute = false;
+			
 			foreach (WindsorComponentAttribute attr in componentType.GetCustomAttributes(typeof(WindsorComponentAttribute), false))
 			{
-				var services = attr.ImplementedServices ?? new Type[0];
-
-				if (attr.ComponentKey != null && services.Length == 0)
-					AddComponent(attr.ComponentKey, componentType);
-				else if (attr.ComponentKey != null && services.Length == 1)
-					AddComponent(attr.ComponentKey, services[0], componentType);
-				else
+				if (attr.ComponentKey != null)
 				{
-					foreach (Type serviceType in services)
-						AddComponent(String.Format("component:{0}:{1}", componentType.FullName, serviceType.FullName), serviceType, componentType);
-				}
+					if (attr.ImplementedServices == null || attr.ImplementedServices.Length == 0) 
+						AddComponent(attr.ComponentKey, componentType);
+					else if (attr.ImplementedServices.Length == 1)
+						AddComponent(attr.ComponentKey, attr.ImplementedServices[0], componentType);
+					else
+					{
+						foreach (var serviceType in attr.ImplementedServices)
+							AddComponent(String.Format("{0}:{1}", attr.ComponentKey, serviceType.FullName), serviceType, componentType);
+					}
 
-				registeredWithAttribute = true;
+					registeredWithAttribute = true;
+				}
+				else if (attr.ImplementedServices != null && attr.ImplementedServices.Length > 0)
+				{
+					foreach (var serviceType in attr.ImplementedServices)
+						AddComponent(String.Format("component:{0}:{1}", componentType.FullName, serviceType.FullName), serviceType, componentType);
+					
+					registeredWithAttribute = true;
+				}
 			}
 
 			if (!registeredWithAttribute && registerEvenIfNotTagged)
@@ -184,7 +193,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// </remarks>
 		protected void RegisterViewComponent(Type t)
 		{
-			Match m = rxViewComponentName.Match(t.Name);
+			var m = rxViewComponentName.Match(t.Name);
 			if (!m.Success)
 				throw new AppError("Componente visual incorreto", "Componente visual com nome incorreto: " + t.Name + ". Certifique-se que o nome da classe do componente termina com \"ViewComponent\".");
 			AddComponent(m.Groups[1].Value.ToLower() + m.Groups[2].Value, t);

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Web.UI;
 
 using Castle.ActiveRecord;
@@ -49,17 +48,18 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 						if (t.IsArray)
 						{
 							int i = 0;
-							foreach (object col in (Array) first)
+							var en = ((Array) first).GetEnumerator();
+							while (en.MoveNext())
 								yield return "Column " + (++i);
 							yield break;
 						}
 					}
 
-					ActiveRecordModel arModel = ActiveRecordModel.GetModel(t);
+					var arModel = ActiveRecordModel.GetModel(t);
 					if (arModel != null && arModel.PrimaryKey != null)
 						yield return arModel.PrimaryKey.Property.Name;
 
-					foreach (PropertyInfo pi in t.GetProperties())
+					foreach (var pi in t.GetProperties())
 					{
 						bool nestedOK = false;
 						if (arModel != null)
@@ -120,7 +120,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 						return String.Format("<em>IList&lt;{0}&gt;</em>", v.GetType().GetGenericArguments()[0].Name);
 					if (v is IRecord)
 						return String.Format("<a href='?hql=from+{0}+r+where+r.id+=+{1}'>{0}#{1}</a>", v.GetType().Name, ((IRecord) v).Id);
-					
+
 					return v;
 				}
 			}

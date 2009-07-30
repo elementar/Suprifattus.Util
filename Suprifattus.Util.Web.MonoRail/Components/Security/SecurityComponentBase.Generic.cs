@@ -5,7 +5,6 @@ using Castle.ActiveRecord;
 
 using NHibernate.Expression;
 
-using Suprifattus.Util.AccessControl;
 using Suprifattus.Util.Exceptions;
 
 namespace Suprifattus.Util.Web.MonoRail.Components.Security
@@ -20,7 +19,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 
 		public virtual T BuscaUsuarioConectado()
 		{
-			IExtendedPrincipal u = Principal;
+			var u = Principal;
 			if (u == null)
 				throw new AppException("Usuário Desconectado", "O usuário não está conectado ao sistema.\nVerifique se a sessão expirou.");
 

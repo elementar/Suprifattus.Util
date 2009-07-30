@@ -135,7 +135,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 			if (Log.IsWarnEnabled)
 			{
 				var request = RailsContext.UnderlyingContext.Request;
-				Log.WarnFormat("Solicitado login {0} do usuário '{1}', através do IP: {2} ({3})", savePassword ? "persistente" : "não persistente", username, request.UserHostAddress, request.UserHostName);
+				Log.Warn("Solicitado login {0} do usuário '{1}', através do IP: {2} ({3})", savePassword ? "persistente" : "não persistente", username, request.UserHostAddress, request.UserHostName);
 			}
 
 			DefineUsuarioConectado(null, false, false);
@@ -143,7 +143,8 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 			var user = LoadAppUser(username);
 			if (user == null)
 			{
-				Log.ErrorFormat("Usuário '{0}' inexistente ou inválido", username);
+				Log.Error("Usuário '{0}' inexistente ou inválido", username);
+				OnUsuarioInexistente(username);
 				throw new SecurityException("Usuário inexistente ou senha inválida");
 			}
 
@@ -152,7 +153,8 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 
 			if (!ComparaSenha(user, password))
 			{
-				Log.ErrorFormat("Tentativa de login com senha inválida para o usuário '{0}' (hashedOnClient = {1})", username, HashedOnClient);
+				Log.Error("Tentativa de login com senha inválida para o usuário '{0}' (hashedOnClient = {1})", username, HashedOnClient);
+				OnSenhaIncorreta(username);
 				throw new SecurityException("Usuário inexistente ou senha inválida");
 			}
 
@@ -169,7 +171,30 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 				Log.WarnFormat("Usuário #{0} ({1}) autenticado com sucesso, através do IP: {2} ({3}).", user.Id, user.Login, request.UserHostAddress, request.UserHostName);
 			}
 
+			OnLoginOK(user);
+
 			return p;
+		}
+
+		/// <summary>
+		/// Método chamado quando, no processo de login, é detectado usuário inexistente.
+		/// </summary>
+		protected virtual void OnUsuarioInexistente(string username)
+		{
+		}
+
+		/// <summary>
+		/// Método chamado quando, no processo de login, é detectada senha incorreta.
+		/// </summary>
+		protected virtual void OnSenhaIncorreta(string username)
+		{
+		}
+
+		/// <summary>
+		/// Método chamado quando o processo de login finaliza corretamente.
+		/// </summary>
+		protected virtual void OnLoginOK(ISimpleAppUser user)
+		{
 		}
 
 		protected virtual bool ComparaSenha(ISimpleAppUser user, string password)
@@ -185,13 +210,13 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 
 			if (!user.IsActive)
 			{
-				Log.ErrorFormat("Tentativa de login de usuário INATIVO: '{0}'", user.Name);
+				Log.Error("Tentativa de login de usuário INATIVO: '{0}'", user.Name);
 				throw new SecurityException("Usuário inativo");
 			}
 
 			if (securityRulesProvider != null && !securityRulesProvider.IsAllowed(user))
 			{
-				Log.WarnFormat("Login do usuário '{0}' negado por regra específica", user.Name);
+				Log.Warn("Login do usuário '{0}' negado por regra específica", user.Name);
 				throw new SecurityException(String.Format("Login não permitido para o usuário '{0}'", user.Name));
 			}
 		}

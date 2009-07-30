@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using Castle.ActiveRecord;
 using Castle.MonoRail.ActiveRecordSupport.Pagination;
@@ -9,7 +10,6 @@ using NHibernate;
 using NHibernate.Expression;
 using NHibernate.Transform;
 
-using Suprifattus.Util.Collections;
 using Suprifattus.Util.DesignPatterns;
 
 namespace Suprifattus.Util.Web.MonoRail.Components
@@ -91,7 +91,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 		#region IActiveRecordQuery
 		object IActiveRecordQuery.Execute(ISession session)
 		{
-			return CollectionUtils.ToArray(InternalExecute(session));
+			return InternalExecute(session).ToArray();
 		}
 
 		IEnumerable IActiveRecordQuery.Enumerate(ISession session)
@@ -103,7 +103,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 		#region IActiveRecordQuery<T[]>
 		T[] IActiveRecordQuery<T[]>.Execute(ISession session)
 		{
-			return CollectionUtils.ToArray(InternalExecute(session));
+			return InternalExecute(session).ToArray();
 		}
 		#endregion
 
@@ -127,7 +127,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 		public int Count()
 		{
 			NHibernateDelegate call =
-				delegate(ISession session, object instance)
+				(session, instance) =>
 					{
 						var q = CriteriaTransformer.TransformToRowCount(this.BuildCriteria(session, false));
 						return q.UniqueResult();
