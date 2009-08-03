@@ -20,13 +20,6 @@ using Suprifattus.Util.Xml;
 namespace Suprifattus.Util.Web.MonoRail.Helpers
 {
 	using PF = PluralForm;
-#if GENERICS
-	using NullableInt32 = Nullable<int>;
-	using NullableDateTime = Nullable<DateTime>;
-
-#else
-	using Nullables;
-#endif
 
 	public class BasicFormatHelper : AbstractHelper
 	{
@@ -44,8 +37,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		#region ConvertLineBreaks & EncloseLines
 		public string ConvertLineBreaks(string s, string br)
 		{
-			if (s == null) return null;
-			return rxLineBreaks.Replace(s, br);
+			return s == null ? null : rxLineBreaks.Replace(s, br);
 		}
 
 		public string EncloseLines(string s, string prefixAndSuffix)
@@ -69,7 +61,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		#endregion
 
 		#region GetDatePart
-		public NullableInt32 GetDatePart(NullableDateTime dt, string part)
+		public int? GetDatePart(DateTime? dt, string part)
 		{
 			if (!dt.HasValue) return null;
 
@@ -95,7 +87,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		#endregion
 
 		#region GetAge
-		public string GetAge(NullableDateTime val)
+		public string GetAge(DateTime? val)
 		{
 			if (!val.HasValue) return null;
 
@@ -103,11 +95,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 			DateTime nasc = val.Value.Date;
 
 			if (nasc > hoje)
-			{
-				// TODO: adicionar log
-				//				throw new SGLabException("Data de Nascimento Inválida", "Não é permitido utilizar data de nascimento superior a data atual.");
 				return "--";
-			}
 
 			int idade = hoje.Year - nasc.Year;
 			DateTime aniv = nasc.AddYears(idade);
@@ -320,16 +308,12 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		#region Join
 		public string Join(IDictionary dict, string keyValueSeparator, string entrySeparator)
 		{
-			if (dict == null)
-				return null;
-			return CollectionUtils.Join(dict, keyValueSeparator, entrySeparator);
+			return dict == null ? null : CollectionUtils.Join(dict, keyValueSeparator, entrySeparator);
 		}
 
 		public string JoinIds(IEnumerable en, string separator)
 		{
-			if (en == null)
-				return null;
-			return CollectionUtils.Join(en, separator, o => ((IRecord) o).Id.ToString());
+			return en == null ? null : CollectionUtils.Join(en, separator, o => ((IRecord) o).Id.ToString());
 		}
 		#endregion
 
@@ -368,38 +352,12 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		#region Format
 		public string Format(object o)
 		{
-			if (o == null)
-				return null;
-
-#if !GENERICS
-			if (o is INullableType)
-			{
-				INullableType val = o as INullableType;
-				return val == null || !val.HasValue || val.Value == null 
-					? null 
-					: Format(val.Value);
-			}
-#endif
-
-			return Convert.ToString(o, fp);
+			return o == null ? null : Convert.ToString(o, fp);
 		}
 
 		public string Format(object o, string format)
 		{
-			if (o == null)
-				return null;
-
-#if !GENERICS
-			if (o is INullableType)
-			{
-				INullableType val = o as INullableType;
-				return val == null || !val.HasValue || val.Value == null 
-					? null 
-					: Format(val.Value, format);
-			}
-#endif
-
-			return String.Format(fp, "{0:" + format + "}", o);
+			return o == null ? null : String.Format(fp, "{0:" + format + "}", o);
 		}
 
 		public string Format(object o, string format, object defaultValue)

@@ -122,7 +122,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// <summary>
 		/// Libera o <c>Windsor Container</c>.
 		/// A implementação padrão apenas chama 
-		/// <see cref="IWindsorContainer.Dispose"/>.
+		/// <see cref="IDisposable.Dispose"/>.
 		/// <seealso cref="IWindsorContainer"/>
 		/// </summary>
 		protected virtual void DisposeWindsorContainer()

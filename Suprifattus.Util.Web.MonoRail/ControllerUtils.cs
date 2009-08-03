@@ -83,9 +83,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		public string RemoveNonNumeric(string data)
 		{
-			if (data == null)
-				return data;
-			return rxNotNumbers.Replace(data, "");
+			return data == null ? data : rxNotNumbers.Replace(data, "");
 		}
 
 		public string MakeHqlLikeExpression(string s)
@@ -98,9 +96,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		public ICriterion MakeLikeExpression(string property, string s)
 		{
 			s = MakeHqlLikeExpression(s);
-			if (s == null)
-				return null;
-			return Expression.Like(property, s);
+			return s == null ? null : Expression.Like(property, s);
 		}
 
 		public object CreateComponent(string componentName)
@@ -113,7 +109,6 @@ namespace Suprifattus.Util.Web.MonoRail
 			return BaseMonoRailApplication.CurrentWindsorContainer.Resolve(serviceType);
 		}
 
-#if GENERICS
 		public T CreateComponent<T>()
 		{
 			return (T) CreateComponent(typeof(T));
@@ -123,10 +118,8 @@ namespace Suprifattus.Util.Web.MonoRail
 		{
 			return (T) CreateComponent(componentName);
 		}
-#endif
 
 		#region MakeXml
-#if GENERICS
 		public delegate void MakeXmlFirstItemDelegate(XmlWriter w);
 
 		public delegate void MakeXmlItemDelegate<T>(XmlWriter w, T obj);
@@ -151,7 +144,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 			var settings = new XmlWriterSettings { ConformanceLevel = ConformanceLevel.Fragment };
 
-			using (XmlWriter w = XmlTextWriter.Create(Controller.Response.Output, settings))
+			using (var w = XmlTextWriter.Create(Controller.Response.Output, settings))
 			{
 				if (w == null)
 					throw new AppAssertionError("Erro", "Erro ao criar XmlWriter");
@@ -167,7 +160,6 @@ namespace Suprifattus.Util.Web.MonoRail
 				w.WriteEndElement();
 			}
 		}
-#endif
 		#endregion
 	}
 

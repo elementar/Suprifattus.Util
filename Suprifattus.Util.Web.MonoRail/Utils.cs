@@ -19,9 +19,9 @@ namespace Suprifattus.Util.Web.MonoRail
 		public static bool HasFlags<T>(T value, params T[] flags)
 			where T: struct, IConvertible
 		{
-			CultureInfo ci = CultureInfo.InvariantCulture;
+			var ci = CultureInfo.InvariantCulture;
 
-			long longValue = value.ToInt64(ci);
+			var longValue = value.ToInt64(ci);
 			foreach (T flag in flags)
 				if ((longValue & flag.ToInt64(ci)) == 0)
 					return false;
@@ -290,9 +290,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// <param name="s">A string</param>
 		public static string RemoveSimbolos(string s)
 		{
-			if (String.IsNullOrEmpty(s))
-				return s;
-			return rxSimbolos.Replace(s, String.Empty);
+			return String.IsNullOrEmpty(s) ? s : rxSimbolos.Replace(s, String.Empty);
 		}
 
 		public static void Sort<T, C>(T[] array, Converter<T, C> getter)

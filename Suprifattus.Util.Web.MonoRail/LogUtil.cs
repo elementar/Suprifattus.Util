@@ -70,13 +70,13 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// <param name="name">O nome</param>
 		public static ILogger GetLogger(string name)
 		{
-			ILoggerFactory f = GetLoggerFactory();
+			var f = GetLoggerFactory();
 			return f.Create(name);
 		}
 
 		private static ILoggerFactory GetLoggerFactory()
 		{
-			IWindsorContainer c = GetWindsorContainer();
+			var c = GetWindsorContainer();
 			if (c != null)
 				return (ILoggerFactory) c.Resolve(typeof(ILoggerFactory));
 

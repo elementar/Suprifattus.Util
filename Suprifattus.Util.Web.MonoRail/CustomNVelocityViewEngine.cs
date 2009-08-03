@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 
 using Castle.MonoRail.Framework.Views.NVelocity;
 
@@ -44,15 +43,15 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		private void ec_ReferenceInsertion(object sender, ReferenceInsertionEventArgs e)
 		{
-			Stack s = e.GetCopyOfReferenceStack();
+			var s = e.GetCopyOfReferenceStack();
 			while (s.Count > 0)
 			{
-				object current = s.Pop();
-				if (current is IEscapable)
-				{
-					e.NewValue = XmlEncoder.Encode(Convert.ToString(e.OriginalValue));
-					return;
-				}
+				var current = s.Pop();
+				if (!(current is IEscapable))
+					continue;
+
+				e.NewValue = XmlEncoder.Encode(Convert.ToString(e.OriginalValue));
+				return;
 			}
 		}
 	}
