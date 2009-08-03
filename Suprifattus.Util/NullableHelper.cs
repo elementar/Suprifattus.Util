@@ -21,9 +21,7 @@ namespace Suprifattus.Util
 		/// </summary>
 		public static object GetValue(object nullableObject)
 		{
-			if (IsNull(nullableObject))
-				return null;
-			return nullableObject;
+			return IsNull(nullableObject) ? null : nullableObject;
 		}
 
 		/// <summary>
