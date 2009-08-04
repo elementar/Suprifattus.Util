@@ -4,7 +4,6 @@ using System.Web;
 
 using Suprifattus.Util.AccessControl;
 using Suprifattus.Util.Exceptions;
-using Suprifattus.Util.Web.MonoRail;
 using Suprifattus.Util.Web.MonoRail.Components.Security;
 
 namespace Suprifattus.Util.Web.MonoRail.Contracts
@@ -42,7 +41,7 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 		/// Redireciona para a página de login.
 		/// </summary>
 		void RedirecionaParaLogin();
-		
+
 		/// <summary>
 		/// Altera a senha.
 		/// </summary>
@@ -61,7 +60,7 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 
 		[Obsolete("Substituída pela propriedade 'Principal', que não obtém da sessão")]
 		IExtendedPrincipal UsuarioConectado { get; }
-		
+
 		/// <summary>
 		/// Obtém o usuário atualmente conectado.
 		/// </summary>
@@ -71,10 +70,10 @@ namespace Suprifattus.Util.Web.MonoRail.Contracts
 		/// Define a URL da página de login.
 		/// </summary>
 		string UrlLogin { get; set; }
-		
+
 		string UrlSSL { get; set; }
 		string UrlNormal { get; set; }
-		
+
 		/// <summary>
 		/// Prepara o objeto <see cref="IPrincipal"/>. Utilizado geralmente
 		/// no início de uma nova requisição web.

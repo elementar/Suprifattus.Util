@@ -168,6 +168,7 @@ namespace Suprifattus.Util
 		/// </summary>
 		/// <param name="s">A string</param>
 		/// <returns>Verdadeiro se for fazia, falso caso tenha conteúdo.</returns>
+		[Obsolete("Usar String.IsNullOrEmpty()")]
 		public static bool StringEmpty(string s)
 		{
 			return String.IsNullOrEmpty(s);
@@ -185,7 +186,7 @@ namespace Suprifattus.Util
 				return true;
 
 			foreach (string s in strings)
-				if (!StringEmpty(s))
+				if (!String.IsNullOrEmpty(s))
 					return false;
 
 			return true;
@@ -203,7 +204,7 @@ namespace Suprifattus.Util
 				return false;
 
 			foreach (string s in strings)
-				if (StringEmpty(s))
+				if (String.IsNullOrEmpty(s))
 					return true;
 
 			return false;
@@ -217,7 +218,7 @@ namespace Suprifattus.Util
 		/// <returns>Verdadeiro se for fazia, falso caso tenha conteúdo.</returns>
 		public static bool StringEmpty(object obj)
 		{
-			return StringEmpty(Convert.ToString(obj));
+			return String.IsNullOrEmpty(Convert.ToString(obj));
 		}
 		#endregion
 

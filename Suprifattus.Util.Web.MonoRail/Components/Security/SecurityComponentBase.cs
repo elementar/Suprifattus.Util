@@ -61,7 +61,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 		#region Redireciona para Login
 		public virtual void RedirecionaParaLogin()
 		{
-			if (Logic.StringEmpty(UrlLogin))
+			if (String.IsNullOrEmpty(UrlLogin))
 			{
 				Log.Info("Redirecionando à página de login padrão: /home/login");
 				RailsContext.Response.Redirect("home", "login");
@@ -77,46 +77,49 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 		#region Altera Senha
 		public void AlteraSenha(ISimpleAppUser user, string senha, string senha2)
 		{
-			CheckPermission(Principal, PermissionForChangePasswords, "User does not have the required privileges to change other user's password");
 			if (user.IsNew)
 			{
 				// se o usuário é novo, o preenchimento da senha é obrigatório
-				if (Logic.StringEmpty(senha))
+				if (String.IsNullOrEmpty(senha))
 					throw new RequiredFieldNotFilledException("Senha");
 			}
 			else
 			{
-				// se o usuário já existe, a senha não é obrigatória.
-				// neste caso, mantém a senha já cadastrada.
-				if (Logic.StringEmpty(senha) && Logic.StringEmpty(senha2))
+				// se o usuário já existe, e não é o usuário conectado,
+				// verifica primeiro se o usuário conectado tem permissão para alterar senhas de outros usuários.
+				if (user.Id != Principal.Identity.UserID)
+					CheckPermission(Principal, PermissionForChangePasswords, "User does not have the required privileges to change other user's password");
+
+				// a senha não é obrigatória, se estiver em branco, mantém a senha já cadastrada.
+				if (String.IsNullOrEmpty(senha) && String.IsNullOrEmpty(senha2))
 					return;
 			}
 
-			if (Logic.StringEmpty(senha))
+			if (String.IsNullOrEmpty(senha))
 				throw new RequiredFieldNotFilledException("Senha");
-			if (Logic.StringEmpty(senha2))
+			if (String.IsNullOrEmpty(senha2))
 				throw new RequiredFieldNotFilledException("Confirmação da Senha");
 			if (senha != senha2)
-				throw new BusinessRuleViolationException("Confirmação de senha incorreta", "Favor confirmar corretamente o campo \"senha\".");
+				throw new BusinessRuleViolationException("Confirmação de senha incorreta", "A senha e a confirmação não conferem.");
 
 			user.Password = CriptografaSenha(senha);
-			if (Log.IsWarnEnabled)
-			{
-				if (user.IsNew)
-				{
-					var roleNames = new StringBuilder(); // = user.Role != null ? "'" + user.Role.Name + "'" : "(nenhum)";
-					foreach (IAppRole role in user.Roles)
-						roleNames.Append(role.Name).Append(", ");
-					if (roleNames.Length > 0)
-						roleNames.Length -= 2;
-					Log.WarnFormat("Criado novo usuário, papeis: {0}, login: '{1}', nome: '{2}'", roleNames, user.Login, user.Name);
-				}
-				else
-					Log.WarnFormat("Alterada senha do usuário #{0}, login: '{1}', nome: '{2}'", user.Id, user.Login, user.Name);
+			if (!Log.IsWarnEnabled)
+				return;
 
-				var request = RailsContext.UnderlyingContext.Request;
-				Log.WarnFormat("Endereço IP da solicitação: {0} ({1})", request.UserHostAddress, request.UserHostName);
+			if (user.IsNew)
+			{
+				var roleNames = new StringBuilder(); // = user.Role != null ? "'" + user.Role.Name + "'" : "(nenhum)";
+				foreach (IAppRole role in user.Roles)
+					roleNames.Append(role.Name).Append(", ");
+				if (roleNames.Length > 0)
+					roleNames.Length -= 2;
+				Log.WarnFormat("Criado novo usuário, papeis: {0}, login: '{1}', nome: '{2}'", roleNames, user.Login, user.Name);
 			}
+			else
+				Log.WarnFormat("Alterada senha do usuário #{0}, login: '{1}', nome: '{2}'", user.Id, user.Login, user.Name);
+
+			var request = RailsContext.UnderlyingContext.Request;
+			Log.WarnFormat("Endereço IP da solicitação: {0} ({1})", request.UserHostAddress, request.UserHostName);
 		}
 		#endregion
 
@@ -430,9 +433,19 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 		#endregion
 
 		#region CheckPermission
+		/// <summary>
+		/// Verifica se determinado usuário possui determinada permissão.
+		/// Caso não possua a permissão, será lançada uma exceção <see cref="PermissionDeniedException"/>.
+		/// </summary>
+		/// <param name="principal">O usuário</param>
+		/// <param name="permission">A permissão a verificar. Se não for especificada ou estiver em branco, a verificação retorna, sem erros</param>
+		/// <param name="errorMessage">A mensagem de erro a exibir, caso a permissão falhe</param>
+		/// <param name="errorMessageArguments">Os argumentos para montar a mensagem de erro</param>
+		/// <exception cref="PermissionDeniedException">Caso o usuário não possua a permissão solicitada</exception>
+		/// <exception cref="ArgumentNullException">Caso não seja especificado o <paramref name="principal"/></exception>
 		public void CheckPermission(IExtendedPrincipal principal, string permission, string errorMessage, params object[] errorMessageArguments)
 		{
-			if (Logic.StringEmpty(permission))
+			if (String.IsNullOrEmpty(permission))
 				return;
 
 			if (principal == null)
@@ -446,9 +459,19 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security
 			throw new PermissionDeniedException(String.Format(errorMessage, errorMessageArguments));
 		}
 
+		/// <summary>
+		/// Verifica se determinado usuário possui determinada permissão.
+		/// Caso não possua a permissão, será lançada uma exceção <see cref="PermissionDeniedException"/>.
+		/// </summary>
+		/// <param name="user">O usuário</param>
+		/// <param name="permission">A permissão a verificar. Se não for especificada ou estiver em branco, a verificação retorna, sem erros</param>
+		/// <param name="errorMessage">A mensagem de erro a exibir, caso a permissão falhe</param>
+		/// <param name="errorMessageArguments">Os argumentos para montar a mensagem de erro</param>
+		/// <exception cref="PermissionDeniedException">Caso o usuário não possua a permissão solicitada</exception>
+		/// <exception cref="ArgumentNullException">Caso não seja especificado o <paramref name="user"/></exception>
 		public void CheckPermission(ISimpleAppUser user, string permission, string errorMessage, params object[] errorMessageArguments)
 		{
-			if (Logic.StringEmpty(permission))
+			if (String.IsNullOrEmpty(permission))
 				return;
 
 			if (user == null)
