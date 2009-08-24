@@ -138,9 +138,9 @@ namespace Suprifattus.Util.Web.Navigation
 				while (count-- >= 0 && path.Count > 0)
 					url = Convert.ToString(path.Pop());
 
-				if (Logic.StringEmpty(url))
+				if (String.IsNullOrEmpty(url))
 				{
-					if (!Logic.StringEmpty(nextPopFallback))
+					if (!String.IsNullOrEmpty(nextPopFallback))
 						Navigate(method, nextPopFallback, message);
 					else
 						GoHome(method, message);

@@ -11,20 +11,20 @@ namespace Suprifattus.Util.Data.Sql
 	[Serializable]
 	public class SqlQuery : ISqlQuery
 	{
-		SqlFieldCollection fields = new SqlFieldCollection();
-		SqlSource source;
-		SqlCondition condition;
-		SqlOrder order;
-		bool distinct;
-		string top;
+		private readonly SqlFieldCollection fields = new SqlFieldCollection();
+		private SqlSource source;
+		private SqlCondition condition;
+		private SqlOrder order;
+		private bool distinct;
+		private string top;
 
 		/// <summary>
 		/// Cria uma nova consulta SQL.
 		/// </summary>
-		public SqlQuery() 
+		public SqlQuery()
 		{
 		}
-			
+
 		/// <summary>
 		/// Cria uma nova consulta SQL, a partir da origem especificada.
 		/// </summary>
@@ -74,7 +74,7 @@ namespace Suprifattus.Util.Data.Sql
 		/// <summary>
 		/// A origem da consulta.
 		/// </summary>
-		public SqlSource Source 
+		public SqlSource Source
 		{
 			get { return source; }
 			set { source = value; }
@@ -130,7 +130,7 @@ namespace Suprifattus.Util.Data.Sql
 		/// </summary>
 		/// <param name="fieldName">O campo</param>
 		[Obsolete]
-		public void AddField(string fieldName) 
+		public void AddField(string fieldName)
 		{
 			fields.Add(fieldName);
 		}
@@ -140,11 +140,11 @@ namespace Suprifattus.Util.Data.Sql
 		/// </summary>
 		/// <param name="fieldNames">Os campos</param>
 		[Obsolete]
-		public void AddFields(params string[] fieldNames) 
+		public void AddFields(params string[] fieldNames)
 		{
 			fields.AddRange(fieldNames);
 		}
-		
+
 		/// <summary>
 		/// Renderiza a consulta.
 		/// </summary>
@@ -154,7 +154,7 @@ namespace Suprifattus.Util.Data.Sql
 			tw.Write("SELECT ");
 			if (distinct)
 				tw.Write("DISTINCT ");
-			if (!Logic.StringEmpty(Top))
+			if (!String.IsNullOrEmpty(Top))
 				tw.WriteLine("TOP {0}", Top);
 			tw.WriteLine();
 			tw.Indent++;
@@ -162,7 +162,7 @@ namespace Suprifattus.Util.Data.Sql
 			int i = 0, l = fields.Count;
 			foreach (SqlField field in fields)
 				tw.WriteLine("{0}{1}", field, ++i >= l ? "" : ", ");
-			
+
 			if (l == 0)
 				tw.WriteLine("*");
 
@@ -176,7 +176,7 @@ namespace Suprifattus.Util.Data.Sql
 				tw.Indent--;
 			}
 
-			if (condition != null) 
+			if (condition != null)
 			{
 				tw.WriteLine("WHERE");
 				tw.Indent++;
@@ -184,7 +184,7 @@ namespace Suprifattus.Util.Data.Sql
 				tw.Indent--;
 			}
 
-			if (Order != null) 
+			if (Order != null)
 			{
 				tw.WriteLine("ORDER BY");
 				tw.Indent++;
@@ -192,22 +192,22 @@ namespace Suprifattus.Util.Data.Sql
 				tw.Indent--;
 			}
 		}
-		
+
 		/// <summary>
 		/// Retorna a representação string da consulta SQL.
 		/// </summary>
 		/// <returns>A representação string da consulta SQL.</returns>
 		public override string ToString()
 		{
-			StringBuilder sb = new StringBuilder();
-			
-			using (StringWriter sw = new StringWriter(sb))
-			using (IndentedTextWriter tw = new IndentedTextWriter(sw)) 
+			var sb = new StringBuilder();
+
+			using (var sw = new StringWriter(sb))
+			using (var tw = new IndentedTextWriter(sw))
 			{
 				Render(tw);
 				tw.Flush();
 			}
-			
+
 			return sb.ToString();
 		}
 	}

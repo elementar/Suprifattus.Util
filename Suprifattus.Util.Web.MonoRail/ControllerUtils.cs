@@ -88,7 +88,7 @@ namespace Suprifattus.Util.Web.MonoRail
 
 		public string MakeHqlLikeExpression(string s)
 		{
-			if (Logic.StringEmpty(s))
+			if (String.IsNullOrEmpty(s))
 				return null;
 			return s.Replace(" ", "% ") + "%";
 		}

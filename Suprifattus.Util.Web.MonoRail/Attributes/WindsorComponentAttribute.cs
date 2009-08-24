@@ -53,7 +53,7 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 		private static void ValidateSingleService(Type implementedService)
 		{
 			if (implementedService == null)
-				throw new ArgumentNullException("Se especificado, o serviço implementado não pode ser nulo.");
+				throw new ArgumentNullException("implementedService", "Se especificado, o serviço implementado não pode ser nulo.");
 		}
 	}
 }

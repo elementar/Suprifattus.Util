@@ -79,7 +79,7 @@ namespace Suprifattus.Util.Web.MonoRail.Filters
 		private string GetControllerName(Controller c)
 		{
 			string controllerName = c.Name;
-			if (!Logic.StringEmpty(c.AreaName))
+			if (!String.IsNullOrEmpty(c.AreaName))
 				controllerName = c.AreaName + "/" + controllerName;
 			return controllerName;
 		}

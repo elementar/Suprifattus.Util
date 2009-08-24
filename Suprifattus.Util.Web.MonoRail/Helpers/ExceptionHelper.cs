@@ -68,19 +68,23 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			if (e is AppException)
 				return "alert";
+#pragma warning disable 618,612
 			if (e is AccessDeniedException)
 				return "alert";
+#pragma warning restore 618,612
 
 			return "error";
 		}
 
 		public string GetTitle(Exception e)
 		{
-			if (e is BaseException && !Logic.StringEmpty(((BaseException) e).Title))
+			if (e is BaseException && !String.IsNullOrEmpty(((BaseException) e).Title))
 				return ((BaseException) e).Title;
 
+#pragma warning disable 618,612
 			if (e is AccessDeniedException)
 				return "Permissão Negada";
+#pragma warning restore 618,612
 			if (e is BusinessRuleViolationException)
 				return "Violação de Regra de Negócio";
 			if (e is AppException)
@@ -111,10 +115,10 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 				var be = e as BaseException;
 
 				sb.AppendFormat("<strong class='exception-text'>{0}: ", XmlEncoder.Encode(e.GetType().FullName));
-				if (be != null && !Logic.StringEmpty(be.Title))
+				if (be != null && !String.IsNullOrEmpty(be.Title))
 					sb.AppendFormat("<span class='exception-title'>{0}:</span> ", be.Title);
 				sb.AppendFormat("{0}</strong>", XmlEncoder.Encode(e.Message));
-				if (be != null && !Logic.StringEmpty(be.AdditionalInfo))
+				if (be != null && !String.IsNullOrEmpty(be.AdditionalInfo))
 					sb.AppendFormat(" <em class='exception-details'>({0})</em>", XmlEncoder.Encode(be.AdditionalInfo));
 				sb.Append(nl);
 				if (!String.IsNullOrEmpty(e.StackTrace))

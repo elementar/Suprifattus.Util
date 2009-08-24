@@ -104,7 +104,7 @@ namespace Suprifattus.Util.Web.MonoRail.Filters
 		/// <param name="controller">O <see cref="Controller"/> que não passou na validação</param>
 		protected virtual void RedirectToNotice(Controller controller)
 		{
-			if (Logic.StringEmpty(RedirectArea))
+			if (String.IsNullOrEmpty(RedirectArea))
 				controller.Redirect(RedirectController, RedirectAction);
 			else
 				controller.Redirect(RedirectArea, RedirectController, RedirectAction);
