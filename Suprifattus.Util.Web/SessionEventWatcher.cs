@@ -44,14 +44,13 @@ namespace Suprifattus.Util.Web
 		{
 			foreach (string moduleKey in app.Modules.AllKeys)
 			{
-				var sessionModule
-					= app.Modules[moduleKey] as SessionStateModule;
+				var sessionModule = app.Modules[moduleKey] as SessionStateModule;
 
-				if (sessionModule != null)
-				{
-					sessionModule.Start += delegate { CallEventHandlers(start); };
-					sessionModule.End += delegate { CallEventHandlers(end); };
-				}
+				if (sessionModule == null)
+					continue;
+
+				sessionModule.Start += delegate { CallEventHandlers(start); };
+				sessionModule.End += delegate { CallEventHandlers(end); };
 			}
 		}
 
