@@ -63,7 +63,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 
 		public string To(string area, string controller, string action, IDictionary parameters)
 		{
-			return To(area, controller, action, parameters) + '?' + BuildQueryString(parameters);
+			return To(area, controller, action) + '?' + BuildQueryString(parameters);
 		}
 
 		private string SiteRoot
