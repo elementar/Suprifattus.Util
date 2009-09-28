@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0BC1980-88F3-4F0A-8F8D-A857087E8DBB}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -103,7 +103,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Suprifattus.Util\Suprifattus.Util.csproj">
       <Project>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</Project>
-      <Name>Suprifattus.Util</Name>
+      <Name>Suprifattus.Util %28Suprifattus.Util\Suprifattus.Util%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

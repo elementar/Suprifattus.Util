@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C2E9C155-32BD-4D1F-95F2-DDE818F8EC97}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -132,7 +132,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Suprifattus.Util\Suprifattus.Util.csproj">
       <Project>{1CE6FFA8-F126-49E7-BAC6-EB9431398438}</Project>
-      <Name>Suprifattus.Util</Name>
+      <Name>Suprifattus.Util %28Suprifattus.Util\Suprifattus.Util%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
