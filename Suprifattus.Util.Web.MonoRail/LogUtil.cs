@@ -67,7 +67,7 @@ namespace Suprifattus.Util.Web.MonoRail
 		/// <summary>
 		/// Obtém um <see cref="ILogger"/> para a classe especificada.
 		/// </summary>
-		/// <typeparam name="T">A classe</param>
+		/// <typeparam name="T">A classe</typeparam>
 		public static ILogger GetLogger<T>()
 		{
 			ILoggerFactory f = GetLoggerFactory();

@@ -41,18 +41,6 @@ namespace Suprifattus.Util.Tests
 		}
 
 		[Test]
-		public void TestStringEmpty()
-		{
-			Assert.IsTrue(Logic.StringEmpty(null));
-			Assert.IsTrue(Logic.StringEmpty(""));
-			Assert.IsTrue(Logic.StringEmpty(String.Empty));
-
-			Assert.IsFalse(Logic.StringEmpty("sample"));
-			Assert.IsFalse(Logic.StringEmpty("null"));
-			Assert.IsFalse(Logic.StringEmpty(" "));
-		}
-
-		[Test]
 		public void TestAllEmpty()
 		{
 			Assert.IsTrue(Logic.AllEmpty(null, "", "", "", null, ""));

@@ -16,7 +16,6 @@ namespace Suprifattus.Util.Threading
 		private readonly Semaphore workWaiting;
 		private readonly Queue<WaitQueueItem> queue;
 		private List<Thread> threads;
-		private volatile bool stopping;
 		private int running;
 
 		public CustomThreadPool(int numThreads)
@@ -124,8 +123,6 @@ namespace Suprifattus.Util.Threading
 				while (true)
 				{
 					workWaiting.WaitOne();
-					if (stopping)
-						break;
 
 					WaitQueueItem item;
 					lock (queue) item = queue.Dequeue();

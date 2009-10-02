@@ -81,8 +81,8 @@ namespace Suprifattus.Util.Web.MonoRail.Filters
 
 			throw new Exception("redir: " + Redirect);
 
-			RedirectToNotice(controller);
-			return false;
+			//RedirectToNotice(controller);
+			//return false;
 		}
 
 		/// <summary>
