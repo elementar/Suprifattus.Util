@@ -5,12 +5,10 @@ namespace Suprifattus.Util
 	public class Singleton<T>
 		where T: class
 	{
-		public delegate T SingletonCreateDelegate();
-
-		private readonly SingletonCreateDelegate createDelegate;
+		private readonly Func<T> createDelegate;
 		private T instance;
 
-		public Singleton(SingletonCreateDelegate createDelegate)
+		public Singleton(Func<T> createDelegate)
 		{
 			this.createDelegate = createDelegate;
 		}

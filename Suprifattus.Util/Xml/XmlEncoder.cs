@@ -35,7 +35,7 @@ namespace Suprifattus.Util.Xml
 		/// <returns>The encoded string</returns>
 		public static string Encode(string s)
 		{
-			return s == null ? null : rxXmlEscapable.Replace(s, new MatchEvaluator(EncodeReplacer));
+			return String.IsNullOrEmpty(s) ? s : rxXmlEscapable.Replace(s, EncodeReplacer);
 		}
 
 		private static string EncodeReplacer(Match m)

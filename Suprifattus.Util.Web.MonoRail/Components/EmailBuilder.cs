@@ -30,6 +30,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 	/// classe básica para criar um serviço, permitindo, assim, isolar
 	/// as propriedades de configuração de forma mais fácil.
 	/// </remarks>
+	[Obsolete("Usar EmailTemplate")]
 	public class EmailBuilder : BusinessRuleWithLogging, IInitializable, IEmailBuilder
 	{
 		private static readonly Regex

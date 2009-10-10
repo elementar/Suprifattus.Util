@@ -10,6 +10,8 @@ using System.Web;
 using Castle.ActiveRecord;
 using Castle.Windsor;
 
+using Suprifattus.Util.Exceptions;
+
 namespace Suprifattus.Util.Web.MonoRail
 {
 	public static class Utils
@@ -296,6 +298,20 @@ namespace Suprifattus.Util.Web.MonoRail
 		public static void Sort<T, C>(T[] array, Converter<T, C> getter)
 		{
 			Array.Sort(array, (v1, v2) => Comparer<C>.Default.Compare(getter(v1), getter(v2)));
+		}
+
+		public static Stream GetResourceStream(Assembly asm, string name)
+		{
+			var path = asm.GetName().Name + "." + name;
+			var s = asm.GetManifestResourceStream(path);
+			if (s == null)
+				throw new AppError("Manifest Resource not found", "Manifest Resource not found: " + path);
+			return s;
+		}
+
+		public static Stream GetResourceStream(string name)
+		{
+			return GetResourceStream(Assembly.GetCallingAssembly(), name);
 		}
 	}
 }

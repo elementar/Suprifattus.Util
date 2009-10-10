@@ -27,14 +27,21 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		protected static readonly Regex rxLineBreaks = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
 		protected static readonly Regex rxLineContents = new Regex("^.*$", RegexOptions.Compiled);
 
-		protected IFormatProvider fp
+		protected static readonly IFormatProvider fp = PluggableFormatProvider.Instance;
+
+		public IClock Clock { get; set; }
+
+		public BasicFormatHelper()
 		{
-			get { return PluggableFormatProvider.Instance; }
+			Clock = SystemClock.Instance;
 		}
 
-		public IClock clock = SystemClock.Instance;
-
 		#region ConvertLineBreaks & EncloseLines
+		public string ConvertLineBreaks(string s)
+		{
+			return ConvertLineBreaks(s, "<br />");
+		}
+
 		public string ConvertLineBreaks(string s, string br)
 		{
 			return s == null ? null : rxLineBreaks.Replace(s, br);
@@ -91,7 +98,7 @@ namespace Suprifattus.Util.Web.MonoRail.Helpers
 		{
 			if (!val.HasValue) return null;
 
-			DateTime hoje = clock.Get();
+			DateTime hoje = Clock.Get();
 			DateTime nasc = val.Value.Date;
 
 			if (nasc > hoje)
