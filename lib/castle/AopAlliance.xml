@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AopAlliance</name>
+    </assembly>
+    <members>
+        <member name="T:AopAlliance.Aop.AspectException">
+            <summary>
+            Superclass for all AOP infrastructure exceptions.
+            </summary>
+            <author>Aleksandar Seovic</author>
+            <version>$Id: AspectException.cs,v 1.1 2004/11/20 21:13:04 markpollack Exp $</version>
+        </member>
+        <member name="M:AopAlliance.Aop.AspectException.#ctor">
+            <summary>
+            Default constructor for AspectException.
+            </summary>
+        </member>
+        <member name="M:AopAlliance.Aop.AspectException.#ctor(System.String)">
+            <summary>
+            Constructor for AspectException.
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:AopAlliance.Aop.AspectException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor for AspectException.
+            </summary>
+            <param name="message">Error message</param>
+            <param name="innerException">Root exception cause</param>
+        </member>
+        <member name="M:AopAlliance.Aop.AspectException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the AspectException class.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/>
+            that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/>
+            that contains contextual information about the source or destination.
+            </param>
+        </member>
+        <member name="T:AopAlliance.Aop.IAdvice">
+            <summary>
+            Tag interface for Advice. Implementations can be any type of advice, such as Interceptors.
+            </summary>
+        </member>
+        <member name="T:AopAlliance.Intercept.IConstructorInterceptor">
+            <summary>
+            <p>Intercepts the construction of a new object.</p>
+            </summary>
+            <example>
+            <p>The user should implement the <c>Construct(IConstructorInvocation)</c> method to modify the original behavior. 
+            E.g. the following class implements a singleton interceptor (allows only one unique instance for the intercepted class): </p>
+            <code>
+                class DebuggingInterceptor : IConstructorInterceptor 
+                {
+                    object instance = null;
+                
+                    object Construct(IConstructorInvocation i) 
+                    {
+                        if (instance == null) 
+                        {
+                            return instance = i.Proceed();
+                        } 
+                        else 
+                        {
+                            throw new Exception("singleton does not allow multiple instance");
+                        }
+                    }
+                }
+            </code>
+            </example>
+        </member>
+        <member name="T:AopAlliance.Intercept.IInterceptor">
+             <summary>
+             This interface represents a generic interceptor. 
+            
+             <p>A generic interceptor can intercept runtime events that occur within a base program. 
+             Those events are materialized by (reified in) joinpoints. Runtime joinpoints can be invocations, field access, exceptions...</p>
+            
+             <p>This interface is not used directly. Use the the sub-interfaces to intercept specific events.</p>
+             
+             <seealso cref="T:AopAlliance.Intercept.IJoinpoint"/>
+             </summary>
+        </member>
+        <member name="M:AopAlliance.Intercept.IConstructorInterceptor.Construct(AopAlliance.Intercept.IConstructorInvocation)">
+            <summary>
+            <p>Implement this method to perform extra treatments before and after the consrution of a new object. 
+            Polite implementations would certainly like to invoke IJoinpoint.Proceed(). </p>
+            </summary>
+            <param name="invocation">The construction joinpoint </param>
+            <returns>The newly created object, which is also the result of the call to IJoinpoint.Proceed(), might be replaced by the interceptor.</returns>
+            <exception cref="T:System.Exception">if the interceptors or the target-object throws an exception.</exception>
+        </member>
+        <member name="T:AopAlliance.Intercept.IConstructorInvocation">
+            <summary>
+            <p>Description of an invocation to a constuctor, given to an interceptor upon construtor-call.</p>
+            <p>A constructor invocation is a joinpoint and can be intercepted by a constructor interceptor.</p>
+            
+            <seealso cref="T:AopAlliance.Intercept.IConstructorInterceptor"/>
+            </summary>
+        </member>
+        <member name="T:AopAlliance.Intercept.IInvocation">
+            <summary>
+            <p>This interface represents an invocation in the program.</p>
+            <p>An invocation is a joinpoint and can be intercepted by an interceptor.</p>
+            </summary>
+        </member>
+        <member name="T:AopAlliance.Intercept.IJoinpoint">
+             <summary>
+             <p>This interface represents a generic runtime joinpoint (in the AOP
+             terminology).</p>
+            
+             <p>A runtime joinpoint is an <i>event</i> that occurs on a static
+             joinpoint (i.e. a location in a the program). For instance, an
+             invocation is the runtime joinpoint on a method (static joinpoint).
+             The static part of a given joinpoint can be generically retrieved
+             using the <c>GetStaticPart()</c> method.</p>
+            
+             <p>In the context of an interception framework, a runtime joinpoint
+             is then the reification of an access to an accessible object (a
+             method, a constructor, a field), i.e. the static part of the
+             joinpoint. It is passed to the interceptors that are installed on
+             the static joinpoint.</p>
+             
+             <seealso cref="T:AopAlliance.Intercept.IInterceptor"/>
+             </summary>
+        </member>
+        <member name="M:AopAlliance.Intercept.IJoinpoint.Proceed">
+            <summary>
+            <p>Proceeds to the next interceptor in the chain.</p>
+            <p>The implementation and the semantics of this method depends on the actual joinpoint type (see the children interfaces).</p>
+            </summary>
+            <returns>See the children interfaces' proceed definition.</returns>
+            <exception cref="T:System.Exception">if the joinpoint throws an exception.</exception>
+        </member>
+        <member name="P:AopAlliance.Intercept.IJoinpoint.StaticPart">
+            <summary>
+            <p>Returns the static part of this joinpoint.</p> 
+            <p>The static part is an accessible object on which a chain of interceptors are installed.</p>
+            </summary>
+        </member>
+        <member name="P:AopAlliance.Intercept.IJoinpoint.This">
+            <summary>
+            <p>Returns the object that holds the current joinpoint's static part.</p>
+            <p>For instance, the target object for an invocation.</p>
+            </summary>
+        </member>
+        <member name="P:AopAlliance.Intercept.IInvocation.Arguments">
+            <summary>
+            Get the arguments as an array object. It is possible to change element values within this array to change the arguments.
+            </summary>
+        </member>
+        <member name="M:AopAlliance.Intercept.IConstructorInvocation.GetConstructor">
+            <summary>
+            <p>Gets the constructor being called.</p>
+            <p>This method is a friendly implementation of the IJoinpoint.GetStaticPart() method (same result). </p>
+            </summary>
+            <returns>The constructor being called.</returns>
+        </member>
+        <member name="T:AopAlliance.Intercept.IMethodInterceptor">
+            <summary>
+            <p>Intercepts calls on an interface on its way to the target. These are nested "on top" of the target.</p>
+            </summary>
+            <example>
+            <p>The user should implement the <c>Invoke(IMethodInvocation)</c> method to modify the original behavior.</p>
+            <code>
+                class TracingInterceptor : IMethodInterceptor 
+                {
+                    Object Invoke(IMethodInvocation i) 
+                    {
+                        Console.WriteLine("Method {0} is called on {1} with args {2}", i.GetMethod(), i.GetThis(), i.GetArguments());
+                        object ret = i.Proceed();
+                        Console.WriteLine("Method {0} returned {1}", i.GetMethod(), ret);
+                        
+                        return ret;
+                    }
+                }
+            </code>
+            </example>
+        </member>
+        <member name="M:AopAlliance.Intercept.IMethodInterceptor.Invoke(AopAlliance.Intercept.IMethodInvocation)">
+            <summary>
+            Implement this method to perform extra treatments before and after the invocation. 
+            Polite implementations would certainly like to invoke IJoinpoint.Proceed(). 
+            </summary>
+            <param name="invocation">The method invocation joinpoint</param>
+            <returns>The result of the call to IJoinpoint.Proceed(), might be intercepted by the interceptor.</returns>
+            <exception cref="T:System.Exception">if the interceptors or the target-object throws an exception.</exception>
+        </member>
+        <member name="T:AopAlliance.Intercept.IMethodInvocation">
+            <summary>
+            <p>Description of an invocation to a method, given to an interceptor upon method-call.</p>
+            <p>A method invocation is a joinpoint and can be intercepted by a method interceptor.</p>
+            
+            <seealso cref="T:AopAlliance.Intercept.IMethodInterceptor"/>
+            </summary>
+        </member>
+        <member name="P:AopAlliance.Intercept.IMethodInvocation.Method">
+            <summary>
+            <p>Gets the method being called.</p>
+            <p>This method is a friendly implementation of the IJoinpoint.GetStaticPart() method (same result). </p>
+            </summary>
+        </member>
+    </members>
+</doc>
