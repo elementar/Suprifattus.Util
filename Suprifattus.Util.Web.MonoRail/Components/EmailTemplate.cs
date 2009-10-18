@@ -72,7 +72,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 
 		public virtual Message BuildMessage(IDictionary context, bool degrade)
 		{
-			var mail = new Message { From = From, To = To, Subject = Subject, Format = Format };
+			var mail = new Message { From = From, To = To, Cc = Cc, Bcc = Bcc, Subject = Subject, Format = Format };
 			AdjustMailHeaders(mail);
 			mail.Body = ComposeBody(mail, context, degrade);
 
