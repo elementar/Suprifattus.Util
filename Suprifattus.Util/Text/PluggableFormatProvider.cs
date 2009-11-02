@@ -1,5 +1,6 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 using Suprifattus.Util.Text.Formatters;
 
@@ -16,7 +17,7 @@ namespace Suprifattus.Util.Text
 		/// </summary>
 		public static readonly PluggableFormatProvider Instance = new PluggableFormatProvider();
 
-		private static readonly Hashtable plugins = new Hashtable();
+		private static readonly Dictionary<string, IFormatterPlugin> plugins = new Dictionary<string, IFormatterPlugin>();
 
 		static PluggableFormatProvider()
 		{
@@ -31,6 +32,7 @@ namespace Suprifattus.Util.Text
 		/// Registra um novo plugin de formatação, se ele ainda não estiver registrado.
 		/// </summary>
 		/// <param name="plugin">O plugin</param>
+		[MethodImpl(MethodImplOptions.Synchronized)]
 		public static bool TryRegisterFormatPlugin(IFormatterPlugin plugin)
 		{
 			if (plugins.ContainsKey(plugin.FormatKey))
@@ -45,6 +47,7 @@ namespace Suprifattus.Util.Text
 		/// </summary>
 		/// <param name="plugin">O plugin</param>
 		/// <exception cref="ArgumentException">Se o plugin já estiver registrado.</exception>
+		[MethodImpl(MethodImplOptions.Synchronized)]
 		public static void RegisterFormatPlugin(IFormatterPlugin plugin)
 		{
 			if (plugin == null)
@@ -59,6 +62,7 @@ namespace Suprifattus.Util.Text
 		/// <param name="formatKey">A chave de formatação</param>
 		/// <param name="plugin">O plugin</param>
 		/// <exception cref="ArgumentException">Se o plugin já estiver registrado.</exception>
+		[MethodImpl(MethodImplOptions.Synchronized)]
 		public static void RegisterFormatPlugin(string formatKey, IFormatterPlugin plugin)
 		{
 			plugins.Add(formatKey, plugin);
@@ -66,10 +70,7 @@ namespace Suprifattus.Util.Text
 
 		object IFormatProvider.GetFormat(Type formatType)
 		{
-			if (typeof(ICustomFormatter).Equals(formatType))
-				return this;
-
-			return null;
+			return typeof(ICustomFormatter).Equals(formatType) ? this : null;
 		}
 
 		/// <summary>
@@ -87,20 +88,20 @@ namespace Suprifattus.Util.Text
 			if (formatString != null)
 			{
 				// tenta encontar o nome completo do plugin na hashtable
-				var plugIn = (IFormatterPlugin) plugins[formatString];
-				if (plugIn != null)
+				IFormatterPlugin plugIn;
+				if (plugins.TryGetValue(formatString, out plugIn))
 					return plugIn.Format(formatString, arg);
 
 				// tenta encontrar um que tenha o início igual
-				foreach (DictionaryEntry entry in plugins)
-					if (formatString.StartsWith(entry.Key.ToString()))
-						return ((IFormatterPlugin) entry.Value).Format(formatString, arg);
+				foreach (var entry in plugins)
+					if (formatString.StartsWith(entry.Key))
+						return entry.Value.Format(formatString, arg);
 			}
 
 			// não encontrou nenhum customizado, usa os padrões
 			if (arg is IFormattable)
 				return ((IFormattable) arg).ToString(formatString, formatProvider);
-			
+
 			return arg.ToString();
 		}
 	}

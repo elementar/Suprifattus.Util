@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -10,7 +10,7 @@ namespace Suprifattus.Util.Text.Formatters
 	/// </summary>
 	public class EnumFormatter : IFormatterPlugin
 	{
-		private static readonly Hashtable enumNamesCache = new Hashtable();
+		private static readonly Dictionary<Type, Dictionary<Enum, string>> enumNamesCache = new Dictionary<Type, Dictionary<Enum, string>>();
 
 		/// <summary>
 		/// A chave utilizada ao registrar o formatador.
@@ -34,28 +34,32 @@ namespace Suprifattus.Util.Text.Formatters
 
 			Type t = arg.GetType();
 			if (!t.IsEnum)
-				return null;
+				return arg.ToString();
 
-			var enValues = (Hashtable) enumNamesCache[t];
+			var enValues = GetEnumNames(t);
 
-			if (enValues == null)
-				enValues = BuildEnumValuesMap(t);
-
-			var val = (string) enValues[arg];
-			if (val == null)
+			string val;
+			if (enValues.TryGetValue((Enum) arg, out val))
 				val = arg.ToString();
 
 			return val;
 		}
 
-		private Hashtable BuildEnumValuesMap(Type t)
+		private Dictionary<Enum, string> GetEnumNames(Type t)
 		{
-			var enValues = new Hashtable();
+			Dictionary<Enum, string> names;
+			if (!enumNamesCache.TryGetValue(t, out names))
+				enumNamesCache.Add(t, names = BuildEnumValuesMap(t));
+
+			return names;
+		}
+
+		private Dictionary<Enum, string> BuildEnumValuesMap(Type t)
+		{
+			var enValues = new Dictionary<Enum, string>();
 			foreach (FieldInfo fi in t.GetFields(BindingFlags.Static | BindingFlags.Public))
-			{
 				foreach (DescriptionAttribute d in fi.GetCustomAttributes(typeof(DescriptionAttribute), false))
-					enValues.Add(fi.GetValue(null), d.Description);
-			}
+					enValues[(Enum) fi.GetValue(null)] = d.Description;
 			return enValues;
 		}
 	}
