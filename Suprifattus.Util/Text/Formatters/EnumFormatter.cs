@@ -39,7 +39,7 @@ namespace Suprifattus.Util.Text.Formatters
 			var enValues = GetEnumNames(t);
 
 			string val;
-			if (enValues.TryGetValue((Enum) arg, out val))
+			if (!enValues.TryGetValue((Enum) arg, out val))
 				val = arg.ToString();
 
 			return val;
