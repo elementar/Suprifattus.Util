@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -32,7 +33,7 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 
 		int IParameterBinder.CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo)
 		{
-			return 0;
+			return controller.Params.Keys.OfType<string>().Any(expr.IsMatch) ? 20 : 0;
 		}
 
 		object IParameterBinder.Bind(SmartDispatcherController controller, ParameterInfo parameterInfo)
