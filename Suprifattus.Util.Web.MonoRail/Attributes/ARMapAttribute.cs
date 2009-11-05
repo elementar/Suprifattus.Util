@@ -33,7 +33,11 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 
 		int IParameterBinder.CalculateParamPoints(SmartDispatcherController controller, ParameterInfo parameterInfo)
 		{
-			return controller.Params.Keys.OfType<string>().Any(expr.IsMatch) ? 20 : 0;
+			return
+				controller.Params.Keys
+					.OfType<string>()
+					.Where(s => !String.IsNullOrEmpty(s))
+					.Any(expr.IsMatch) ? 20 : 0;
 		}
 
 		object IParameterBinder.Bind(SmartDispatcherController controller, ParameterInfo parameterInfo)
@@ -53,6 +57,9 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 
 			foreach (string requestKey in controller.Params.Keys)
 			{
+				if (String.IsNullOrEmpty(requestKey))
+					continue;
+
 				var m = expr.Match(requestKey);
 				if (!m.Success)
 					continue;
