@@ -94,10 +94,7 @@ namespace Suprifattus.Util.Web.MonoRail
 			{
 				Exception baseEx = ex;
 				while ((baseEx = baseEx.InnerException) != null)
-				{
-					if (baseEx.Message.Contains("Cannot insert duplicate key "))
-						throw new BusinessRuleViolationException("Registro Duplicado", "Não foi possível salvar os dados. Já existe um registro com estas informações.", ex);
-				}
+					CheckSaveException(ex, baseEx);
 				throw;
 			}
 		}
@@ -143,6 +140,15 @@ namespace Suprifattus.Util.Web.MonoRail
 		public override string ToString()
 		{
 			return GetType().Name + "#" + ActiveRecordModel.GetModel(GetType()).PrimaryKey.Property.GetValue(this, null);
+		}
+
+		protected virtual void CheckSaveException(Exception rootEx, Exception ex)
+		{
+			if (ex.Message.Contains("Cannot insert duplicate key "))
+				throw new BusinessRuleViolationException("Registro Duplicado", "Não foi possível salvar os dados. Já existe um registro com estas informações.", rootEx);
+
+			if (ex.GetType().Name == "NpgsqlException" && ex.Message.Contains("ERROR: 23505"))
+				throw new BusinessRuleViolationException("Registro Duplicado", "Não foi possível salvar os dados. Já existe um registro com estas informações.", rootEx);
 		}
 	}
 }

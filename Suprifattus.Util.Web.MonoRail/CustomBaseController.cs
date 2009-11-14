@@ -160,6 +160,7 @@ namespace Suprifattus.Util.Web.MonoRail
 			{
 				const string js = "<script type='text/javascript'>location.href='{0}';</script>";
 				RenderText(String.Format(js, url.Replace("'", "\\'")));
+				Context.UnderlyingContext.Response.End();
 			}
 			else
 				base.Redirect(url);
