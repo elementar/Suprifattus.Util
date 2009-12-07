@@ -1,7 +1,7 @@
 using System;
 using System.IO;
-using System.Text;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Suprifattus.Util.Encryption
 {
@@ -19,17 +19,17 @@ namespace Suprifattus.Util.Encryption
 		/// </summary>
 		/// <param name="str">A string de origem</param>
 		/// <returns>A string criptografada com MD5</returns>
-		public static string GetMD5Hash(string str) 
+		public static string GetMD5Hash(string str)
 		{
 			return GetHash(HashAlgorithm.Create("MD5"), str);
 		}
-		
+
 		/// <summary>
 		/// Criptografa bytes utilizando o algoritmo <see cref="MD5"/>.
 		/// </summary>
 		/// <param name="source">Os dados de origem</param>
 		/// <returns>A string criptografada com MD5</returns>
-		public static string GetMD5Hash(byte[] source) 
+		public static string GetMD5Hash(byte[] source)
 		{
 			return GetHash(HashAlgorithm.Create("MD5"), source);
 		}
@@ -39,7 +39,7 @@ namespace Suprifattus.Util.Encryption
 		/// </summary>
 		/// <param name="source">Os dados de origem</param>
 		/// <returns>A string criptografada com o algoritmo especificado</returns>
-		public static string GetMD5Hash(Stream source) 
+		public static string GetMD5Hash(Stream source)
 		{
 			return GetHash(HashAlgorithm.Create("MD5"), source);
 		}
@@ -51,13 +51,13 @@ namespace Suprifattus.Util.Encryption
 		/// <param name="hashAlg">O algoritmo de hashing.</param>
 		/// <param name="str">A string de origem</param>
 		/// <returns>A string criptografada com o algoritmo especificado</returns>
-		public static string GetHash(HashAlgorithm hashAlg, string str) 
+		public static string GetHash(HashAlgorithm hashAlg, string str)
 		{
 			int len = str.Length;
 			byte[] source = new byte[len];
-			for (int i=0; i < str.Length; i++)
+			for (int i = 0; i < str.Length; i++)
 				source[i] = (byte) str[i];
-			
+
 			return GetHash(hashAlg, source);
 		}
 
@@ -73,7 +73,7 @@ namespace Suprifattus.Util.Encryption
 			byte[] encoded = hashAlg.ComputeHash(source);
 			return HashToString(encoded);
 		}
-		
+
 		/// <summary>
 		/// Criptografa bytes utilizando o algoritmo especificado em
 		/// <paramref name="hashAlg"/>.
@@ -94,9 +94,9 @@ namespace Suprifattus.Util.Encryption
 		/// <returns>A string</returns>
 		public static string HashToString(byte[] encoded)
 		{
-			StringBuilder sb = new StringBuilder(encoded.Length * 2);
+			var sb = new StringBuilder(encoded.Length * 2);
 			foreach (byte b in encoded)
-				sb.AppendFormat("{0:x2}", b);
+				sb.Append(b.ToString("x2"));
 
 			return sb.ToString();
 		}
