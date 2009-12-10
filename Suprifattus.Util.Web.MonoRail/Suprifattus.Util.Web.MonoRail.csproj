@@ -80,6 +80,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\castle\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Services.Transaction, Version=0.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\castle\Castle.Services.Transaction.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Windsor, Version=1.0.0.5, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\castle\Castle.Windsor.dll</HintPath>
@@ -136,6 +140,7 @@
     <Compile Include="Components\Security\SecurityComponentBase.cs" />
     <Compile Include="Components\Security\SecurityComponentBase.Generic.cs" />
     <Compile Include="Components\Security\CurrentUser.cs" />
+    <Compile Include="Components\Transactions\SimpleResource.cs" />
     <Compile Include="Components\WebResourceProcessor.cs" />
     <Compile Include="Contracts\BusinessRule.cs" />
     <Compile Include="Contracts\BusinessRuleWithLogging.cs" />
