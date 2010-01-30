@@ -268,6 +268,24 @@ namespace Suprifattus.Util.Web.MonoRail
 		}
 		#endregion
 
+		/// <summary>
+		/// Extrai uma substring, de acordo com as posições de início e fim,
+		/// considerando que o primeiro caractere é a posição 1.
+		/// </summary>
+		public static string Extrai(this string s, int inicio, int fim)
+		{
+			return s.Substring(inicio - 1, fim - inicio + 1);
+		}
+
+		/// <summary>
+		/// Extrai um caracter, de acordo com a posição de início,
+		/// considerando que o primeiro caractere é a posição 1.
+		/// </summary>
+		public static char Extrai(this string s, int posicao)
+		{
+			return s[posicao - 1];
+		}
+
 		#region GetOrCreate
 		public static T GetOrCreate<T>(IDictionary items, string key)
 			where T: new()
