@@ -1,3 +1,4 @@
+#if APACHE
 using System;
 using System.IO;
 using System.Text;
@@ -116,3 +117,4 @@ namespace Suprifattus.Util.PdfGeneration
 		#endregion
 	}
 }
+#endif

@@ -73,10 +73,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ApacheFop.Net, Version=0.0.0.0, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\castle\ApacheFop.Net.dll</HintPath>
-    </Reference>
     <Reference Include="Fonet, Version=1.0.3318.11064, Culture=neutral, PublicKeyToken=52effa152c4a9dc6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Fonet.dll</HintPath>
