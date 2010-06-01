@@ -79,6 +79,10 @@ namespace Suprifattus.Util.Web.MonoRail.Attributes
 						valContents = ActiveRecordMediator.FindByPrimaryKey(valType, valContents);
 				}
 
+				// If the value is empty and this is a ValueType, get the default value for the ValueType
+				if (valContents == null && valType.IsValueType)
+					valContents = Activator.CreateInstance(valType);
+
 				if (AllowDuplicates)
 					dict[keyContents] = valContents;
 				else
