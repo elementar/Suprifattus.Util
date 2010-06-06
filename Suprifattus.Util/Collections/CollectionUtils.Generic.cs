@@ -315,6 +315,16 @@ namespace Suprifattus.Util.Collections
 			V val;
 			return dict.TryGetValue(key, out val) ? val : def;
 		}
+
+		public static bool In<T>(this T value, IEnumerable<T> list)
+		{
+			return list.Contains(value);
+		}
+
+		public static bool In<T>(this T value, params T[] list)
+		{
+			return list.Contains(value);
+		}
 	}
 }
 
