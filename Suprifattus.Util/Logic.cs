@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 using Suprifattus.Util.Reflection;
@@ -232,10 +233,7 @@ namespace Suprifattus.Util
 		/// </returns>
 		public static bool AnyNull(params object[] args)
 		{
-			foreach (object o in args)
-				if (o == null)
-					return true;
-			return false;
+			return args.Any(o => o == null);
 		}
 
 		/// <summary>
@@ -248,10 +246,7 @@ namespace Suprifattus.Util
 		/// </returns>
 		public static bool AnyNullOrEmpty(params object[] args)
 		{
-			foreach (object o in args)
-				if (o == null || (o is string && ((string) o).Length == 0))
-					return true;
-			return false;
+			return args.Any(o => o == null || (o is string && ((string) o).Length == 0));
 		}
 
 		#region AllTrue, AllFalse
@@ -293,7 +288,7 @@ namespace Suprifattus.Util
 		[CLSCompliant(false)]
 		public static bool AllEqual<T>(T obj, params T[] items)
 		{
-			bool compareAgainstNull = Equals(obj, default(T));
+			var compareAgainstNull = Equals(obj, default(T));
 
 			foreach (T item in items)
 			{
@@ -352,6 +347,11 @@ namespace Suprifattus.Util
 		public static bool IsNumeric(string s)
 		{
 			return !String.IsNullOrEmpty(s) && rxValidNumber.IsMatch(s);
+		}
+
+		public static bool StartsWithAny(this string str, params string[] strings)
+		{
+			return strings.Any(str.StartsWith);
 		}
 
 		#region RepresentsTrue
