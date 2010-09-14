@@ -7,6 +7,8 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.MonoRail.Framework;
 
+using JetBrains.Annotations;
+
 using Suprifattus.Util.Exceptions;
 using Suprifattus.Util.Web.MonoRail.Helpers;
 
@@ -22,6 +24,7 @@ namespace Suprifattus.Util.Web.MonoRail
 	[Helper(typeof(ControllerUtils))]
 	[Helper(typeof(UrlHelper), "u")]
 	[Helper(typeof(RuntimeInfoHelper), "runtimeInfo")]
+	[UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 	public class CustomBaseController : SmartDispatcherController
 	{
 		#region Dependências
