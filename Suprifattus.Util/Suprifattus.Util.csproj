@@ -241,6 +241,7 @@
     <Compile Include="Reflection\ObjQueryConditions\Condition.cs" />
     <Compile Include="Reflection\Properties.cs" />
     <Compile Include="Reflection\ReflectionCache.cs" />
+    <Compile Include="ReSharperAnnotations.cs" />
     <Compile Include="Resources\Strings.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="Text\CultureSwitch.cs" />
