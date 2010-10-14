@@ -141,12 +141,7 @@ namespace Suprifattus.Util.Web.MonoRail.Components
 			return (IEnumerable<T>) ActiveRecordMediator<ARType>.Execute((s, i) => InternalExecute(s), null);
 		}
 
-		public IEnumerable<T> PaginatedListAll(int pageSize)
-		{
-			return PaginatedListAll(pageSize, 1);
-		}
-
-		public IEnumerable<T> PaginatedListAll(int pageSize, int startPage)
+		public IEnumerable<T> PaginatedListAll(int pageSize, int startPage = 1)
 		{
 			bool repeat;
 			do

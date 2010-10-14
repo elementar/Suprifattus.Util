@@ -120,6 +120,10 @@ namespace Suprifattus.Util.Web.MonoRail.Components.Security.AspNetForms
 			{
 				return null;
 			}
+			catch (HttpException)
+			{
+				return null;
+			}
 		}
 
 		private HttpCookie CreateCookieForFormsAuth()
