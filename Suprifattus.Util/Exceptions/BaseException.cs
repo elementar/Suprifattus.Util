@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Text;
 
 namespace Suprifattus.Util.Exceptions
@@ -34,6 +35,7 @@ namespace Suprifattus.Util.Exceptions
 			this.AdditionalInfo = info.GetString("additionalInfo");
 		}
 
+		[SecurityCritical]
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("title", Title);
