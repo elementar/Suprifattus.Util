@@ -27,8 +27,6 @@ using System.Security.Permissions;
 [assembly: AssemblyKeyName("")]
 #endif
 
-[assembly: ReflectionPermission(SecurityAction.RequestMinimum)]
-
 #if GENERICS
 [assembly: AllowPartiallyTrustedCallers]
 #endif
